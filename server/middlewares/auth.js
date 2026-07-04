@@ -1,7 +1,6 @@
 const { cookies } = require("next/headers");
 const { verifyToken } = require("@/server/lib/token");
 const Admin = require("@/server/modules/admin/admin.model");
-const Customer = require("@/server/modules/customer/customer.model");
 
 /**
  * Extract token from cookies
@@ -78,13 +77,6 @@ async function authenticate({ adminOnly = false } = {}) {
       err.statusCode = 401;
       throw err;
     }
-  } else if (decoded.type === "customer") {
-    user = await Customer.findById(decoded.id).lean();
-    if (!user) {
-      const err = new Error("مشتری پیدا نشد");
-      err.statusCode = 401;
-      throw err;
-    }
   } else {
     const err = new Error("نوع توکن ناشناخته");
     err.statusCode = 401;
@@ -105,25 +97,9 @@ function requireAdmin(auth) {
   }
 }
 
-function requireCustomer(auth) {
-  if (auth.type !== "customer") {
-    const err = new Error("دسترسی مشتری مورد نیاز است");
-    err.statusCode = 403;
-    throw err;
-  }
-}
 
-function allowCustomerOrAdmin(auth) {
-  if (auth.type === "admin" || auth.type === "customer") return;
-
-  const err = new Error("دسترسی مشتری یا مدیر مورد نیاز است");
-  err.statusCode = 403;
-  throw err;
-}
 
 module.exports = {
   authenticate,
   requireAdmin,
-  requireCustomer,
-  allowCustomerOrAdmin,
 };

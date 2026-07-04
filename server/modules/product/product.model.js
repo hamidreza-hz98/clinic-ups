@@ -1,6 +1,6 @@
 const mongoose = require("mongoose");
 const timestamp = require("mongoose-timestamp");
-const SeoSchema = require("../modules/seo/seo.model");
+const SeoSchema = require("../seo/seo.model");
 
 const productSchema = new mongoose.Schema({
   name: { type: String, required: true },
