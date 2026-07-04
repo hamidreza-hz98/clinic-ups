@@ -1,15 +1,15 @@
 // Register Models:
-require("./modules/media/media.model");
-require("./modules/seo/seo.model");
-require("./modules/brand/brand.model");
-require("./modules/tag/tag.model");
-require("./modules/category/category.model");
-require("./modules/product/product.model");
-require("./modules/project/project.model");
-require("./modules/blog/blog.model");
-require("./modules/admin/admin.model");
-require("./modules/contact/contact.model");
-require("./modules/settings/settings.model");
+require("./modules/brand/brand.model").default;
+require("./modules/tag/tag.model").default;
+require("./modules/media/media.model").default;
+require("./modules/seo/seo.model").default;
+require("./modules/category/category.model").default;
+require("./modules/product/product.model").default;
+require("./modules/project/project.model").default;
+require("./modules/blog/blog.model").default;
+require("./modules/admin/admin.model").default;
+require("./modules/contact/contact.model").default;
+require("./modules/settings/settings.model").default;
 
 
 const mongoose = require('mongoose');

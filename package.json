@@ -9,6 +9,8 @@
     "lint": "eslint"
   },
   "dependencies": {
+    "@date-io/dayjs": "^3.2.0",
+    "@date-io/jalaali": "^3.2.0",
     "@emotion/cache": "^11.14.0",
     "@emotion/react": "^11.14.0",
     "@emotion/styled": "^11.14.1",
@@ -23,6 +25,9 @@
     "@mui/x-date-pickers-pro": "^8.22.0",
     "@mui/x-tree-view": "^8.22.0",
     "bcrypt": "^6.0.0",
+    "date-fns-jalali": "^4.0.0-0",
+    "dayjs": "^1.11.19",
+    "dayjs-jalali": "^0.0.2",
     "fs": "^0.0.1-security",
     "jalali-moment": "^3.3.11",
     "jsonwebtoken": "^9.0.3",

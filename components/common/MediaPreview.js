@@ -34,7 +34,7 @@ const MediaPreview = ({ file, size = 96 }) => {
           src={src}
           alt={altText}
           fill
-          style={{ objectFit: "cover" }}
+          style={{ objectFit: "contain" }}
           sizes={`${size}px`}
         />
       </Box>

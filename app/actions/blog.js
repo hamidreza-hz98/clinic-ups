@@ -4,12 +4,9 @@ import connectDB from "@/server/db";
 import blogService from "@/server/modules/blog/blog.service";
 import { authenticate, requireAdmin } from "@/server/middlewares/auth";
 import validate from "@/server/middlewares/validate";
-import {
-  createBlogSchema,
-  updateBlogSchema,
-} from "@/validation/blog.validation";
 import QueryString from "qs";
 import { serialize } from "@/lib/request";
+import { blogValidationSchema } from "@/validation/blog.validation";
 
 /* -------------------- */
 /* CREATE PRODUCT       */
@@ -21,7 +18,7 @@ export async function createBlog(body) {
     const auth = await authenticate({adminOnly: true});
     requireAdmin(auth);
 
-    const data = await validate(createBlogSchema, body);
+    const data = await validate(blogValidationSchema, body);
     const blog = await blogService.create(data);
 
     return {
@@ -90,7 +87,7 @@ export async function updateBlog(blogId, body) {
     const auth = await authenticate({adminOnly: true});
     requireAdmin(auth);
 
-    const data = await validate(updateBlogSchema, body);
+    const data = await validate(blogValidationSchema, body);
     const blog = await blogService.update(data, blogId);
 
     return {

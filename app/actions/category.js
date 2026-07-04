@@ -4,12 +4,9 @@ import connectDB from "@/server/db";
 import categoryService from "@/server/modules/category/category.service";
 import { authenticate, requireAdmin } from "@/server/middlewares/auth";
 import validate from "@/server/middlewares/validate";
-import {
-  create as createCategorySchema,
-  update as updateCategorySchema,
-} from "@/validation/category.validation";
 import QueryString from "qs";
 import { serialize } from "@/lib/request";
+import { categoryValidationSchema } from "@/validation/category.validation";
 
 /* -------------------- */
 /* CREATE CATEGORY      */
@@ -21,7 +18,7 @@ export async function createCategory(body) {
     const auth = await authenticate({adminOnly: true});
     requireAdmin(auth);
 
-    const data = await validate(createCategorySchema, body);
+    const data = await validate(categoryValidationSchema, body);
     const category = await categoryService.create(data);
 
     return {
@@ -84,7 +81,7 @@ export async function updateCategory(categoryId, body) {
     const auth = await authenticate({adminOnly: true});
     requireAdmin(auth);
 
-    const data = await validate(updateCategorySchema, body);
+    const data = await validate(categoryValidationSchema, body);
     const category = await categoryService.update(data, categoryId);
 
     return {

@@ -1,4 +1,4 @@
-const Category = require("./category.model");
+const Category = require("./category.model").default;
 const throwError = require("../../middlewares/throw-error");
 const { buildMongoFindQuery, buildMongoSort } = require("@/server/lib/filter");
 
@@ -48,7 +48,11 @@ const categoryService = {
     const skip = (page - 1) * page_size;
 
     const [categories, total] = await Promise.all([
-      Category.find(query).sort(sortOption).skip(skip).limit(page_size).populate("children image"),
+      Category.find(query)
+        .sort(sortOption)
+        .skip(skip)
+        .limit(page_size)
+        .populate("icon"),
       Category.countDocuments(query),
     ]);
 
@@ -59,11 +63,13 @@ const categoryService = {
     if (!filter || Object.keys(filter).length === 0) {
       throwError(
         "فیلتر مورد نیاز برای دریافت جزئیات دسته بندی ارسال نشده است.",
-        400
+        400,
       );
     }
 
-    const category = await Category.findOne(filter).populate("image seo.ogImage seo.twitterImage tags children").lean();
+    const category = await Category.findOne(filter)
+      .populate("image seo.ogImage seo.twitterImage tags children")
+      .lean();
 
     if (!category) {
       throwError("دسته بندی مورد نظر یافت نشد.", 404);
@@ -82,6 +88,12 @@ const categoryService = {
     const deleted = await Category.findByIdAndDelete(_id);
 
     return deleted;
+  },
+
+    async getDashboardData() {
+    const totalCategories = await Category.countDocuments();
+
+    return { totalCategories };
   },
 };
 

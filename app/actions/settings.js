@@ -4,8 +4,8 @@ import connectDB from "@/server/db";
 import settingsService  from "@/server/modules/settings/settings.service";
 import { authenticate, requireAdmin } from "@/server/middlewares/auth";
 import validate from "@/server/middlewares/validate";
-import { updateSettingsSchema } from "@/validation/settings.validation";
 import { serialize } from "@/lib/request";
+import { settingsValidationSchema } from "@/validation/settings.validation";
 
 /* -------------------- */
 /* GET ALL SETTINGS      */
@@ -92,7 +92,7 @@ export async function updateSettingsSection(section, data) {
     const auth = await authenticate({adminOnly: true});
     requireAdmin(auth);
 
-    const validatedData = await validate(updateSettingsSchema, data);
+    const validatedData = await validate(settingsValidationSchema, data);
 
     await settingsService.update(validatedData, section);
 

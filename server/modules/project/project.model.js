@@ -53,6 +53,15 @@ const projectSchema = new mongoose.Schema({
     {
       type: mongoose.Schema.Types.ObjectId,
       ref: "Project",
+      default: []
+    },
+  ],
+
+  relatedProducts: [
+    {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "Product",
+      default: []
     },
   ],
 
@@ -68,5 +77,4 @@ const projectSchema = new mongoose.Schema({
 });
 projectSchema.plugin(timestamp);
 
-module.exports =
-  mongoose.models.Project || mongoose.model("Project", projectSchema);
+export default mongoose.models.Project || mongoose.model("Project", projectSchema);

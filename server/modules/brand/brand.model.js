@@ -11,10 +11,9 @@ const brandsSchema = new mongoose.Schema({
     },
   ],
   key: { type: String, required: true },
-  brandLogo: { type: mongoose.Schema.Types.ObjectId, ref: "Media", required: true },
+  logo: { type: mongoose.Schema.Types.ObjectId, ref: "Media", required: true },
 });
 
 brandsSchema.plugin(timestamp);
 
-module.exports = mongoose.models.Brand || mongoose.model("Brand", brandsSchema);
-
+export default mongoose.models.Brand || mongoose.model("Brand", brandsSchema);

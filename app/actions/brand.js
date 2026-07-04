@@ -4,11 +4,8 @@ import connectDB from "@/server/db";
 import brandService from "@/server/modules/brand/brand.service";
 import { authenticate, requireAdmin } from "@/server/middlewares/auth";
 import validate from "@/server/middlewares/validate";
-import {
-  createBrandSchema,
-  updateBrandSchema,
-} from "@/validation/brand.validation";
 import { serialize } from "@/lib/request";
+import { brandValidationSchema } from "@/validation/brand.validation";
 
 /* -------------------- */
 /* CREATE BRAND         */
@@ -20,7 +17,7 @@ export async function createBrand(body) {
     const auth = await authenticate({adminOnly: true});
     requireAdmin(auth);
 
-    const data = await validate(createBrandSchema, body);
+    const data = await validate(brandValidationSchema, body);
 
     const brand = await brandService.create(data);
 
@@ -75,7 +72,7 @@ export async function updateBrand(brandId, body) {
     const auth = await authenticate({adminOnly: true});
     requireAdmin(auth);
 
-    const data = await validate(updateBrandSchema, body);
+    const data = await validate(brandValidationSchema, body);
 
     const brand = await brandService.update(data, brandId);
 

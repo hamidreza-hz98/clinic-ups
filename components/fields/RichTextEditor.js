@@ -35,8 +35,7 @@ const RichTextEditor = ({ text = "", onChange, label = "توضیحات" }) => {
   const handleChange = (content, delta, source, editor) => {
     setValue(content);
     
-    const changedContent = content.replace(/&nbsp;/g, " ");
-    if (onChange) onChange(changedContent);
+    if (onChange) onChange(content);
   };
 
   const modules = useMemo(

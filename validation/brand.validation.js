@@ -9,9 +9,9 @@ export const brandValidationSchema = yup.object({
     .string()
     .required("کلید برند الزامی است"),
 
-  categories: yup.array().of(yup.string()),
+  // categories: yup.array().of(yup.string()),
 
-  brandLogo: yup
-    .string()
-    .required("لوگوی برند الزامی است"),
+  // logo: yup
+  //   .string()
+  //   .required("لوگوی برند الزامی است"),
 });

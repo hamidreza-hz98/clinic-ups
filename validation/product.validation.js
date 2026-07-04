@@ -10,16 +10,16 @@ export const productValidationSchema = yup.object({
 
   excerpt: yup.string(),
 
-  brands: yup
-    .array()
-    .of(yup.string())
-    .min(1, "حداقل یک برند انتخاب کنید"),
+  // brands: yup
+  //   .array()
+  //   .of(yup.string())
+  //   .min(1, "حداقل یک برند انتخاب کنید"),
 
-  productMainImage: yup
-    .string()
-    .required("تصویر اصلی محصول الزامی است"),
+  // productMainImage: yup
+  //   .string()
+  //   .required("تصویر اصلی محصول الزامی است"),
 
-  media: yup.array().of(yup.string()),
+  // media: yup.array().of(yup.string()),
 
   datasheet: yup.array().of(
     yup.object({
@@ -33,32 +33,26 @@ export const productValidationSchema = yup.object({
     })
   ),
 
-  specifications: yup.string(),
+  // specifications: yup.string(),
 
-  categories: yup
-    .array()
-    .of(yup.string())
-    .min(1, "حداقل یک دسته بندی انتخاب کنید"),
+  // categories: yup
+  //   .array()
+  //   .of(yup.string())
+  //   .min(1, "حداقل یک دسته بندی انتخاب کنید"),
 
-  tags: yup.array().of(yup.string()),
+  // tags: yup.array().of(yup.string()),
 
-  price: yup.object({
-    fa: yup.string(),
+  // price: yup.object({
+  //   fa: yup.string(),
 
-    ar: yup.string(),
+  //   ar: yup.string(),
 
-    en: yup.string(),
-  }),
+  //   en: yup.string(),
+  // }),
 
-  description: yup.object({
-    fa: yup.string(),
+  description: yup.string(),
 
-    ar: yup.string(),
-
-    en: yup.string(),
-  }),
-
-  relatedProducts: yup.array().of(yup.string()),
+  // relatedProducts: yup.array().of(yup.string()),
 
   seo: seoValidationSchema,
 });

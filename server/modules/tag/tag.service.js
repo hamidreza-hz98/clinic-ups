@@ -1,20 +1,20 @@
-const Tag = require("./tag.model");
+const Tag = require("./tag.model").default;
 const throwError = require("../../middlewares/throw-error");
 const { buildMongoFindQuery, buildMongoSort } = require("@/server/lib/filter");
 const { slugify } = require("@/server/lib/general");
 
 const tagService = {
-    async create(data) {
+  async create(data) {
     try {
       const existing = await Tag.exists({ slug: slugify(data.name) });
 
       if (existing) {
         throwError("برچسب با این نام قبلا ایجاد شده است", 409);
       }
-      
-      const tag = await new Tag({...data, slug: slugify(data.name)}).save();
-  
-      return tag 
+
+      const tag = await new Tag({ ...data, slug: slugify(data.name) }).save();
+
+      return tag;
     } catch (error) {
       console.log(error);
     }
@@ -27,7 +27,11 @@ const tagService = {
       throwError("برچسب مورد نظر یافت نشد", 404);
     }
 
-    const updated = await Tag.findByIdAndUpdate(_id, {...data, slug: slugify(data.name)}, { new: true });
+    const updated = await Tag.findByIdAndUpdate(
+      _id,
+      { ...data, slug: slugify(data.name) },
+      { new: true },
+    );
 
     return updated;
   },
@@ -79,6 +83,12 @@ const tagService = {
 
     return tag;
   },
-}
+
+  async getDashboardData() {
+    const totalTags = await Tag.countDocuments();
+
+    return { totalTags };
+  },
+};
 
 module.exports = tagService;

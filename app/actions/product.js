@@ -4,12 +4,9 @@ import connectDB from "@/server/db";
 import productService from "@/server/modules/product/product.service";
 import { authenticate, requireAdmin } from "@/server/middlewares/auth";
 import validate from "@/server/middlewares/validate";
-import {
-  createProductSchema,
-  updateProductSchema,
-} from "@/validation/product.validation";
 import QueryString from "qs";
 import { serialize } from "@/lib/request";
+import { productValidationSchema } from "@/validation/product.validation";
 
 /* -------------------- */
 /* CREATE PRODUCT       */
@@ -21,11 +18,11 @@ export async function createProduct(body) {
     const auth = await authenticate({adminOnly: true});
     requireAdmin(auth);
 
-    const data = await validate(createProductSchema, body);
+    const data = await validate(productValidationSchema, body);
     const product = await productService.create(data);
 
     return {
-      message: `محصول ${product.title} با موفقیت ایجاد شد.`,
+      message: `محصول ${product.name} با موفقیت ایجاد شد.`,
     };
   } catch (error) {
     return {
@@ -90,11 +87,11 @@ export async function updateProduct(productId, body) {
     const auth = await authenticate({adminOnly: true});
     requireAdmin(auth);
 
-    const data = await validate(updateProductSchema, body);
+    const data = await validate(productValidationSchema, body);
     const product = await productService.update(data, productId);
 
     return {
-      message: `محصول ${product.title} با موفقیت به‌روزرسانی شد.`,
+      message: `محصول ${product.name} با موفقیت به‌روزرسانی شد.`,
     };
   } catch (error) {
     return {
@@ -117,7 +114,7 @@ export async function deleteProduct(productId) {
     const product = await productService.delete(productId);
 
     return {
-      message: `محصول ${product.title} با موفقیت حذف شد.`,
+      message: `محصول ${product.name} با موفقیت حذف شد.`,
     };
   } catch (error) {
     return {

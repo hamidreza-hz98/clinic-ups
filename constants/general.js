@@ -60,7 +60,7 @@ export const sidebarRoutes = [
       {
         id: "tags",
         title: "برچسب ها",
-        icon: StorefrontIcon,
+        icon: LocalOfferIcon,
         href: "/dashboard/tags",
       },
       // {

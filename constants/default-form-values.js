@@ -33,19 +33,32 @@ export const mediaDefaultValues = (data) => ({
   mediaTranscript: data?.mediaTranscript || "",
 });
 
+export const tagDefaultValues = (data) => ({
+  _id: data?._id || null,
+  name: data?.name || "",
+  slug: data?.slug || "",
+});
+
+export const defaultBrandValues = (data) => ({
+  _id: data?._id || null,
+  name: data?.name || "",
+  categories: data?.categories || [],
+  key: data?.key || "",
+  logo: data?.logo || null,
+});
 
 export const defaultCategoryValues = (data) => ({
   _id: data?._id || null,
   name: data?.name || "",
+  value: data?.value || "",
   slug: data?.slug || "",
-  excerpt: data?.excerpt || "",
-  image: data?.image || null,
+  icon: data?.icon || null,
 });
 
 export const defaultProductValues = (data) => ({
   _id: data?._id || null,
   name: data?.name || "",
-  code: data?.code || "",
+  brand: data?.brand || "",
   slug: data?.slug || "",
   excerpt: data?.excerpt || "",
   description: data?.description || "",
@@ -53,6 +66,44 @@ export const defaultProductValues = (data) => ({
   category: data?.category || "",
   relatedProducts: data?.relatedProducts || [],
   media: data?.media || [],
+  datasheet: data?.datasheet || [],
+  tags: data?.tags || [],
+  seo: { ...seoDefaultValues(data) },
+});
+
+export const defaultProjectValues = (data) => ({
+  _id: data?._id || null,
+  name: data?.name || "",
+  excerpt: data?.excerpt || "",
+  slug: data?.slug || "",
+  deliveryDate: data?.deliveryDate || "",
+  customer: data?.customer || "",
+  date: data?.date || "",
+  location: data?.location || "",
+  brands: data?.brands || [],
+  description: data?.description || "",
+  categories: data?.categories || [],
+  relatedProducts: data?.relatedProducts || [],
+  relatedProjects: data?.relatedProjects || [],
+  media: data?.media || [],
+  tags: data?.tags || [],
+  seo: { ...seoDefaultValues(data) },
+});
+
+export const defaultBlogValues = (data) => ({
+  _id: data?._id || null,
+  title: data?.title || "",
+  excerpt: data?.excerpt || "",
+  slug: data?.slug || "",
+  readTime: data?.readTime || "",
+  isSelected: data?.isSelected || false,
+  categories: data?.categories || [],
+  thumbnail: data?.thumbnail || [],
+  content: data?.content || "",
+  relatedProducts: data?.relatedProducts || [],
+  relatedBlogs: data?.relatedBlogs || [],
+  tags: data?.tags || [],
+
   seo: { ...seoDefaultValues(data) },
 });
 

@@ -9,15 +9,8 @@ const productSchema = new mongoose.Schema({
 
   excerpt: { type: String, default: null },
 
-  brands: [
-    { type: mongoose.Schema.Types.ObjectId, ref: "Brand", required: true },
-  ],
+  brand: { type: mongoose.Schema.Types.ObjectId, ref: "Brand", required: true },
 
-  productMainImage: {
-    type: mongoose.Schema.Types.ObjectId,
-    ref: "File",
-    required: true,
-  },
 
   media: [
     {
@@ -40,27 +33,17 @@ const productSchema = new mongoose.Schema({
     default: "",
   },
 
-  categories: [
-    {
-      type: mongoose.Schema.Types.ObjectId,
-      ref: "Category",
-      required: true,
-    },
-  ],
+  category: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: "Category",
+    required: true,
+  },
 
   tags: [{ type: mongoose.Schema.Types.ObjectId, ref: "Tag" }],
 
-  price: {
-    fa: { type: String, default: null },
-    ar: { type: String, default: null },
-    en: { type: String, default: null },
-  },
+  price: {type: Number, default: 0 },
 
-  description: {
-    fa: { type: String, default: null },
-    ar: { type: String, default: null },
-    en: { type: String, default: null },
-  },
+  description: { type: String, default: null },
 
   relatedProducts: [
     {
@@ -119,5 +102,4 @@ productSchema.pre("findByIdAndUpdate", function (next) {
   next();
 });
 
-module.exports =
-  mongoose.models.Product || mongoose.model("Product", productSchema);
+export default mongoose.models.Product || mongoose.model("Product", productSchema);

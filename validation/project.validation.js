@@ -12,29 +12,29 @@ export const projectValidationSchema = yup.object({
     .string()
     .required("اسلاگ الزامی است"),
 
-  brands: yup.array().of(yup.string()),
+  // brands: yup.array().of(yup.string()),
 
-  media: yup.array().of(yup.string()),
+  // media: yup.array().of(yup.string()),
 
   deliveryDate: yup
     .string()
     .required("تاریخ تحویل الزامی است"),
 
-  date: yup
-    .date()
-    .required("تاریخ پروژه الزامی است"),
+  // date: yup
+  //   .date()
+  //   .required("تاریخ پروژه الزامی است"),
 
   customer: yup.string(),
 
   location: yup.string(),
 
-  categories: yup.array().of(yup.string()),
+  // categories: yup.array().of(yup.string()),
 
-  tags: yup.array().of(yup.string()),
+  // tags: yup.array().of(yup.string()),
 
   description: yup.string(),
 
-  relatedProjects: yup.array().of(yup.string()),
+  // relatedProjects: yup.array().of(yup.string()),
 
   seo: seoValidationSchema,
 });

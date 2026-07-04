@@ -6,7 +6,9 @@ const blogSchema = new mongoose.Schema({
   title: { type: String, required: true },
 
   slug: { type: String, required: true },
-
+  
+  excerpt: { type: String, required: true },
+  
   author: { type: mongoose.Schema.Types.ObjectId, ref: "Admin" },
 
   categories: [
@@ -45,4 +47,4 @@ const blogSchema = new mongoose.Schema({
 });
 blogSchema.plugin(timestamp);
 
-module.exports = mongoose.models.Blog || mongoose.model("Blog", blogSchema);
+export default mongoose.models.Blog || mongoose.model("Blog", blogSchema);

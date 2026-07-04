@@ -1,4 +1,4 @@
-const Brand = require("./brand.model");
+const Brand = require("./brand.model").default;
 const throwError = require("../../middlewares/throw-error");
 const { buildMongoFindQuery, buildMongoSort } = require("@/server/lib/filter");
 
@@ -47,7 +47,7 @@ const brandService = {
     const skip = (page - 1) * page_size;
 
     const [brands, total] = await Promise.all([
-      Brand.find(query).sort(sortOption).skip(skip).limit(page_size).populate("logo tags").lean(),
+      Brand.find(query).sort(sortOption).skip(skip).limit(page_size).populate("logo categories").lean(),
       Brand.countDocuments(query),
     ]);
 
@@ -90,6 +90,12 @@ const brandService = {
     const deleted = await Brand.findByIdAndDelete(_id);
 
     return deleted;
+  },
+
+    async getDashboardData() {
+    const totalBrands = await Brand.countDocuments();
+
+    return { totalBrands };
   },
 };
 

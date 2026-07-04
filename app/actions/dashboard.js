@@ -8,14 +8,14 @@ import { serialize } from "@/lib/request";
 /* -------------------- */
 /* GET DASHBOARD DATA    */
 /* -------------------- */
-export async function getDashboardData(status) {
+export async function getDashboardData() {
   try {
     await connectDB();
 
     const auth = await authenticate({adminOnly: true});
     requireAdmin(auth);
 
-    const dashboard = await dashboardService.getDashboardData(status);
+    const dashboard = await dashboardService.getDashboardData();
 
     return { data: serialize(dashboard) };
   } catch (error) {

@@ -1,4 +1,4 @@
-const Blog = require("./blog.model");
+const Blog = require("./blog.model").default;
 const throwError = require("../../middlewares/throw-error");
 const { buildMongoFindQuery, buildMongoSort } = require("@/server/lib/filter");
 
@@ -47,8 +47,8 @@ const blogService = {
         .sort(sortOption)
         .skip(skip)
         .limit(page_size)
-        .select("title thumbnail slug createdAt updatedAt visits")
-        .populate("thumbnail")
+        .select("title categories thumbnail slug createdAt updatedAt visits")
+        .populate("thumbnail categories")
         .lean(),
       Blog.countDocuments(query),
     ]);

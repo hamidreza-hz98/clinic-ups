@@ -65,11 +65,11 @@ function PageContainer(props) {
         </PageHeaderBreadcrumbs>
       </Grid>
 
-      <Grid size={{ xs: 12, md: 4 }}>
-        {title ? <Typography variant="h4">{title}</Typography> : null}
+      <Grid size={{ xs: 12, md: 5 }}>
+        {title ? <Typography textOverflow="clip" variant="h4">{title}</Typography> : null}
       </Grid>
 
-      <Grid size={{ xs: 12, md: 8 }}>
+      <Grid size={{ xs: 12, md: 7 }}>
         <PageHeaderToolbar>{actions}</PageHeaderToolbar>
       </Grid>
 

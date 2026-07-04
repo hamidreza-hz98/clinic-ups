@@ -11,13 +11,13 @@ export const seoValidationSchema = yup.object({
 
   ogDescription: yup.string(),
 
-  ogImage: yup.string().nullable(),
+  // ogImage: yup.string().nullable(),
 
   twitterTitle: yup.string(),
 
   twitterDescription: yup.string(),
 
-  twitterImage: yup.string().nullable(),
+  // twitterImage: yup.string().nullable(),
 
   canonical: yup.string(),
 

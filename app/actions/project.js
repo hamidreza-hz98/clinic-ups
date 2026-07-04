@@ -4,12 +4,9 @@ import connectDB from "@/server/db";
 import projectService from "@/server/modules/project/project.service";
 import { authenticate, requireAdmin } from "@/server/middlewares/auth";
 import validate from "@/server/middlewares/validate";
-import {
-  createProjectSchema,
-  updateProjectSchema,
-} from "@/validation/project.validation";
 import QueryString from "qs";
 import { serialize } from "@/lib/request";
+import { projectValidationSchema } from "@/validation/project.validation";
 
 /* -------------------- */
 /* CREATE PRODUCT       */
@@ -21,11 +18,11 @@ export async function createProject(body) {
     const auth = await authenticate({adminOnly: true});
     requireAdmin(auth);
 
-    const data = await validate(createProjectSchema, body);
+    const data = await validate(projectValidationSchema, body);
     const project = await projectService.create(data);
 
     return {
-      message: `پروژه ${project.title} با موفقیت ایجاد شد.`,
+      message: `پروژه ${project.name} با موفقیت ایجاد شد.`,
     };
   } catch (error) {
     return {
@@ -90,11 +87,11 @@ export async function updateProject(projectId, body) {
     const auth = await authenticate({adminOnly: true});
     requireAdmin(auth);
 
-    const data = await validate(updateProjectSchema, body);
+    const data = await validate(projectValidationSchema, body);
     const project = await projectService.update(data, projectId);
 
     return {
-      message: `پروژه ${project.title} با موفقیت به‌روزرسانی شد.`,
+      message: `پروژه ${project.name} با موفقیت به‌روزرسانی شد.`,
     };
   } catch (error) {
     return {
@@ -117,7 +114,7 @@ export async function deleteProject(projectId) {
     const project = await projectService.delete(projectId);
 
     return {
-      message: `پروژه ${project.title} با موفقیت حذف شد.`,
+      message: `پروژه ${project.name} با موفقیت حذف شد.`,
     };
   } catch (error) {
     return {

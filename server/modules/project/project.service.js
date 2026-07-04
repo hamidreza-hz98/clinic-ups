@@ -1,7 +1,6 @@
-const Project = require("./project.model");
+const Project = require("./project.model").default;
 const throwError = require("../../middlewares/throw-error");
 const { buildMongoFindQuery, buildMongoSort } = require("@/server/lib/filter");
-
 
 const projectService = {
   async create(data) {
@@ -49,9 +48,9 @@ const projectService = {
         .skip(skip)
         .limit(page_size)
         .select(
-          "name media excerpt slug createdAt updatedAt visits"
+          "name media excerpt slug brands categories createdAt updatedAt visits",
         )
-        .populate("media brand")
+        .populate("media brands categories")
         .lean(),
       Project.countDocuments(query),
     ]);
@@ -63,34 +62,36 @@ const projectService = {
   },
 
   async getDetails(filter) {
-  if (!filter || Object.keys(filter).length === 0) {
-    throwError(
-      "فیلتر مورد نیاز برای دریافت جزئیات پروژه ارسال نشده است",
-      400
-    );
-  }
+    if (!filter || Object.keys(filter).length === 0) {
+      throwError(
+        "فیلتر مورد نیاز برای دریافت جزئیات پروژه ارسال نشده است",
+        400,
+      );
+    }
 
-  // Increment visits manually
-  const project = await Project.findOneAndUpdate(
-    filter,
-    { $inc: { visits: 1 } },
-    { new: true }
-  )
-    .populate("categories media tags")
-    .populate({ path: "seo.ogImage" })
-    .populate({ path: "seo.twitterImage" })
-    .populate({
-      path: "relatedProjects",
-      populate: { path: "media" },
-    })
+    const project = await Project.findOneAndUpdate(
+      filter,
+      { $inc: { visits: 1 } },
+      { new: true },
+    )
+      .populate("categories brands media tags")
+      .populate({ path: "seo.ogImage" })
+      .populate({ path: "seo.twitterImage" })
+      .populate({
+        path: "relatedProjects",
+        populate: { path: "media" },
+      })
+      .populate({
+        path: "relatedProducts",
+        populate: { path: "media" },
+      });
 
-  if (!project) {
-    throwError("پروژه مورد نظر یافت نشد", 404);
-  }
+    if (!project) {
+      throwError("پروژه مورد نظر یافت نشد", 404);
+    }
 
-  return project;
-},
-
+    return project;
+  },
 
   async delete(_id) {
     const existing = await Project.exists({ _id });
@@ -104,17 +105,17 @@ const projectService = {
     return project;
   },
 
-    async getDashboardData() {
-      const totalProjects = await Project.countDocuments();
-  
-      const mostVisitedProjects = await Project.find()
-        .select("name media excerpt slug createdAt updatedAt visits")
-        .populate("media")
-        .sort({ visits: -1 })
-        .limit(10);
-  
-      return { totalProjects, mostVisitedProjects };
-    },
-}
+  async getDashboardData() {
+    const totalProjects = await Project.countDocuments();
 
-module.exports = projectService
+    const mostVisitedProjects = await Project.find()
+      .select("name media excerpt slug createdAt updatedAt visits")
+      .populate("media")
+      .sort({ visits: -1 })
+      .limit(10);
+
+    return { totalProjects, mostVisitedProjects };
+  },
+};
+
+module.exports = projectService;

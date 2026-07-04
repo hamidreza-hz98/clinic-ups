@@ -4,8 +4,8 @@ import connectDB from "@/server/db";
 import tagService from "@/server/modules/tag/tag.service";
 import { authenticate, requireAdmin } from "@/server/middlewares/auth";
 import validate from "@/server/middlewares/validate";
-import { createTagSchema, updateTagSchema } from "@/validation/tag.validation";
 import { serialize } from "@/lib/request";
+import { tagValidationSchema } from "@/validation/tag.validation";
 
 /* -------------------- */
 /* CREATE TAG           */
@@ -17,7 +17,7 @@ export async function createTag(body) {
     const auth = await authenticate({adminOnly: true});
     requireAdmin(auth);
 
-    const data = await validate(createTagSchema, body);
+    const data = await validate(tagValidationSchema, body);
 
     const tag = await tagService.create(data);
 
@@ -46,6 +46,7 @@ export async function getAllTags(query = {}) {
       data: serialize({ tags, total, ...query }),
     };
   } catch (error) {
+    console.log(error)
     return {
       message: error.message,
       status: error.statusCode || 500,
@@ -83,7 +84,7 @@ export async function updateTag(tagId, body) {
     const auth = await authenticate({adminOnly: true});
     requireAdmin(auth);
 
-    const data = await validate(updateTagSchema, body);
+    const data = await validate(tagValidationSchema, body);
     const tag = await tagService.update(data, tagId);
 
     return {

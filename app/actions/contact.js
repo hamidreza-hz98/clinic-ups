@@ -3,9 +3,9 @@
 import connectDB from "@/server/db";
 import contactService from "@/server/modules/contact/contact.service";
 import validate from "@/server/middlewares/validate";
-import { submit as contactSubmitSchema } from "@/validation/contact.validation";
 import { authenticate, requireAdmin } from "@/server/middlewares/auth";
 import { serialize } from "@/lib/request";
+import { contactValidationSchema } from "@/validation/contact.validation";
 
 /* -------------------- */
 /* SUBMIT CONTACT       */
@@ -14,7 +14,7 @@ export async function submitContact(body) {
   try {
     await connectDB();
 
-    const data = await validate(contactSubmitSchema, body);
+    const data = await validate(contactValidationSchema, body);
     const contact = await contactService.submit(data);
 
     return {

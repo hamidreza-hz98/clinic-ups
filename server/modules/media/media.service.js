@@ -95,6 +95,12 @@ const mediaService = {
 
     return await Media.findByIdAndDelete(_id);
   },
+
+      async getDashboardData() {
+    const totalMedia = await Media.countDocuments();
+
+    return { totalMedia };
+  },
 };
 
 module.exports = { mediaService };

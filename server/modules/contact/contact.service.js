@@ -1,5 +1,5 @@
 const { buildMongoSort, buildMongoFindQuery } = require("@/server/lib/filter");
-const Contact = require("./contact.model");
+const Contact = require("./contact.model").default;
 
 const contactService = {
   async submit(data) {
@@ -29,6 +29,12 @@ const contactService = {
     ]);
 
     return { contacts, total };
+  },
+
+      async getDashboardData() {
+    const totalContacts = await Contact.countDocuments();
+
+    return { totalContacts };
   },
 };
 

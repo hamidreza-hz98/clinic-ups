@@ -1,4 +1,5 @@
 import * as yup from "yup";
+import { seoValidationSchema } from "./seo.validation";
 
 export const blogValidationSchema = yup.object({
   title: yup
@@ -9,23 +10,23 @@ export const blogValidationSchema = yup.object({
     .string()
     .required("اسلاگ الزامی است"),
 
-  author: yup.string(),
+  // author: yup.string(),
 
-  categories: yup
-    .array()
-    .of(yup.string())
-    .min(1, "حداقل یک دسته بندی انتخاب کنید"),
+  // categories: yup
+  //   .array()
+  //   .of(yup.string())
+  //   .min(1, "حداقل یک دسته بندی انتخاب کنید"),
 
-  thumbnail: yup
-    .array()
-    .of(yup.string())
-    .min(1, "تصویر شاخص الزامی است"),
+  // thumbnail: yup
+  //   .array()
+  //   .of(yup.string())
+  //   .min(1, "تصویر شاخص الزامی است"),
 
-  relatedBlogs: yup.array().of(yup.string()),
+  // relatedBlogs: yup.array().of(yup.string()),
 
-  tags: yup.array().of(yup.string()),
+  // tags: yup.array().of(yup.string()),
 
-  relatedProducts: yup.array().of(yup.string()),
+  // relatedProducts: yup.array().of(yup.string()),
 
   isSelected: yup.boolean(),
 

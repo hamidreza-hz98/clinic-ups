@@ -1,4 +1,4 @@
-const Product = require("./product.model");
+const Product = require("./product.model").default;
 const throwError = require("../../middlewares/throw-error");
 const { buildMongoFindQuery, buildMongoSort } = require("@/server/lib/filter");
 const { generateProductSchema } = require("@/server/lib/seo");
@@ -38,25 +38,25 @@ const productService = {
     filters = {},
   }) {
     const query = buildMongoFindQuery(filters, search, [
-      "title",
+      "name",
       "excerpt",
       "description",
     ]);
     const sortOption = buildMongoSort(sort);
     const skip = (page - 1) * page_size;
 
-    const [products, total] = await Promise.all([
-      Product.find(query)
-        .sort(sortOption)
-        .skip(skip)
-        .limit(page_size)
-        .select(
-          "title media excerpt price discount datasheet specifications createdAt updatedAt visits brand slug"
-        )
-        .populate("media brand")
-        .lean(),
-      Product.countDocuments(query),
-    ]);
+      const [products, total] = await Promise.all([
+        Product.find(query)
+          .sort(sortOption)
+          .skip(skip)
+          .limit(page_size)
+          .select(
+            "name media excerpt createdAt updatedAt visits brand category slug excerpt"
+          )
+          .populate("media brand category")
+          .lean(),
+        Product.countDocuments(query),
+      ]);
 
     return {
       products,
@@ -78,7 +78,7 @@ const productService = {
     { $inc: { visits: 1 } },
     { new: true }
   )
-    .populate("categories media tags brand")
+    .populate("category media tags brand")
     .populate({ path: "seo.ogImage" })
     .populate({ path: "seo.twitterImage" })
     .populate({
@@ -133,7 +133,7 @@ const productService = {
     const totalProducts = await Product.countDocuments();
 
     const mostVisitedProducts = await Product.find()
-      .select("title slug excerpt price discount media stock visits soldNumber")
+      .select("name slug excerpt media visits")
       .populate("media")
       .sort({ visits: -1 })
       .limit(10);
