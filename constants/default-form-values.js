@@ -36,7 +36,6 @@ export const mediaDefaultValues = (data) => ({
 export const tagDefaultValues = (data) => ({
   _id: data?._id || null,
   name: data?.name || "",
-  slug: data?.slug || "",
 });
 
 export const defaultBrandValues = (data) => ({
@@ -50,6 +49,7 @@ export const defaultBrandValues = (data) => ({
 export const defaultCategoryValues = (data) => ({
   _id: data?._id || null,
   name: data?.name || "",
+  excerpt: data?.excerpt || "",
   value: data?.value || "",
   slug: data?.slug || "",
   icon: data?.icon || null,

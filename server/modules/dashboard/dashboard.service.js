@@ -15,7 +15,7 @@ const dashboardService = {
     const { totalProjects, mostVisitedProjects } =
       await projectService.getDashboardData();
 
-    const { totalCategory } = await categoryService.getDashboardData();
+    const { totalCategories } = await categoryService.getDashboardData();
 
     const { totalBrands } = await brandService.getDashboardData();
 
@@ -33,7 +33,7 @@ const dashboardService = {
       mostVisitedProducts,
       totalProjects,
       mostVisitedProjects,
-      totalCategory,
+      totalCategories,
       totalBrands,
       totalMedia,
       totalContacts,

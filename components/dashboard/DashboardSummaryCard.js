@@ -35,7 +35,7 @@ const summaryData = [
   },
   {
     title: "دسته بندی",
-    key: "totalCategory",
+    key: "totalCategories",
     icon: <CategoryIcon />,
     color: "warning.main",
   },

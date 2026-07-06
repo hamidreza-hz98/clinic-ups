@@ -11,7 +11,7 @@ const tagService = {
       if (existing) {
         throwError("برچسب با این نام قبلا ایجاد شده است", 409);
       }
-
+      
       const tag = await new Tag({ ...data, slug: slugify(data.name) }).save();
 
       return tag;

@@ -3,7 +3,9 @@ const timestamp = require("mongoose-timestamp");
 
 const categorySchema = new mongoose.Schema({
   name: { type: String, required: true },
-
+  
+  excerpt: { type: String, required: true },
+  
   value: { type: String, required: true },
 
   slug: { type: String, required: true, unique: true },

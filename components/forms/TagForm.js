@@ -69,14 +69,6 @@ const TagForm = ({ mode, data, onClose, onSuccess, onError }) => {
             )}
           />
 
-          <Controller
-            name="slug"
-            control={control}
-            render={({ field }) => (
-              <TextField size="small" {...field} fullWidth label="Slug" />
-            )}
-          />
-
            <Stack direction="row" justifyContent="space-between" spacing={2}>
             <Button type="submit" variant="contained" disabled={isSubmitting}>
               {mode === "edit" ? "ویرایش برچسب" : "ایجاد برچسب"}

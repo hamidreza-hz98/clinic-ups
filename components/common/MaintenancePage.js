@@ -180,7 +180,8 @@ export default function MaintenancePage() {
           </Typography>
 
           <Button
-            LinkComponent={<Link href="tel: +989122201160" />}
+            LinkComponent={Link}
+            href="tel: +989122201160"
             variant="contained"
             sx={{
               textDecoration: "none",

@@ -1,18 +1,25 @@
-"use client"
+"use client";
 
-import { createCategory, updateCategory } from '@/app/actions/category';
-import { defaultCategoryValues } from '@/constants/default-form-values';
-import { purifyData } from '@/lib/request';
-import React, { useEffect } from 'react'
-import { Controller, useForm } from 'react-hook-form';
-import Loader from '../common/Loader';
-import { Box, Button, Drawer, Stack, TextField, Typography } from '@mui/material';
+import { createCategory, updateCategory } from "@/app/actions/category";
+import { defaultCategoryValues } from "@/constants/default-form-values";
+import { purifyData } from "@/lib/request";
+import React, { useEffect } from "react";
+import { Controller, useForm } from "react-hook-form";
+import Loader from "../common/Loader";
+import {
+  Box,
+  Button,
+  Drawer,
+  Stack,
+  TextField,
+  Typography,
+} from "@mui/material";
 import CloudUploadIcon from "@mui/icons-material/CloudUpload";
-import MediaPreview from '../common/MediaPreview';
-import MediaPageWrapper from '../dashboard-wrappers/MediaPageWrapper';
+import MediaPreview from "../common/MediaPreview";
+import MediaPageWrapper from "../dashboard-wrappers/MediaPageWrapper";
 
 const CategoryForm = ({ mode, data, onClose, onSuccess, onError }) => {
-   const [activeField, setActiveField] = React.useState(null);
+  const [activeField, setActiveField] = React.useState(null);
   const [drawerOpen, setDrawerOpen] = React.useState(false);
   const [drawerType, setDrawerType] = React.useState("image");
   const [drawerMultiple, setDrawerMultiple] = React.useState(false);
@@ -41,7 +48,7 @@ const CategoryForm = ({ mode, data, onClose, onSuccess, onError }) => {
     let message = "";
 
     try {
-      const body = purifyData(category, ["icon"])
+      const body = purifyData(category, ["icon"]);
 
       const { message } =
         mode === "edit"
@@ -79,16 +86,16 @@ const CategoryForm = ({ mode, data, onClose, onSuccess, onError }) => {
   }
 
   return (
-        <>
+    <>
       <Box
         component="form"
         onSubmit={handleSubmit(onSubmit)}
         sx={{ width: "100%", mt: 2 }}
       >
         <Stack spacing={2}>
-            <Typography variant="h4">
-          {mode === "edit" ? "ویرایش دسته بندی" : "ساخت دسته بندی جدید"}
-        </Typography>
+          <Typography variant="h4">
+            {mode === "edit" ? "ویرایش دسته بندی" : "ساخت دسته بندی جدید"}
+          </Typography>
 
           <Controller
             name="name"
@@ -108,6 +115,21 @@ const CategoryForm = ({ mode, data, onClose, onSuccess, onError }) => {
             control={control}
             render={({ field }) => (
               <TextField size="small" {...field} fullWidth label="Slug" />
+            )}
+          />
+
+          <Controller
+            name="excerpt"
+            control={control}
+            render={({ field }) => (
+              <TextField
+                multiline
+                rows={3}
+                size="small"
+                {...field}
+                fullWidth
+                label="توضیح مختصر"
+              />
             )}
           />
 
@@ -173,7 +195,7 @@ const CategoryForm = ({ mode, data, onClose, onSuccess, onError }) => {
         </Box>
       </Drawer>
     </>
-  )
-}
+  );
+};
 
-export default CategoryForm
+export default CategoryForm;
