@@ -14,7 +14,7 @@ const BlogCard = ({ blog }) => {
     <div className="w-full">
       <Link
         href={`/blog/${blog?.slug}`}
-        className="block rounded-lg shadow-md hover:shadow-lg hover:scale-105 transition-transform transition-shadow overflow-hidden duration-300"
+        className="block bg-white rounded-lg shadow-md hover:shadow-lg hover:scale-105 transition-transform transition-shadow overflow-hidden duration-300"
       >
         <img
           src={setImagePath(blog?.thumbnail?.[0]?.path)}
