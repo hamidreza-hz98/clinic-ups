@@ -1,0 +1,9 @@
+# *
+User-agent: *
+Allow: /
+
+# Host
+Host: https://www.clinicups.com
+
+# Sitemaps
+Sitemap: https://www.clinicups.com/sitemap.xml

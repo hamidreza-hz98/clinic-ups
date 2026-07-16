@@ -1,7 +1,2 @@
-import MaintenancePage from "@/components/common/MaintenancePage";
-
-export default function Home() {
-  return (
-    <MaintenancePage />
-  );
-}
+import HomepageWrapper from "@/components/landing/homepage/HomepageWrapper";
+export default function Home() { return <HomepageWrapper />; }

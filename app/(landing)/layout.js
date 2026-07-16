@@ -1,10 +1,7 @@
-import LandingThemeProvider from "@/theme/landing/provider";
-import { Box } from "@mui/material";
+import Header from "@/components/landing/layout/Header";
+import Footer from "@/components/landing/layout/Footer";
+import FloatingActionButton from "@/components/landing/layout/FloatingActionButton";
 
-export default async function RootLayout({ children }) {
-  return (
-    <LandingThemeProvider>
-      <Box component="main">{children}</Box>
-    </LandingThemeProvider>
-  );
+export default function LandingLayout({ children }) {
+  return <><Header /><main>{children}</main><FloatingActionButton /><Footer /></>;
 }

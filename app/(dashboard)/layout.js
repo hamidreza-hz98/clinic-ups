@@ -8,8 +8,10 @@ import Toolbar from "@mui/material/Toolbar";
 import DashboardHeader from "@/components/layout/dashboard/DashboardHeader";
 import DashboardSidebar from "@/components/layout/dashboard/DashboardSidebar";
 import DashboardThemeProvider from "@/theme/dashboard/provider";
+import NotificationsProvider from "@/hooks/useNotifications/NotificationsProvider";
+import DialogsProvider from "@/hooks/useDialogs/DialogsProvider";
 
-export default function DashboardLayout({ children }) {
+function DashboardShell({ children }) {
   const theme = useTheme();
 
   const [isDesktopNavigationExpanded, setIsDesktopNavigationExpanded] =
@@ -48,8 +50,7 @@ export default function DashboardLayout({ children }) {
   const layoutRef = React.useRef(null);
 
   return (
-    <DashboardThemeProvider>
-      <Box
+    <Box
         ref={layoutRef}
         sx={{
           position: "relative",
@@ -94,7 +95,18 @@ export default function DashboardLayout({ children }) {
             {children}
           </Box>
         </Box>
-      </Box>
+    </Box>
+  );
+}
+
+export default function DashboardLayout({ children }) {
+  return (
+    <DashboardThemeProvider>
+      <NotificationsProvider>
+        <DialogsProvider>
+          <DashboardShell>{children}</DashboardShell>
+        </DialogsProvider>
+      </NotificationsProvider>
     </DashboardThemeProvider>
   );
 }

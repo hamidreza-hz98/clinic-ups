@@ -1,0 +1,123 @@
+export const generatorProjects = [
+  {
+    title: {
+      fa: "آزمایشگاه پویش - الیگودرز",
+      ar: "مختبر بویش - إليغودرز",
+      en: "Pouyesh Laboratory - Aligudarz",
+    },
+    images: [
+      "/images/emergency-electricity/project-pooyesh-lab-aligoudarz/project-pooyesh-lab-aligoudarz-01.webp",
+      "/images/emergency-electricity/project-pooyesh-lab-aligoudarz/project-pooyesh-lab-aligoudarz-02.webp",
+      "/images/emergency-electricity/project-pooyesh-lab-aligoudarz/project-pooyesh-lab-aligoudarz-03.webp",
+      "/images/emergency-electricity/project-pooyesh-lab-aligoudarz/project-pooyesh-lab-aligoudarz-04.webp",
+      "/images/emergency-electricity/project-pooyesh-lab-aligoudarz/project-pooyesh-lab-aligoudarz-05.webp",
+      "/images/emergency-electricity/project-pooyesh-lab-aligoudarz/project-pooyesh-lab-aligoudarz-06.webp",
+    ],
+  },
+  {
+    title: {
+      fa: "آزمایشگاه پارسیان - ایوان",
+      ar: "مختبر بارسيان - إيوان",
+      en: "Parsian Laboratory - Ivan",
+    },
+    images: [
+      "/images/emergency-electricity/project-parsian-lab-eyvan/project-parsian-lab-01.webp",
+      "/images/emergency-electricity/project-parsian-lab-eyvan/project-parsian-lab-02.webp",
+      "/images/emergency-electricity/project-parsian-lab-eyvan/project-parsian-lab-03.webp",
+      "/images/emergency-electricity/project-parsian-lab-eyvan/project-parsian-lab-04.webp",
+      "/images/emergency-electricity/project-parsian-lab-eyvan/project-parsian-lab-05.webp",
+      "/images/emergency-electricity/project-parsian-lab-eyvan/project-parsian-lab-06.webp",
+      "/images/emergency-electricity/project-parsian-lab-eyvan/project-parsian-lab-07.webp",
+      "/images/emergency-electricity/project-parsian-lab-eyvan/project-parsian-lab-08.webp",
+    ],
+  },
+  {
+    title: {
+      fa: "آزمایشگاه ارم - ایلام",
+      ar: "مختبر إرم - إيلام",
+      en: "Eram Laboratory - Ilam",
+    },
+    images: [
+      "/images/emergency-electricity/project-eram-lab-ilam/project-eram-lab-02.webp",
+      "/images/emergency-electricity/project-eram-lab-ilam/project-eram-lab-03.webp",
+      "/images/emergency-electricity/project-eram-lab-ilam/project-eram-lab-04.webp",
+      "/images/emergency-electricity/project-eram-lab-ilam/project-eram-lab-05.webp",
+      "/images/emergency-electricity/project-eram-lab-ilam/project-eram-lab-06.webp",
+      "/images/emergency-electricity/project-eram-lab-ilam/project-eram-lab-07.webp",
+      "/images/emergency-electricity/project-eram-lab-ilam/project-eram-lab-08.webp",
+      "/images/emergency-electricity/project-eram-lab-ilam/project-eram-lab-09.webp",
+    ],
+  },
+  {
+    title: {
+      fa: "آزمایشگاه دکتر خسروشاهی - تهران",
+      ar: "مختبر الدكتور خسروشاهي - تهران",
+      en: "Dr. Khosroshahi Laboratory - Tehran",
+    },
+    images: [
+      "/images/emergency-electricity/project-dr-khosrowshahi-lab/project-dr-khosrowshahi-lab-01.webp",
+      "/images/emergency-electricity/project-dr-khosrowshahi-lab/project-dr-khosrowshahi-lab-02.webp",
+      "/images/emergency-electricity/project-dr-khosrowshahi-lab/project-dr-khosrowshahi-lab-03.webp",
+      "/images/emergency-electricity/project-dr-khosrowshahi-lab/project-dr-khosrowshahi-lab-04.webp",
+      "/images/emergency-electricity/project-dr-khosrowshahi-lab/project-dr-khosrowshahi-lab-05.webp",
+      "/images/emergency-electricity/project-dr-khosrowshahi-lab/project-dr-khosrowshahi-lab-06.webp",
+      "/images/emergency-electricity/project-dr-khosrowshahi-lab/project-dr-khosrowshahi-lab-07.webp",
+      "/images/emergency-electricity/project-dr-khosrowshahi-lab/project-dr-khosrowshahi-lab-08.webp",
+      "/images/emergency-electricity/project-dr-khosrowshahi-lab/project-dr-khosrowshahi-lab-09.webp",
+      "/images/emergency-electricity/project-dr-khosrowshahi-lab/project-dr-khosrowshahi-lab-10.webp",
+    ],
+  },
+  {
+    title: {
+      fa: "آزمایشگاه پاستور - ازنا",
+      ar: "مختبر باستور - أزنا",
+      en: "Pasteur Laboratory - Azna",
+    },
+    images: [
+      "/images/emergency-electricity/project-pastor-azna-lab/project-pastor-azna-lab-01.webp",
+      "/images/emergency-electricity/project-pastor-azna-lab/project-pastor-azna-lab-02.webp",
+      "/images/emergency-electricity/project-pastor-azna-lab/project-pastor-azna-lab-03.webp",
+      "/images/emergency-electricity/project-pastor-azna-lab/project-pastor-azna-lab-04.webp",
+    ],
+  },
+  {
+    title: {
+      fa: "آزمایشگاه دکتر همتی -شهر سنقر - استان کرمانشاه",
+      ar: "مختبر الدكتور همتي - سنقر كليائي",
+      en: "Dr. Hemmati Laboratory - Sonqor City - Kermanshah Province",
+    },
+    images: [
+      "/images/emergency-electricity/project-dr-hemmati-lab/project-dr-hemmati-lab-01.webp",
+      "/images/emergency-electricity/project-dr-hemmati-lab/project-dr-hemmati-lab-02.webp",
+      "/images/emergency-electricity/project-dr-hemmati-lab/project-dr-hemmati-lab-03.webp",
+      "/images/emergency-electricity/project-dr-hemmati-lab/project-dr-hemmati-lab-04.webp",
+      "/images/emergency-electricity/project-dr-hemmati-lab/project-dr-hemmati-lab-05.webp",
+      "/images/emergency-electricity/project-dr-hemmati-lab/project-dr-hemmati-lab-06.webp",
+      "/images/emergency-electricity/project-dr-hemmati-lab/project-dr-hemmati-lab-07.webp",
+      "/images/emergency-electricity/project-dr-hemmati-lab/project-dr-hemmati-lab-08.webp",
+    ],
+  },
+  {
+    title: {
+      fa: "تعویض ژنراتور 70 کاوا",
+      ar: "استبدال مولد 70 ك.ف.ا",
+      en: "70 kVA Generator Replacement",
+    },
+    images: [
+      "/images/emergency-electricity/project-generator-swap-70kva/project-generator-swap-70kva-01.webp",
+      "/images/emergency-electricity/project-generator-swap-70kva/project-generator-swap-70kva-02.webp",
+      "/images/emergency-electricity/project-generator-swap-70kva/project-generator-swap-70kva-03.webp",
+      "/images/emergency-electricity/project-generator-swap-70kva/project-generator-swap-70kva-04.webp",
+      "/images/emergency-electricity/project-generator-swap-70kva/project-generator-swap-70kva-05.webp",
+      "/images/emergency-electricity/project-generator-swap-70kva/project-generator-swap-70kva-06.webp",
+      "/images/emergency-electricity/project-generator-swap-70kva/project-generator-swap-70kva-07.webp",
+      "/images/emergency-electricity/project-generator-swap-70kva/project-generator-swap-70kva-08.webp",
+      "/images/emergency-electricity/project-generator-swap-70kva/project-generator-swap-70kva-09.webp",
+      "/images/emergency-electricity/project-generator-swap-70kva/project-generator-swap-70kva-10.webp",
+      "/images/emergency-electricity/project-generator-swap-70kva/project-generator-swap-70kva-11.webp",
+      "/images/emergency-electricity/project-generator-swap-70kva/project-generator-swap-70kva-12.webp",
+      "/images/emergency-electricity/project-generator-swap-70kva/project-generator-swap-70kva-13.webp",
+      "/images/emergency-electricity/project-generator-swap-70kva/project-generator-swap-70kva-14.webp",
+    ],
+  },
+];

@@ -1,3 +1,26 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+  .btn {
+    @apply inline-flex cursor-pointer items-center justify-center rounded-lg border border-transparent px-4 py-2 font-semibold transition disabled:cursor-not-allowed disabled:opacity-40;
+  }
+  .btn-sm { @apply px-3 py-1.5 text-sm; }
+  .btn-xs { @apply px-2 py-1 text-xs; }
+  .btn-outline { @apply border-gray-400 bg-transparent; }
+  .select { @apply rounded-lg bg-white px-4 py-2; }
+  .select-bordered { @apply border border-gray-300 focus:border-yellow-400 focus:outline-none; }
+}
+
+@font-face {
+  font-family: "IRANSans";
+  src: url("/fonts/IRANSans.woff2") format("woff2"), url("/fonts/IRANSans.woff") format("woff");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
 :root {
   --background: #ffffff;
   --foreground: #171717;
@@ -26,9 +49,22 @@ body {
   flex-direction: column;
   color: var(--foreground);
   background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: "IRANSans", Arial, Helvetica, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+header { transition: transform 0.3s ease, opacity 0.3s ease; }
+
+.project-item.border-style { border-bottom: 1px solid #e5e7eb; }
+.project-item.border-style:last-child { border-bottom: none; }
+
+.content { padding: 16px; line-height: 2; }
+.content *:not(:first-child) { margin-top: 8px; }
+.content h1, .content h2, .content h3, .content h4, .content h5, .content h6 { color: #eab308; font-size: large; font-weight: 700; }
+
+@media (min-width: 768px) {
+  .project-item.border-style { border: 1px solid #e5e7eb; border-bottom: none; border-collapse: collapse; }
 }
 
 * {
