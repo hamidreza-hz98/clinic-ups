@@ -9,6 +9,7 @@ const nextConfig = {
   images: {
     remotePatterns: [
       { protocol: "https", hostname: "vinesh-minio-01.chbk.dev" },
+      { protocol: "https", hostname: "vinesh-minio-01.chbkn.dev" },
       { protocol: "https", hostname: "vinesh-minio-01.chbkn.run" },
     ],
   },

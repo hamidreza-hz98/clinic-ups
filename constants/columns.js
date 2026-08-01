@@ -1,4 +1,5 @@
 import { formatDateAndTime } from "@/lib/date";
+import { setImagePath } from "@/lib/landing/general";
 import { formatPrice, toPersian } from "@/lib/number";
 import { Box } from "@mui/material";
 import Image from "next/image";
@@ -46,7 +47,7 @@ export const brandColumns = [
           padding={1}
         >
           <Image
-            src={image.path}
+            src={setImagePath(image.path)}
             alt={image.filename}
             loading="lazy"
             width={0}
@@ -112,7 +113,7 @@ export const categoryColumns = [
           padding={1}
         >
           <Image
-            src={image.path}
+            src={setImagePath(image.path)}
             alt={image.filename}
             loading="lazy"
             width={0}
@@ -165,7 +166,7 @@ export const productColumns = [
           padding={1}
         >
           <Image
-            src={image.path}
+            src={setImagePath(image.path)}
             alt={image.filename}
             loading="lazy"
             width={0}
@@ -236,7 +237,7 @@ export const projectColumns = [
           padding={1}
         >
           <Image
-            src={image.path}
+            src={setImagePath(image.path)}
             alt={image.filename}
             loading="lazy"
             width={0}
@@ -308,7 +309,7 @@ export const blogColumns = [
           padding={1}
         >
           <Image
-            src={image.path}
+            src={setImagePath(image.path)}
             alt={image.filename}
             loading="lazy"
             width={0}

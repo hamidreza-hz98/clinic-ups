@@ -15,6 +15,7 @@ import { formatPrice, toPersian } from "@/lib/number";
 import VisibilityIcon from "@mui/icons-material/Visibility";
 import AttachMoneyIcon from "@mui/icons-material/AttachMoney";
 import Link from "next/link";
+import { setImagePath } from "@/lib/landing/general";
 
 export default function TopProducts({ title, data, suffix, suffixLabel, entity }) {
   const theme = useTheme();
@@ -55,7 +56,7 @@ export default function TopProducts({ title, data, suffix, suffixLabel, entity }
                     }}
                     >
                     <Image
-                      src={entity === "blog" ? item.thumbnail[0].path : item.media[0].path}
+                      src={entity === "blog" ? setImagePath(item?.thumbnail?.[0]?.path) : setImagePath(item?.media?.[0]?.path)}
                       alt={item.name || item.title}
                       width={60}
                       height={60}
