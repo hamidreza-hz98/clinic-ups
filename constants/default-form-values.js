@@ -49,6 +49,7 @@ export const defaultBrandValues = (data) => ({
 export const defaultCategoryValues = (data) => ({
   _id: data?._id || null,
   name: data?.name || "",
+  englishName: data?.englishName || "",
   excerpt: data?.excerpt || "",
   value: data?.value || "",
   slug: data?.slug || "",
@@ -75,6 +76,7 @@ export const defaultProjectValues = (data) => ({
   _id: data?._id || null,
   name: data?.name || "",
   excerpt: data?.excerpt || "",
+  isSelected: data?.isSelected ?? false,
   slug: data?.slug || "",
   deliveryDate: data?.deliveryDate || "",
   customer: data?.customer || "",

@@ -29,8 +29,8 @@ export default function getComponents(theme) {
     MuiCssBaseline: {
       styleOverrides: {
         body: {
-          backgroundColor: "#221e10",
-          color: "#f8f8f5",
+          backgroundColor: palette.background.default,
+          color: palette.text.primary,
           direction: "rtl",
         },
         a: {
@@ -46,6 +46,7 @@ export default function getComponents(theme) {
           borderRadius: 9999, // rounded-full
           textTransform: "none",
           fontWeight: 600,
+          boxShadow: "none",
         },
         // containedPrimary: {
         //   color: "#000000",
@@ -59,23 +60,14 @@ export default function getComponents(theme) {
     MuiAppBar: {
       styleOverrides: {
         root: {
-          backgroundColor: "rgba(18,18,18,0.8)",
-          backdropFilter: "blur(8px)",
-          borderBottom: "1px solid rgba(244,192,37,0.2)",
+          backgroundColor: palette.background.paper,
+          borderBottom: `1px solid ${palette.divider}`,
         },
       },
     },
 
     MuiToolbar: {
       styleOverrides: { root: { paddingLeft: 16, paddingRight: 16 } },
-    },
-
-    MuiPaper: {
-      styleOverrides: {
-        root: {
-          backgroundColor: "#121212",
-        },
-      },
     },
 
     MuiDrawer: {

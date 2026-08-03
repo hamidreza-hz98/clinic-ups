@@ -48,7 +48,7 @@ const projectService = {
         .skip(skip)
         .limit(page_size)
         .select(
-          "name media excerpt slug brands categories createdAt updatedAt visits",
+          "name media excerpt slug brands categories customer location deliveryDate isSelected createdAt updatedAt visits",
         )
         .populate("media brands categories")
         .lean(),

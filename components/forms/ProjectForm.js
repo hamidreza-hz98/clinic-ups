@@ -17,8 +17,10 @@ import {
   Button,
   Divider,
   Drawer,
+  FormControlLabel,
   Grid,
   Stack,
+  Switch,
   TextField,
   Typography,
 } from "@mui/material";
@@ -210,6 +212,24 @@ const ProjectForm = ({ data, mode = "create", onSubmit }) => {
                   label="Slug"
                   error={!!errors.slug}
                   helperText={errors.slug?.message}
+                />
+              )}
+            />
+          </Grid>
+
+          <Grid size={{ xs: 12, sm: 6 }}>
+            <Controller
+              name="isSelected"
+              control={control}
+              render={({ field }) => (
+                <FormControlLabel
+                  control={
+                    <Switch
+                      checked={Boolean(field.value)}
+                      onChange={(_, checked) => field.onChange(checked)}
+                    />
+                  }
+                  label="نمایش در پروژه‌های منتخب صفحه اصلی"
                 />
               )}
             />

@@ -119,6 +119,20 @@ const CategoryForm = ({ mode, data, onClose, onSuccess, onError }) => {
           />
 
           <Controller
+            name="englishName"
+            control={control}
+            render={({ field }) => (
+              <TextField
+                size="small"
+                {...field}
+                fullWidth
+                label="نام انگلیسی"
+                inputProps={{ dir: "ltr" }}
+              />
+            )}
+          />
+
+          <Controller
             name="excerpt"
             control={control}
             render={({ field }) => (

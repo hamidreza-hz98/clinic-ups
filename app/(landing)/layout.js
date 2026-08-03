@@ -1,7 +1,13 @@
 import Header from "@/components/landing/layout/Header";
 import Footer from "@/components/landing/layout/Footer";
-import FloatingActionButton from "@/components/landing/layout/FloatingActionButton";
+import LandingThemeProvider from "@/theme/landing/provider";
 
 export default function LandingLayout({ children }) {
-  return <><Header /><main>{children}</main><FloatingActionButton /><Footer /></>;
+  return (
+    <LandingThemeProvider>
+      <Header />
+      <main>{children}</main>
+      <Footer />
+    </LandingThemeProvider>
+  );
 }

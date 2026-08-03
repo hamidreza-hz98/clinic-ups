@@ -1,11 +1,18 @@
 "use client";
 
-import React, { useMemo, useRef, useEffect, useState } from "react";
+import React, { useMemo, useRef } from "react";
 import dynamic from "next/dynamic";
 
 const ReactQuill = dynamic(() => import("react-quill-new"), { ssr: false });
 let Quill;
 let QuillTableBetter;
+
+const normalizeSpaces = (content) =>
+  typeof content === "string"
+    ? content
+        .replace(/&(nbsp|#160|#x0*a0);/gi, " ")
+        .replace(/\u00a0/g, " ")
+    : "";
 
 if (typeof window !== "undefined") {
   Quill = require("react-quill-new").Quill;
@@ -25,17 +32,11 @@ import { Typography } from "@mui/material";
 
 const RichTextEditor = ({ text = "", onChange, label = "توضیحات" }) => {
   const quillEditRef = useRef(null);
-  const [value, setValue] = useState(text);
 
-  // Update local state if text changes from props
-  useEffect(() => {
-    setValue(text);
-  }, [text]);
+  const handleChange = (content) => {
+    const normalizedContent = normalizeSpaces(content);
 
-  const handleChange = (content, delta, source, editor) => {
-    setValue(content);
-    
-    if (onChange) onChange(content);
+    onChange?.(normalizedContent);
   };
 
   const modules = useMemo(
@@ -76,7 +77,7 @@ const RichTextEditor = ({ text = "", onChange, label = "توضیحات" }) => {
 
     <ReactQuill
       ref={quillEditRef}
-      value={value}        // <-- controlled value
+      value={normalizeSpaces(text)}
       onChange={handleChange} // <-- propagate changes
       theme="snow"
       modules={modules}

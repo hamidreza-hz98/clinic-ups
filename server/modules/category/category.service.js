@@ -40,8 +40,9 @@ const categoryService = {
   }) {
     const query = buildMongoFindQuery(filters, search, [
       "name",
+      "englishName",
       "slug",
-      "description",
+      "excerpt",
     ]);
 
     const sortOption = buildMongoSort(sort);
@@ -68,7 +69,7 @@ const categoryService = {
     }
 
     const category = await Category.findOne(filter)
-      .populate("image seo.ogImage seo.twitterImage tags children")
+      .populate("icon")
       .lean();
 
     if (!category) {

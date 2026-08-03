@@ -7,6 +7,8 @@ const projectSchema = new mongoose.Schema({
 
   excerpt: { type: String, default: null },
 
+  isSelected: { type: Boolean, default: false },
+
   slug: { type: String, required: true, unique: true },
 
   brands: [

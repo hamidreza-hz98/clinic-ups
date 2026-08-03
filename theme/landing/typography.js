@@ -1,10 +1,10 @@
 // src/theme/mui/typography.js
-const baseFont = "'Vazirmatn', 'Noto Sans Arabic', system-ui, -apple-system, 'Segoe UI', Roboto, Arial";
+const baseFont = "'IRANSans', 'Vazirmatn', 'Noto Sans Arabic', system-ui, -apple-system, 'Segoe UI', sans-serif";
 
 const typography = {
   fontFamily: baseFont,
   htmlFontSize: 16,
-  h1: { fontSize: "2.125rem", fontWeight: 700, lineHeight: 1.2, letterSpacing: "0em" },
+  h1: { fontSize: "2.125rem", fontWeight: 800, lineHeight: 1.15, letterSpacing: "-.02em" },
   h2: { fontSize: "1.75rem", fontWeight: 700, lineHeight: 1.25 },
   h3: { fontSize: "1.5rem", fontWeight: 600, lineHeight: 1.3 },
   h4: { fontSize: "1.25rem", fontWeight: 600, lineHeight: 1.35 },

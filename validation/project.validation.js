@@ -8,6 +8,8 @@ export const projectValidationSchema = yup.object({
 
   excerpt: yup.string(),
 
+  isSelected: yup.boolean().default(false).defined(),
+
   slug: yup
     .string()
     .required("اسلاگ الزامی است"),
