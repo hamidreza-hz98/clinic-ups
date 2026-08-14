@@ -1,135 +1,66 @@
-"use client"
+"use client";
 
-import {
-  providedProducts,
-  salesBenefits,
-  salesProcess,
-} from "@/constants/landing/general";
-
-import Breadcrumb from "../Breadcrumb";
-import { FaCheckCircle } from "react-icons/fa";
-import HeroBanner from "../HeroBanner";
-import React from "react";
+import BatteryChargingFullRoundedIcon from "@mui/icons-material/BatteryChargingFullRounded";
+import PrecisionManufacturingRoundedIcon from "@mui/icons-material/PrecisionManufacturingRounded";
+import SupportAgentRoundedIcon from "@mui/icons-material/SupportAgentRounded";
+import VerifiedRoundedIcon from "@mui/icons-material/VerifiedRounded";
+import WorkspacePremiumRoundedIcon from "@mui/icons-material/WorkspacePremiumRounded";
+import ElectricalServicesRoundedIcon from "@mui/icons-material/ElectricalServicesRounded";
+import { providedProducts, salesBenefits, salesProcess } from "@/constants/landing/general";
 import { faText, text } from "@/lib/landing/copy";
-import Container from "../Container";
+import ServiceDetailPage from "./ServiceDetailPage";
+import { getServiceBySlug } from "./serviceCatalog";
 
-function SalesPageWrapper() {
-  const t = text;
-  
+const productIcons = [ElectricalServicesRoundedIcon, BatteryChargingFullRoundedIcon, PrecisionManufacturingRoundedIcon];
+const benefitIcons = [WorkspacePremiumRoundedIcon, SupportAgentRoundedIcon, VerifiedRoundedIcon];
 
-  const breadcrumbItems = [
-    {
-      label: t("clinic_ups_cowatt"),
-      link: "/",
-    },
-    {
-      label: t("services_banner_header"),
-      link: "/services",
-    },
-    {
-      label: t("sales_banner_header"),
-    },
-  ];
+export default function SalesPageWrapper() {
+  const service = getServiceBySlug("sales");
+  const content = {
+    heroTitle: text("sales_heading"),
+    heroDescription: text("sales_description"),
+    imageAlt: "مشاوره و تأمین تجهیزات برق اضطراری",
+    metrics: ["تضمین اصالت", "انتخاب مهندسی", "تحویل پروژه‌ای"],
+    introTitle: text("sales_banner_header"),
+    introParagraphs: [text("sales_description")],
+    sections: [
+      {
+        type: "cards",
+        eyebrow: "PRODUCT RANGE",
+        title: text("sales_available_products"),
+        description: "سبد تجهیزات برای کاربری‌های خانگی، تجاری و صنعتی با امکان انتخاب دقیق بر اساس توان و شرایط بهره‌برداری.",
+        items: providedProducts.map((item, index) => ({
+          title: faText(item.name),
+          description: faText(item.description),
+          icon: productIcons[index % productIcons.length],
+        })),
+      },
+      {
+        type: "cards",
+        eyebrow: "WHY CLINIC UPS",
+        title: text("sales_purchase_benefits"),
+        items: salesBenefits.map((item, index) => ({
+          title: faText(item.name),
+          description: faText(item.description),
+          icon: benefitIcons[index % benefitIcons.length],
+        })),
+      },
+      {
+        type: "steps",
+        eyebrow: "PROCUREMENT FLOW",
+        title: text("sales_process"),
+        description: "مسیر شفاف از بررسی محصول و دریافت مشاوره تا ثبت سفارش و تحویل در محل.",
+        items: salesProcess.map((item) => ({
+          title: faText(item.name),
+          description: faText(item.description),
+          icon: item.icon,
+        })),
+      },
+    ],
+    ctaTitle: "انتخاب تجهیزات را به حدس واگذار نکنید",
+    ctaDescription: "توان مصرفی، زمان پشتیبانی و شرایط محیطی پروژه شما را بررسی می‌کنیم تا گزینه‌ای دقیق و اقتصادی پیشنهاد شود.",
+    ctaLabel: "درخواست مشاوره خرید",
+  };
 
-  return (
-    <div>
-      <HeroBanner
-        src="/images/static/airplanes_in_night.webp"
-        heading={t("sales_banner_header")}
-        subtext={t("sales_banner_sub_text")}
-        textPlacement="center"
-      />
-
-      <div className="bg-black text-white">
-        <Container>
-        <Breadcrumb items={breadcrumbItems} />
-        <h2 className="text-3xl font-semibold mb-6 text-yellow-400">
-          {t("sales_heading")}
-        </h2>
-        <p className="text-lg leading-relaxed">{t("sales_description")}</p>
-        </Container>
-      </div>
-
-      <div className="bg-yellow-400 text-black">
-        <Container>
-
-        <h2 className="text-3xl font-semibold mb-8 text-black">
-          {t("sales_available_products")}
-        </h2>
-
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          {providedProducts.map((item, index) => (
-            <div
-              key={index}
-              className="bg-yellow-100 p-6 rounded-lg shadow-xl hover:shadow-2xl transition-shadow duration-300"
-            >
-              <h3 className="text-xl font-semibold text-black mb-4">
-                {faText(item.name)}
-              </h3>
-              <p className="text-gray-700">{faText(item.description)}</p>
-            </div>
-          ))}
-        </div>
-        </Container>
-      </div>
-
-      <div className="bg-black text-white">
-      <Container>
-
-        <h2 className="text-3xl font-semibold mb-8 text-yellow-400">
-          {t("sales_purchase_benefits")}
-        </h2>
-
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-white">
-          {salesBenefits.map((item, index) => (
-            <div
-              key={index}
-              className="flex flex-col p-4 shadow-xl shadow-[rgba(255,200,0,0.35)] hover:shadow-2xl hover:shadow-[rgba(255,200,0,0.35)] transition-shadow duration-300 rounded-lg"
-            >
-              <div className="flex items-center justify-start">
-                <FaCheckCircle
-                  className="text-yellow-300 mb-4 mx-4"
-                  size={40}
-                />
-                <h3 className="text-xl font-semibold  mb-4">
-                  {faText(item.name)}
-                </h3>
-              </div>
-
-              <p className="">{faText(item.description)}</p>
-            </div>
-          ))}
-        </div>
-      </Container>
-      </div>
-
-      <div className="bg-yellow-400 text-black">
-        <Container>
-
-        <h2 className="text-3xl font-semibold mb-8 text-black">
-          {t("sales_process")}
-        </h2>
-
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
-          {salesProcess.map((item, index) => (
-            <div
-              key={index}
-              className="bg-yellow-100 p-6 rounded-lg shadow-xl hover:shadow-2xl transition-shadow duration-300"
-            >
-              <div className="flex items-center justify-start">
-                <item.icon className="text-yellow-400 mb-4 mx-2" size={40} />
-                <h3 className="text-lg font-semibold text-gray-800 mb-4">
-                  {faText(item.name)}
-                </h3>
-              </div>
-              <p className="text-gray-700">{faText(item.description)}</p>
-            </div>
-          ))}
-        </div>
-        </Container>
-      </div>
-    </div>
-  );
+  return <ServiceDetailPage service={service} content={content} />;
 }
-
-export default SalesPageWrapper;

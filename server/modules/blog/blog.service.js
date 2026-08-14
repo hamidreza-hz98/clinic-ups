@@ -47,8 +47,8 @@ const blogService = {
         .sort(sortOption)
         .skip(skip)
         .limit(page_size)
-        .select("title categories thumbnail slug createdAt updatedAt visits")
-        .populate("thumbnail categories")
+        .select("title excerpt author categories thumbnail slug readTime createdAt updatedAt visits")
+        .populate("thumbnail categories author")
         .lean(),
       Blog.countDocuments(query),
     ]);
@@ -70,7 +70,15 @@ const blogService = {
       { $inc: { visits: 1 } },
       { new: true },
     )
-      .populate("categories thumbnail tags relatedBlogs relatedProducts")
+      .populate("categories thumbnail tags author")
+      .populate({
+        path: "relatedBlogs",
+        populate: [
+          { path: "thumbnail" },
+          { path: "categories" },
+          { path: "author" },
+        ],
+      })
       .populate({ path: "seo.ogImage" })
       .populate({ path: "seo.twitterImage" })
       .populate({

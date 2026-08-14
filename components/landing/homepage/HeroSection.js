@@ -78,7 +78,7 @@ export default function HeroSection() {
                 راهکارهای تخصصی یو‌پی‌اس، باتری و ژنراتور برای زیرساخت‌های حیاتی؛ از طراحی و تأمین تا نصب و پشتیبانی شبانه‌روزی.
               </Typography>
             </Box>
-            <Stack direction={{ xs: "column", sm: "row" }} spacing={2} sx={{ width: { xs: "100%", sm: "auto" }, "& > span": { width: { xs: "100%", sm: "auto" } }, "& .MuiButton-root": { width: { xs: "100%", sm: "auto" } } }}>
+            <Stack direction={{ xs: "column", sm: "row" }} useFlexGap gap={2.5} sx={{ width: { xs: "100%", sm: "auto" }, "& > span": { width: { xs: "100%", sm: "auto" } }, "& .MuiButton-root": { width: { xs: "100%", sm: "auto" } } }}>
               <MagneticButton href="/categories" variant="contained" endIcon={<ArrowBackRoundedIcon />}>مشاهده محصولات</MagneticButton>
               <MagneticButton href="/contact" variant="outlined" startIcon={<HeadsetMicRoundedIcon />} sx={{ color: "text.primary", borderColor: "rgba(255,255,255,.18)", bgcolor: "rgba(255,255,255,.04)" }}>درخواست مشاوره</MagneticButton>
             </Stack>

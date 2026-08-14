@@ -11,60 +11,10 @@ import {
 } from "@mui/material";
 import AppsRoundedIcon from "@mui/icons-material/AppsRounded";
 import ArrowBackRoundedIcon from "@mui/icons-material/ArrowBackRounded";
-import EngineeringRoundedIcon from "@mui/icons-material/EngineeringRounded";
-import HandymanRoundedIcon from "@mui/icons-material/HandymanRounded";
 import HubRoundedIcon from "@mui/icons-material/HubRounded";
-import ShoppingCartCheckoutRoundedIcon from "@mui/icons-material/ShoppingCartCheckoutRounded";
-import VerifiedUserRoundedIcon from "@mui/icons-material/VerifiedUserRounded";
 import LiquidGlass from "../ui/LiquidGlass";
 import MagneticButton from "../ui/MagneticButton";
-
-const services = [
-  {
-    number: "01",
-    title: "مهندسی و طراحی",
-    eyebrow: "ENGINEERING",
-    description:
-      "تحلیل فنی بار، طراحی دیاگرام‌های تک‌خطی و ارائه نقشه‌های اجرایی برای زیرساخت‌های پیچیده صنعتی.",
-    href: "/services/design",
-    Icon: EngineeringRoundedIcon,
-    color: "#00dbe7",
-    gridColumn: "1 / span 5",
-  },
-  {
-    number: "02",
-    title: "تأمین و فروش",
-    eyebrow: "PROCUREMENT",
-    description:
-      "دسترسی مستقیم به برترین برندهای جهانی، تضمین اصالت تجهیزات و انتخاب دقیق راهکار متناسب با نیاز پروژه.",
-    href: "/services/sales",
-    Icon: ShoppingCartCheckoutRoundedIcon,
-    color: "#a7c8ff",
-    gridColumn: "8 / span 5",
-  },
-  {
-    number: "03",
-    title: "تعمیرات تخصصی",
-    eyebrow: "TECHNICAL REPAIR",
-    description:
-      "عیب‌یابی پیشرفته بردهای الکترونیکی و اورهال سیستم‌های قدرت با تجهیزات تست مدرن و تیم متخصص.",
-    href: "/services/repair",
-    Icon: HandymanRoundedIcon,
-    color: "#ff9c87",
-    gridColumn: "2 / span 6",
-  },
-  {
-    number: "04",
-    title: "خدمات پس از فروش",
-    eyebrow: "LIFECYCLE SUPPORT",
-    description:
-      "پشتیبانی فنی، اعزام سریع تیم عملیاتی و قراردادهای نگهداری پیشگیرانه برای تداوم عملکرد زیرساخت.",
-    href: "/services/after-sales",
-    Icon: VerifiedUserRoundedIcon,
-    color: "#00dbe7",
-    gridColumn: "7 / span 5",
-  },
-];
+import { serviceCatalog as services } from "../services/serviceCatalog";
 
 function ServiceCard({ service, index }) {
   const { Icon } = service;

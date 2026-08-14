@@ -1,72 +1,90 @@
 "use client";
 
-import { FaRegFilePdf } from "react-icons/fa";
 import { useState } from "react";
+import {
+  Box,
+  Button,
+  Dialog,
+  IconButton,
+  Stack,
+  Typography,
+} from "@mui/material";
+import CloseRoundedIcon from "@mui/icons-material/CloseRounded";
+import DownloadRoundedIcon from "@mui/icons-material/DownloadRounded";
+import PictureAsPdfRoundedIcon from "@mui/icons-material/PictureAsPdfRounded";
+import ZoomInRoundedIcon from "@mui/icons-material/ZoomInRounded";
+import SpotlightGlass from "../../ui/SpotlightGlass";
 
-const CatalogueThumbnail = ({ heading = "", downloadLink = "", images= [] }) => {
+export default function CatalogueThumbnail({ heading = "", downloadLink = "", images = [] }) {
   const [selectedImage, setSelectedImage] = useState(null);
 
-  const handleImageClick = (image) => {
-    setSelectedImage(image);
-  };
-
-  const closeImage = () => {
-    setSelectedImage(null);
-  };
-
   return (
-    <div className="pt-4 space-y-6">
-      <div className="flex flex-col md:flex-row items-start md:items-center justify-between">
-      <p className="text-xl font-semibold text-start">{heading}</p>
-
-        <a
+    <SpotlightGlass intensity="medium" sx={{ mt: 3, borderRadius: 4, p: { xs: 2.25, md: 3 } }}>
+      <Stack direction={{ xs: "column", sm: "row" }} alignItems={{ xs: "flex-start", sm: "center" }} justifyContent="space-between" spacing={2.5}>
+        <Stack direction="row" spacing={1.5} alignItems="center">
+          <Box sx={{ display: "grid", placeItems: "center", width: 46, height: 46, borderRadius: 2.5, bgcolor: "rgba(240,75,79,.1)", border: "1px solid rgba(240,75,79,.25)" }}>
+            <PictureAsPdfRoundedIcon sx={{ color: "error.light" }} />
+          </Box>
+          <Box>
+            <Typography color="primary.main" sx={{ fontFamily: "monospace", fontSize: ".62rem", letterSpacing: ".12em" }}>PRODUCT CATALOGUE</Typography>
+            <Typography sx={{ mt: .4, fontWeight: 900 }}>{heading}</Typography>
+          </Box>
+        </Stack>
+        <Button
+          component="a"
           href={downloadLink}
           target="_blank"
           download
           rel="noopener noreferrer"
-          className="flex items-center mt-4 md:mt-0 text-blue-900 text-xs hover:text-blue-600 transition"
+          variant="outlined"
+          startIcon={<DownloadRoundedIcon />}
+          sx={{ borderRadius: 99 }}
         >
-          <FaRegFilePdf size={16} className="me-1" />
+          دانلود فایل PDF
+        </Button>
+      </Stack>
 
-         دانلود فایل پی‌دی‌اف
-        </a>
-      </div>
-
-      <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
+      <Box sx={{ display: "grid", gridTemplateColumns: { xs: "repeat(2, 1fr)", sm: "repeat(4, 1fr)" }, gap: 1.25, mt: 2.5 }}>
         {images.map((image, index) => (
-          <div
-            key={index}
-            className="cursor-pointer"
-            onClick={() => handleImageClick(image)}
+          <Box
+            component="button"
+            type="button"
+            key={image}
+            onClick={() => setSelectedImage(image)}
+            aria-label={`بزرگ‌نمایی صفحه ${index + 1} کاتالوگ`}
+            sx={{
+              position: "relative",
+              aspectRatio: "4 / 5",
+              p: 0,
+              overflow: "hidden",
+              cursor: "zoom-in",
+              borderRadius: 2.5,
+              border: "1px solid rgba(255,255,255,.12)",
+              bgcolor: "rgba(255,255,255,.03)",
+              "&:hover img": { transform: "scale(1.06)", filter: "brightness(.72)" },
+              "&:hover .catalogue-zoom": { opacity: 1, transform: "translate(-50%, -50%) scale(1)" },
+            }}
           >
-            <img
-              src={image}
-              alt={`Catalogue Image ${index + 1}`}
-              className="w-full rounded-lg shadow hover:scale-105 transform transition"
-            />
-          </div>
+            <Box component="img" src={image} alt={`صفحه ${index + 1} کاتالوگ`} sx={{ width: "100%", height: "100%", objectFit: "cover", display: "block", transition: "transform .65s cubic-bezier(.2,.8,.2,1), filter .35s ease" }} />
+            <Box className="catalogue-zoom" sx={{ position: "absolute", top: "50%", left: "50%", transform: "translate(-50%, -50%) scale(.78)", display: "grid", placeItems: "center", width: 44, height: 44, borderRadius: "50%", bgcolor: "rgba(3,10,16,.78)", color: "primary.main", opacity: 0, transition: ".3s ease", backdropFilter: "blur(12px)" }}><ZoomInRoundedIcon /></Box>
+          </Box>
         ))}
-      </div>
+      </Box>
 
-      {selectedImage && (
-        <div className="fixed -top-4 inset-0 z-50 flex items-center justify-center bg-black bg-opacity-80 backdrop-blur-md">
-          <div className="relative max-w-3xl">
-            <button
-              className="absolute top-2 right-2 text-white bg-black bg-opacity-50 rounded-full w-8 h-8 text-sm p-2 hover:bg-opacity-75 transition"
-              onClick={closeImage}
-            >
-              ✕
-            </button>
-            <img
-              src={selectedImage}
-              alt="Selected Catalogue Image"
-              className="rounded-lg shadow-xl"
-            />
-          </div>
-        </div>
-      )}
-    </div>
+      <Dialog
+        open={Boolean(selectedImage)}
+        onClose={() => setSelectedImage(null)}
+        maxWidth="md"
+        slotProps={{
+          backdrop: { sx: { bgcolor: "rgba(2,6,12,.88)", backdropFilter: "blur(18px)" } },
+          paper: { sx: { position: "relative", overflow: "visible", bgcolor: "transparent", backgroundImage: "none", boxShadow: "none" } },
+        }}
+      >
+        <IconButton aria-label="بستن تصویر کاتالوگ" onClick={() => setSelectedImage(null)} sx={{ position: "absolute", zIndex: 2, top: -18, right: -18, color: "white", bgcolor: "rgba(8,14,22,.9)", border: "1px solid rgba(255,255,255,.18)", "&:hover": { bgcolor: "rgba(16,25,38,.95)" } }}>
+          <CloseRoundedIcon />
+        </IconButton>
+        {selectedImage && <Box component="img" src={selectedImage} alt="صفحه انتخاب‌شده کاتالوگ" sx={{ display: "block", maxWidth: "min(88vw, 820px)", maxHeight: "88vh", objectFit: "contain", borderRadius: 3, boxShadow: "0 35px 100px rgba(0,0,0,.7)" }} />}
+      </Dialog>
+    </SpotlightGlass>
   );
-};
-
-export default CatalogueThumbnail;
+}

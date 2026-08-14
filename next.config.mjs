@@ -3,6 +3,7 @@ import { fileURLToPath } from "node:url";
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+   allowedDevOrigins: ['192.168.43.54'],
   turbopack: {
     root: path.dirname(fileURLToPath(import.meta.url)),
   },

@@ -15,6 +15,7 @@ import ContactPhoneRoundedIcon from "@mui/icons-material/ContactPhoneRounded";
 import BatteryChargingFullRoundedIcon from "@mui/icons-material/BatteryChargingFullRounded";
 import ElectricBoltRoundedIcon from "@mui/icons-material/ElectricBoltRounded";
 import PowerRoundedIcon from "@mui/icons-material/PowerRounded";
+import HealthAndSafetyRoundedIcon from "@mui/icons-material/HealthAndSafetyRounded";
 import { getAllCategories } from "@/app/actions/category";
 import { navLinks } from "@/constants/landing/routes";
 import LiquidGlass from "../ui/LiquidGlass";
@@ -48,6 +49,34 @@ function Brand() {
         alt="کلینیک یو پی اس"
         sx={{ width: { xs: 148, sm: 172 }, height: "auto", display: "block" }}
       />
+    </Box>
+  );
+}
+
+function ExhibitionButton({ onClick, fullWidth = false }) {
+  return (
+    <Box className="exhibition-header-shell" sx={{ width: fullWidth ? "100%" : "auto" }}>
+      <Box className="exhibition-header-beacon" aria-hidden />
+      <MagneticButton
+        href="/tehran-exhibition"
+        onClick={onClick}
+        variant="outlined"
+        size="small"
+        startIcon={<HealthAndSafetyRoundedIcon />}
+        sx={{
+          width: fullWidth ? "100%" : "auto",
+          minHeight: 42,
+          px: { md: 2 },
+          color: "#f5fbff",
+          borderColor: "rgba(87,227,155,.34)",
+          bgcolor: "rgba(8,18,20,.72)",
+          backdropFilter: "blur(18px)",
+          boxShadow: "inset 0 1px rgba(255,255,255,.1), 0 0 24px rgba(87,227,155,.08)",
+          "&:hover": { borderColor: "rgba(255,108,98,.58)", bgcolor: "rgba(18,12,15,.78)" },
+        }}
+      >
+        نمایشگاه ایران هلث
+      </MagneticButton>
     </Box>
   );
 }
@@ -92,9 +121,12 @@ export default function Header() {
           <LiquidGlass intensity={scrolled ? "strong" : "subtle"} sx={{ overflow: "visible", borderRadius: { xs: 4, md: 5 }, px: { xs: 1.5, md: 2 }, py: scrolled ? 1 : 1.25, pointerEvents: "auto", transition: "padding .3s ease", "&::before": { display: "none" } }}>
             <Box sx={{ minHeight: 52, display: "flex", alignItems: "center", justifyContent: "space-between", gap: 2 }}>
               <Box sx={{ display: { xs: "flex", md: "none" }, alignItems: "center" }}>
-                <IconButton aria-label="باز کردن منو" onClick={() => setMenuOpen(true)} color="inherit"><MenuRoundedIcon /></IconButton>
+                <IconButton className="header-icon-action" aria-label="باز کردن منو" onClick={() => setMenuOpen(true)} color="inherit"><MenuRoundedIcon /></IconButton>
               </Box>
-              <Brand />
+              <Stack direction="row" alignItems="center" useFlexGap gap={{ md: 2.25 }}>
+                <Brand />
+                <Box sx={{ display: { xs: "none", md: "block" } }}><ExhibitionButton /></Box>
+              </Stack>
 
               <Box component="nav" aria-label="منوی اصلی" sx={{ display: { xs: "none", md: "flex" }, alignItems: "center", justifyContent: "center", gap: { md: 2.2, lg: 3.5 }, flex: 1 }}>
                 {navLinks.filter((item) => item.href !== "/contact" && item.href !== "/blog").map((item) => item.href === "/categories" ? (
@@ -115,8 +147,11 @@ export default function Header() {
                 ) : <Typography key={item.href} component={Link} href={item.href} variant="body2" sx={{ color: "text.secondary", transition: ".2s", "&:hover": { color: "primary.main" } }}>{item.title}</Typography>)}
               </Box>
 
-              <Box sx={{ display: { xs: "none", md: "block" } }}><MagneticButton href="/contact" variant="contained" size="small">تماس با ما</MagneticButton></Box>
-              <IconButton component={Link} href="/search" aria-label="جستجو" color="inherit" sx={{ display: { xs: "inline-flex", md: "none" } }}><SearchRoundedIcon /></IconButton>
+              <Stack direction="row" alignItems="center" useFlexGap gap={1.25} sx={{ display: { xs: "none", md: "flex" }, flexShrink: 0 }}>
+                <IconButton className="header-icon-action" component={Link} href="/search" aria-label="جستجو در سایت" color="inherit"><SearchRoundedIcon /></IconButton>
+                <Box><MagneticButton href="/contact" variant="contained" size="small">تماس با ما</MagneticButton></Box>
+              </Stack>
+              <IconButton className="header-icon-action" component={Link} href="/search" aria-label="جستجو در سایت" color="inherit" sx={{ display: { xs: "inline-flex", md: "none" } }}><SearchRoundedIcon /></IconButton>
             </Box>
           </LiquidGlass>
         </Container>
@@ -125,10 +160,11 @@ export default function Header() {
       {menuOpen && (
           <Box className="overlay-enter" onClick={() => setMenuOpen(false)} sx={{ position: "fixed", inset: 0, zIndex: 1400, p: 1.5, bgcolor: "rgba(2,5,11,.58)", display: "flex", alignItems: "flex-start" }}>
             <LiquidGlass className="mobile-menu-enter" intensity="strong" onClick={(event) => event.stopPropagation()} sx={{ width: "100%", maxHeight: "calc(100svh - 24px)", overflowY: "auto", borderRadius: 5, p: 2.5 }}>
-              <Stack direction="row" justifyContent="space-between" alignItems="center"><Brand /><IconButton aria-label="بستن منو" onClick={() => setMenuOpen(false)} color="inherit"><CloseRoundedIcon /></IconButton></Stack>
+              <Stack direction="row" justifyContent="space-between" alignItems="center" useFlexGap gap={2}><Brand /><IconButton className="header-icon-action" aria-label="بستن منو" onClick={() => setMenuOpen(false)} color="inherit"><CloseRoundedIcon /></IconButton></Stack>
               <Stack component="nav" spacing={.5} sx={{ mt: 3 }}>
                 {navLinks.map((item, index) => <Box key={item.href} className="mobile-link-enter" sx={{ animationDelay: `${index * 40}ms` }}><Typography component={Link} href={item.href} onClick={() => setMenuOpen(false)} sx={{ display: "block", py: 1.25, borderBottom: "1px solid rgba(255,255,255,.07)", color: "text.secondary", fontSize: "1.05rem" }}>{item.title}</Typography></Box>)}
               </Stack>
+              <Box sx={{ mt: 2.5 }}><ExhibitionButton fullWidth onClick={() => setMenuOpen(false)} /></Box>
               <Box sx={{ mt: 3 }}><MagneticButton href="/contact" onClick={() => setMenuOpen(false)} variant="contained" fullWidth>درخواست مشاوره</MagneticButton></Box>
             </LiquidGlass>
           </Box>

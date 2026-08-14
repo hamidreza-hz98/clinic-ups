@@ -47,6 +47,15 @@ export default function getComponents(theme) {
           textTransform: "none",
           fontWeight: 600,
           boxShadow: "none",
+          gap: 8,
+          "& .MuiButton-startIcon": {
+            marginRight: 0,
+            marginLeft: 2,
+          },
+          "& .MuiButton-endIcon": {
+            marginRight: 2,
+            marginLeft: 0,
+          },
         },
         // containedPrimary: {
         //   color: "#000000",
@@ -54,6 +63,15 @@ export default function getComponents(theme) {
         //     backgroundColor: "#e1b11f",
         //   },
         // },
+      },
+    },
+
+    MuiIconButton: {
+      styleOverrides: {
+        root: {
+          flexShrink: 0,
+          transition: "color .2s ease, background-color .2s ease, border-color .2s ease, transform .2s ease",
+        },
       },
     },
 
