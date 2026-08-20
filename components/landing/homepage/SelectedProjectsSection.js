@@ -32,6 +32,7 @@ export default function SelectedProjectsSection({ projects = [] }) {
   const reduceMotion = useMediaQuery("(prefers-reduced-motion: reduce)");
   const [activeIndex, setActiveIndex] = useState(0);
   const [paused, setPaused] = useState(false);
+  const [interactionKey, setInteractionKey] = useState(0);
 
   useEffect(() => {
     if (paused || reduceMotion || selectedProjects.length < 2) return;
@@ -40,11 +41,12 @@ export default function SelectedProjectsSection({ projects = [] }) {
       4800,
     );
     return () => window.clearInterval(timer);
-  }, [paused, reduceMotion, selectedProjects.length]);
+  }, [paused, reduceMotion, selectedProjects.length, interactionKey]);
 
   const move = (direction) => {
     if (!selectedProjects.length) return;
     setActiveIndex((current) => (current + direction + selectedProjects.length) % selectedProjects.length);
+    setInteractionKey((current) => current + 1);
   };
 
   return (
@@ -88,8 +90,8 @@ export default function SelectedProjectsSection({ projects = [] }) {
             role="region"
             aria-roledescription="carousel"
             aria-label="پروژه‌های منتخب"
-            onPointerEnter={() => setPaused(true)}
-            onPointerLeave={() => setPaused(false)}
+            onFocusCapture={() => setPaused(true)}
+            onBlurCapture={() => setPaused(false)}
           >
             {selectedProjects.map((project, index) => {
               const relative = getRelativeIndex(index, activeIndex, selectedProjects.length);
@@ -158,10 +160,10 @@ export default function SelectedProjectsSection({ projects = [] }) {
             {selectedProjects.length > 1 && (
               <>
                 <IconButton className="selected-project-nav is-next" aria-label="پروژه بعدی" onClick={() => move(1)}>
-                  <ArrowBackRoundedIcon />
+                  <ArrowForwardRoundedIcon />
                 </IconButton>
                 <IconButton className="selected-project-nav is-prev" aria-label="پروژه قبلی" onClick={() => move(-1)}>
-                  <ArrowForwardRoundedIcon />
+                  <ArrowBackRoundedIcon />
                 </IconButton>
               </>
             )}

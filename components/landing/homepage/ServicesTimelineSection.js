@@ -128,7 +128,7 @@ export default function ServicesTimelineSection() {
               sx={{ mb: 2.5, bgcolor: "rgba(0,219,231,.05)", borderColor: "rgba(0,219,231,.24)" }}
             />
             <Typography component="h2" variant="h2" sx={{ fontSize: { xs: "2.35rem", md: "3.8rem" }, mb: 2 }}>
-              خدمات تخصصی <Box component="span" sx={{ color: "primary.main" }}>کلینیک انرژی</Box>
+              خدمات تخصصی <Box component="span" sx={{ color: "primary.main" }}>کلینیک یو پی اس</Box>
             </Typography>
             <Typography color="text.secondary" sx={{ maxWidth: 700, fontSize: { xs: ".95rem", md: "1.08rem" }, lineHeight: 2 }}>
               فراتر از فروش، در تمام مراحل طراحی، تأمین، تعمیر و پایداری شبکه توزیع انرژی همراه شما هستیم.

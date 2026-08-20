@@ -19,7 +19,7 @@ export default function Footer() {
         <Box sx={{ display: "grid", gridTemplateColumns: { xs: "1fr", sm: "1.25fr 1fr", md: "1.6fr .8fr .8fr 1.2fr" }, gap: 5 }}>
           <Box>
             <Stack component={Link} href="/" direction="row" alignItems="center" spacing={1.5} sx={{ width: "fit-content" }}>
-              <Box component="img" src="/images/logo.png" alt="" sx={{ width: 58, height: 58, objectFit: "contain" }} />
+              <Box component="img" src="/images/logo/logo.svg" alt="کلینیک یو پی اس" sx={{ width: 164, height: "auto", objectFit: "contain", filter: "drop-shadow(0 0 6px rgba(0,219,231,.55)) drop-shadow(0 0 4px rgba(255,48,64,.4))" }} />
               <Box><Typography variant="h5">کلینیک یو پی اس</Typography><Typography variant="caption" color="primary.main" sx={{ direction: "ltr", display: "block" }}>CLINIC UPS</Typography></Box>
             </Stack>
             <Typography color="text.secondary" sx={{ mt: 2.5, maxWidth: 430, lineHeight: 2 }}>بیش از ۲۲ سال تجربه در طراحی، تأمین و پشتیبانی راهکارهای برق اضطراری برای مراکز درمانی، صنعتی و زیرساخت‌های حساس.</Typography>

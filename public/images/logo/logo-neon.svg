@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 10531.5 2598.43" role="img" aria-labelledby="title">
+  <title id="title">Clinic UPS neon logo</title>
+  <defs>
+    <filter id="neon" x="-20%" y="-70%" width="140%" height="240%" color-interpolation-filters="sRGB">
+      <feGaussianBlur in="SourceAlpha" stdDeviation="72" result="wideBlur"/>
+      <feFlood flood-color="#00dbe7" flood-opacity="0.72" result="cyan"/>
+      <feComposite in="cyan" in2="wideBlur" operator="in" result="cyanGlow"/>
+      <feGaussianBlur in="SourceAlpha" stdDeviation="25" result="tightBlur"/>
+      <feFlood flood-color="#ff3040" flood-opacity="0.76" result="red"/>
+      <feComposite in="red" in2="tightBlur" operator="in" result="redGlow"/>
+      <feMerge>
+        <feMergeNode in="cyanGlow"/>
+        <feMergeNode in="redGlow"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+  <image href="/images/logo/logo.svg" width="10531.5" height="2598.43" preserveAspectRatio="xMidYMid meet" filter="url(#neon)"/>
+</svg>

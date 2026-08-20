@@ -20,6 +20,7 @@ import { getAllCategories } from "@/app/actions/category";
 import { navLinks } from "@/constants/landing/routes";
 import LiquidGlass from "../ui/LiquidGlass";
 import MagneticButton from "../ui/MagneticButton";
+import NeonLogo from "../ui/NeonLogo";
 
 const fallbackProducts = [
   { title: "یو‌پی‌اس", href: "/categories", icon: <PowerRoundedIcon /> },
@@ -43,12 +44,7 @@ function Brand() {
       aria-label="کلینیک یو پی اس، صفحه اصلی"
       sx={{ display: "flex", alignItems: "center", flexShrink: 0 }}
     >
-      <Box
-        component="img"
-        src="/images/logo/logo.svg"
-        alt="کلینیک یو پی اس"
-        sx={{ width: { xs: 148, sm: 172 }, height: "auto", display: "block" }}
-      />
+      <NeonLogo sx={{ width: { xs: 148, sm: 172 } }} />
     </Box>
   );
 }
@@ -75,7 +71,7 @@ function ExhibitionButton({ onClick, fullWidth = false }) {
           "&:hover": { borderColor: "rgba(255,108,98,.58)", bgcolor: "rgba(18,12,15,.78)" },
         }}
       >
-        نمایشگاه ایران هلث
+        کنگره کیفیت آزمایشگاهی
       </MagneticButton>
     </Box>
   );

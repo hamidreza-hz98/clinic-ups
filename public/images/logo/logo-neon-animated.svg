@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 10531.5 2598.43" role="img" aria-labelledby="title">
+  <title id="title">Animated Clinic UPS neon logo</title>
+  <defs>
+    <filter id="animatedNeon" x="-20%" y="-70%" width="140%" height="240%" color-interpolation-filters="sRGB">
+      <feGaussianBlur in="SourceAlpha" stdDeviation="54" result="blur">
+        <animate attributeName="stdDeviation" values="48;76;54;68;48" dur="3.8s" repeatCount="indefinite"/>
+      </feGaussianBlur>
+      <feFlood flood-color="#00dbe7" flood-opacity="0.82" result="cyan"/>
+      <feComposite in="cyan" in2="blur" operator="in" result="cyanGlow"/>
+      <feGaussianBlur in="SourceAlpha" stdDeviation="20" result="redBlur"/>
+      <feFlood flood-color="#ff3040" flood-opacity="0.78" result="red"/>
+      <feComposite in="red" in2="redBlur" operator="in" result="redGlow"/>
+      <feMerge>
+        <feMergeNode in="cyanGlow"/>
+        <feMergeNode in="redGlow"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+  <g filter="url(#animatedNeon)">
+    <animate attributeName="opacity" values="1;.9;1;.96;1" dur="2.6s" repeatCount="indefinite"/>
+    <image href="/images/logo/logo.svg" width="10531.5" height="2598.43" preserveAspectRatio="xMidYMid meet"/>
+  </g>
+</svg>

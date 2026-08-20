@@ -132,7 +132,7 @@ export const afterSaleBenefits = [
       en: "Project Design and Implementation",
     },
     description: {
-      fa: "کلینیک کووات حاضر به طراحی و اجرای پروژه های گوناگون می باشد.",
+      fa: "کلینیک یو پی اس آماده طراحی و اجرای پروژه‌های گوناگون است.",
       ar: "عيادة كووات مستعدة لتصميم وتنفيذ مشاريع متنوعة.",
       en: "Kuvat Clinic is ready to design and implement various projects.",
     }

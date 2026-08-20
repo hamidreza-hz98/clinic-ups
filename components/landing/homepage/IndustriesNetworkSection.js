@@ -4,10 +4,15 @@ import { useEffect, useRef, useState } from "react";
 import { Box, Container, Stack, Typography } from "@mui/material";
 import AccountBalanceRoundedIcon from "@mui/icons-material/AccountBalanceRounded";
 import ApartmentRoundedIcon from "@mui/icons-material/ApartmentRounded";
+import BusinessRoundedIcon from "@mui/icons-material/BusinessRounded";
+import FlightTakeoffRoundedIcon from "@mui/icons-material/FlightTakeoffRounded";
 import DnsRoundedIcon from "@mui/icons-material/DnsRounded";
 import FactoryRoundedIcon from "@mui/icons-material/FactoryRounded";
+import LocalHospitalRoundedIcon from "@mui/icons-material/LocalHospitalRounded";
 import MedicalServicesRoundedIcon from "@mui/icons-material/MedicalServicesRounded";
+import ScienceRoundedIcon from "@mui/icons-material/ScienceRounded";
 import SatelliteAltRoundedIcon from "@mui/icons-material/SatelliteAltRounded";
+import SolarPowerRoundedIcon from "@mui/icons-material/SolarPowerRounded";
 import { MdElectricBolt } from "react-icons/md";
 import LiquidGlass from "../ui/LiquidGlass";
 
@@ -18,8 +23,35 @@ const industries = [
     description: "تضمین برق بدون وقفه برای اتاق‌های عمل و تجهیزات حساس پزشکی و نگهداری علائم حیاتی.",
     Icon: MedicalServicesRoundedIcon,
     color: "#00dbe7",
+    position: "top-far-left",
+    path: "M600 500 L130 90",
+  },
+  {
+    id: "laboratories",
+    title: "آزمایشگاه‌ها",
+    description: "تأمین برق پاک برای آنالایزرها، زنجیره سرد نمونه‌ها و جلوگیری از تکرار آزمون‌های حساس.",
+    Icon: ScienceRoundedIcon,
+    color: "#57e39b",
     position: "top-left",
-    path: "M600 400 L250 150",
+    path: "M600 500 L380 85",
+  },
+  {
+    id: "medical-centers",
+    title: "مراکز درمانی",
+    description: "تداوم خدمت تجهیزات تصویربرداری، آزمایشگاهی و مراقبتی هنگام افت ولتاژ یا قطعی شبکه.",
+    Icon: LocalHospitalRoundedIcon,
+    color: "#ffb4a9",
+    position: "top-right",
+    path: "M600 500 L820 85",
+  },
+  {
+    id: "offices",
+    title: "اداره‌ها و سازمان‌ها",
+    description: "حفظ سامانه‌های اتوماسیون، شبکه، امنیت و خدمات مراجعان بدون وقفه در ساعات کاری.",
+    Icon: BusinessRoundedIcon,
+    color: "#ffd06f",
+    position: "top-far-right",
+    path: "M600 500 L1070 90",
   },
   {
     id: "factories",
@@ -27,8 +59,8 @@ const industries = [
     description: "حفاظت از خطوط تولید اتوماتیک و جلوگیری از خسارات سنگین ناشی از نوسانات لحظه‌ای برق.",
     Icon: FactoryRoundedIcon,
     color: "#a7c8ff",
-    position: "top-right",
-    path: "M600 400 L950 150",
+    position: "upper-left",
+    path: "M600 500 L70 310",
   },
   {
     id: "datacenters",
@@ -36,8 +68,8 @@ const industries = [
     description: "پایداری ۱۰۰ درصدی برای سرورها و تجهیزات شبکه جهت جلوگیری از قطع خدمات آنلاین.",
     Icon: DnsRoundedIcon,
     color: "#ffb4a9",
-    position: "middle-left",
-    path: "M600 400 L150 400",
+    position: "upper-right",
+    path: "M600 500 L1130 310",
   },
   {
     id: "banks",
@@ -45,8 +77,8 @@ const industries = [
     description: "امنیت انرژی برای سیستم‌های تراکنش مالی و خودپردازها در سراسر شبکه بانکی کشور.",
     Icon: AccountBalanceRoundedIcon,
     color: "#00dbe7",
-    position: "middle-right",
-    path: "M600 400 L1050 400",
+    position: "lower-left",
+    path: "M600 500 L70 690",
   },
   {
     id: "telecom",
@@ -54,17 +86,44 @@ const industries = [
     description: "تامین توان پشتیبان برای دکل‌های BTS و مراکز سوئیچینگ مخابراتی در شرایط بحرانی.",
     Icon: SatelliteAltRoundedIcon,
     color: "#a7c8ff",
+    position: "lower-right",
+    path: "M600 500 L1130 690",
+  },
+  {
+    id: "power-plants",
+    title: "نیروگاه‌ها",
+    description: "پشتیبانی سامانه‌های کنترل، حفاظت، ابزار دقیق و راه‌اندازی ایمن تجهیزات در رخدادهای شبکه.",
+    Icon: SolarPowerRoundedIcon,
+    color: "#57e39b",
+    position: "bottom-far-left",
+    path: "M600 500 L170 930",
+  },
+  {
+    id: "airports",
+    title: "فرودگاه‌ها",
+    description: "تداوم برق ناوبری، روشنایی باند، کنترل ترافیک، بازرسی و سامانه‌های اطلاعات پرواز.",
+    Icon: FlightTakeoffRoundedIcon,
+    color: "#8fb7ff",
     position: "bottom-left",
-    path: "M600 400 L300 650",
+    path: "M600 500 L420 940",
   },
   {
     id: "commercial",
     title: "مجتمع‌های تجاری",
-    description: "مدیریت مصرف و پایداری سیستم‌های سرمایشی، گرمایشی و آسانسورها در برج‌های اداری.",
+    description: "پایداری آسانسورها، دوربین‌ها، صندوق‌ها، اعلام حریق و زیرساخت فناوری در زمان قطعی برق.",
     Icon: ApartmentRoundedIcon,
     color: "#ffb4a9",
     position: "bottom-right",
-    path: "M600 400 L900 650",
+    path: "M600 500 L780 940",
+  },
+  {
+    id: "public-services",
+    title: "مراکز خدمات عمومی",
+    description: "حفظ مراکز تماس، سامانه‌های پاسخ‌گویی و زیرساخت‌های شهری در بحران و خاموشی گسترده.",
+    Icon: AccountBalanceRoundedIcon,
+    color: "#ffd06f",
+    position: "bottom-far-right",
+    path: "M600 500 L1030 930",
   },
 ];
 
@@ -154,7 +213,7 @@ export default function IndustriesNetworkSection() {
         </Box>
 
         <Box className="industries-network-stage">
-          <Box component="svg" className="industries-energy-map" viewBox="0 0 1200 800" aria-hidden>
+          <Box component="svg" className="industries-energy-map" viewBox="0 0 1200 1000" aria-hidden>
             {industries.map((industry, index) => (
               <g key={industry.id}>
                 <path

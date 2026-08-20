@@ -3,8 +3,8 @@ import { getAllProjects } from "@/app/actions/project";
 import TehranExhibitionPage from "@/components/landing/tehran-exhibition/TehranExhibitionPage";
 
 export const metadata = {
-  title: "کلینیک یو پی اس در نمایشگاه ایران هلث",
-  description: "معرفی راهکارهای برق اضطراری کلینیک یو پی اس برای بیمارستان‌ها، کلینیک‌ها و آزمایشگاه‌ها در نمایشگاه ایران هلث تهران.",
+  title: "ارتقای کیفیت خدمات آزمایشگاهی تشخیص پزشکی ایران",
+  description: "معرفی راهکارهای برق اضطراری کلینیک یو پی اس برای آزمایشگاه‌ها و مراکز تشخیص پزشکی در کنگره ارتقای کیفیت خدمات آزمایشگاهی تشخیص پزشکی ایران.",
 };
 
 export default async function Page() {
