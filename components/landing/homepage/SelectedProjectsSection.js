@@ -56,9 +56,9 @@ export default function SelectedProjectsSection({ projects = [] }) {
       sx={{
         position: "relative",
         overflow: "hidden",
-        bgcolor: "#0B0F17",
+        bgcolor: "background.paper",
         py: { xs: 10, md: 14 },
-        borderTop: "1px solid rgba(143,183,255,.08)",
+        borderTop: "1px solid rgba(var(--landing-secondary-rgb),.08)",
       }}
     >
       <Box className="selected-projects-texture" aria-hidden />
@@ -129,7 +129,7 @@ export default function SelectedProjectsSection({ projects = [] }) {
                       <Typography color="text.secondary" sx={{ maxWidth: 640, lineHeight: 1.9, mb: 2.5, display: { xs: "none", sm: "block" } }}>
                         {project.excerpt || "اجرای تخصصی راهکارهای برق اضطراری و پایداری انرژی متناسب با الزامات پروژه."}
                       </Typography>
-                      <Stack direction="row" alignItems="center" spacing={3} sx={{ pt: 2, borderTop: "1px solid rgba(255,255,255,.12)" }}>
+                      <Stack direction="row" alignItems="center" spacing={3} sx={{ pt: 2, borderTop: "1px solid rgba(var(--landing-contrast-rgb),.12)" }}>
                         {project.customer && (
                           <Box>
                             <Typography className="selected-project-meta-label">کارفرما</Typography>

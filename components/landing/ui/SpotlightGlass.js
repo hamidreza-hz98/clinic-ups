@@ -31,11 +31,13 @@ export default function SpotlightGlass({ children, sx, onPointerMove, onPointerL
         "--spotlight-x": "50%",
         "--spotlight-y": "50%",
         "--spotlight-opacity": 0,
-        "&::before": {
-          background: "radial-gradient(420px circle at var(--spotlight-x) var(--spotlight-y), rgba(120,245,255,.18), transparent 42%), linear-gradient(110deg, transparent 15%, rgba(255,255,255,.055) 46%, transparent 72%)",
+        "&::before": (theme) => ({
+          background: theme.palette.mode === "light"
+            ? "radial-gradient(420px circle at var(--spotlight-x) var(--spotlight-y), rgba(1,65,126,.12), transparent 42%), linear-gradient(110deg, transparent 15%, rgba(var(--landing-contrast-rgb),.48) 46%, transparent 72%)"
+            : "radial-gradient(420px circle at var(--spotlight-x) var(--spotlight-y), rgba(120,245,255,.18), transparent 42%), linear-gradient(110deg, transparent 15%, rgba(var(--landing-contrast-rgb),.055) 46%, transparent 72%)",
           opacity: "var(--spotlight-opacity)",
           transition: "opacity .35s ease",
-        },
+        }),
         ...sx,
       }}
       {...props}

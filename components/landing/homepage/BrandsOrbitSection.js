@@ -277,11 +277,11 @@ export default function BrandsOrbitSection() {
       sx={{
         position: "relative",
         overflow: "hidden",
-        bgcolor: "#070B13",
+        bgcolor: "background.default",
         py: { xs: 10, md: 14 },
-        borderTop: "1px solid rgba(143,183,255,.08)",
+        borderTop: "1px solid rgba(var(--landing-secondary-rgb),.08)",
         backgroundImage:
-          "linear-gradient(rgba(143,189,255,.025) 1px, transparent 1px), linear-gradient(90deg, rgba(143,189,255,.025) 1px, transparent 1px)",
+          "linear-gradient(rgba(var(--landing-grid-rgb),.025) 1px, transparent 1px), linear-gradient(90deg, rgba(var(--landing-grid-rgb),.025) 1px, transparent 1px)",
         backgroundSize: "44px 44px",
       }}
     >
@@ -293,7 +293,7 @@ export default function BrandsOrbitSection() {
             label="شبکه‌ای از همکاری‌های معتبر"
             variant="outlined"
             color="primary"
-            sx={{ mb: 2, bgcolor: "rgba(0,219,231,.05)", borderColor: "rgba(0,219,231,.24)" }}
+            sx={{ mb: 2, bgcolor: "rgba(var(--landing-accent-rgb),.05)", borderColor: "rgba(var(--landing-accent-rgb),.24)" }}
           />
           <Typography component="h2" variant="h2" sx={{ fontSize: { xs: "2.3rem", md: "3.65rem" }, mb: 1.5 }}>
             برندها و سازمان‌هایی که به ما اعتماد کرده‌اند

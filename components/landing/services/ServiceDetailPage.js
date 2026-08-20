@@ -213,7 +213,7 @@ function ServiceContentSection({ section, index }) {
       component="section"
       sx={{
         py: { xs: 8, md: 12 },
-        borderTop: index ? "1px solid rgba(143,183,255,.07)" : "none",
+        borderTop: index ? "1px solid rgba(var(--landing-secondary-rgb),.07)" : "none",
       }}
     >
       <SectionHeading
@@ -262,7 +262,7 @@ export default function ServiceDetailPage({ service, content }) {
         "--page-accent": service.color,
         position: "relative",
         overflow: "hidden",
-        bgcolor: "#070B12",
+        bgcolor: "background.default",
         color: "text.primary",
       }}
     >
@@ -286,7 +286,7 @@ export default function ServiceDetailPage({ service, content }) {
             inset: 0,
             zIndex: 0,
             background:
-              "linear-gradient(180deg, rgba(7,11,18,.2), #070B12 96%), radial-gradient(circle at 75% 45%, color-mix(in srgb, var(--page-accent) 11%, transparent), transparent 34%)",
+              "linear-gradient(180deg, rgba(7,11,18,.2), var(--landing-bg) 96%), radial-gradient(circle at 75% 45%, color-mix(in srgb, var(--page-accent) 11%, transparent), transparent 34%)",
           }}
         />
 
@@ -360,7 +360,7 @@ export default function ServiceDetailPage({ service, content }) {
                 >
                   {content.ctaLabel || "درخواست مشاوره تخصصی"}
                 </MagneticButton>
-                <MagneticButton href="/products" variant="outlined" sx={{ borderColor: "rgba(255,255,255,.18)", color: "text.primary" }}>
+                <MagneticButton href="/products" variant="outlined" sx={{ borderColor: "rgba(var(--landing-contrast-rgb),.18)", color: "text.primary" }}>
                   مشاهده محصولات
                 </MagneticButton>
               </Stack>
@@ -381,7 +381,7 @@ export default function ServiceDetailPage({ service, content }) {
               <Box className="landing-top-banner-overlay" sx={{ position: "absolute", inset: 0 }} />
               <Stack direction="row" spacing={1.2} sx={{ position: "absolute", right: 28, left: 28, bottom: 26, flexWrap: "wrap", gap: 1 }}>
                 {(content.metrics || []).map((metric) => (
-                  <Chip key={metric} label={metric} size="small" sx={{ bgcolor: "rgba(5,12,20,.62)", border: "1px solid rgba(255,255,255,.14)", backdropFilter: "blur(12px)" }} />
+                  <Chip key={metric} label={metric} size="small" sx={{ bgcolor: "rgba(5,12,20,.62)", border: "1px solid rgba(var(--landing-contrast-rgb),.14)", backdropFilter: "blur(12px)" }} />
                 ))}
               </Stack>
             </SpotlightGlass>

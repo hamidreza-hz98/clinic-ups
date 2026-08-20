@@ -71,16 +71,16 @@ export default function ContactPageWrapper() {
   };
 
   return (
-    <Box ref={rootRef} sx={{ overflow: "hidden", bgcolor: "#070B12", color: "text.primary" }}>
+    <Box ref={rootRef} sx={{ overflow: "hidden", bgcolor: "background.default", color: "text.primary" }}>
       <Box component="section" sx={{ position: "relative", isolation: "isolate", minHeight: { xs: 800, md: 850 }, pt: { xs: 15, md: 17 }, pb: { xs: 9, md: 12 }, display: "flex", alignItems: "center" }}>
         <EnergyShaderBackground />
         <Box className="selected-projects-texture" aria-hidden />
-        <Box aria-hidden sx={{ position: "absolute", inset: 0, zIndex: 0, background: "radial-gradient(circle at 72% 46%, rgba(0,219,231,.13), transparent 31%), linear-gradient(180deg, transparent 50%, #070B12 100%)" }} />
+        <Box aria-hidden sx={{ position: "absolute", inset: 0, zIndex: 0, background: "radial-gradient(circle at 72% 46%, rgba(var(--landing-accent-rgb),.13), transparent 31%), linear-gradient(180deg, transparent 50%, var(--landing-bg) 100%)" }} />
 
         <Container maxWidth="xl" sx={{ position: "relative", zIndex: 1 }}>
           <Box sx={{ display: "grid", gridTemplateColumns: { xs: "1fr", md: "7fr 5fr" }, gap: { xs: 6, md: 8 }, alignItems: "center" }}>
             <Box>
-              <Chip icon={<SupportAgentRoundedIcon />} label="HUMAN SUPPORT / REAL ENGINEERS" variant="outlined" className="hero-reveal hero-reveal-1" sx={{ mb: 3, direction: "ltr", color: "primary.light", borderColor: "rgba(0,219,231,.28)", bgcolor: "rgba(0,219,231,.055)", "& .MuiChip-icon": { color: "primary.main" } }} />
+              <Chip icon={<SupportAgentRoundedIcon />} label="HUMAN SUPPORT / REAL ENGINEERS" variant="outlined" className="hero-reveal hero-reveal-1" sx={{ mb: 3, direction: "ltr", color: "primary.light", borderColor: "rgba(var(--landing-accent-rgb),.28)", bgcolor: "rgba(var(--landing-accent-rgb),.055)", "& .MuiChip-icon": { color: "primary.main" } }} />
               <Typography component="h1" variant="h1" className="hero-reveal hero-reveal-2" sx={{ fontSize: { xs: "3rem", sm: "4rem", md: "5.8rem" }, lineHeight: 1.13, mb: 2.5 }}>
                 یک ارتباط،
                 <Box component="span" sx={{ display: "block", color: "primary.main" }}>تا راهکار پایدار</Box>
@@ -108,14 +108,14 @@ export default function ContactPageWrapper() {
         </Container>
       </Box>
 
-      <Box component="section" sx={{ position: "relative", py: { xs: 9, md: 14 }, bgcolor: "#0A0F17", borderTop: "1px solid rgba(143,183,255,.08)" }}>
+      <Box component="section" sx={{ position: "relative", py: { xs: 9, md: 14 }, bgcolor: "background.paper", borderTop: "1px solid rgba(var(--landing-secondary-rgb),.08)" }}>
         <Box className="contact-section-grid" aria-hidden />
         <Container maxWidth="xl" sx={{ position: "relative", zIndex: 1 }}>
           <Box className="contact-page-reveal" sx={{ textAlign: "center", mb: { xs: 6, md: 8 } }}><Typography sx={{ color: "primary.main", fontFamily: "monospace", direction: "ltr", letterSpacing: ".12em", fontSize: ".7rem", mb: 1 }}>CHOOSE YOUR CHANNEL</Typography><Typography component="h2" variant="h2" sx={{ fontSize: { xs: "2.4rem", md: "3.7rem" }, mb: 1.5 }}>{text("contact_contact_info")}</Typography><Typography color="text.secondary">از سریع‌ترین مسیر مناسب خود با تیم ما در تماس باشید</Typography></Box>
           <Box sx={{ display: "grid", gridTemplateColumns: { xs: "1fr", sm: "repeat(2, minmax(0, 1fr))", lg: "repeat(5, minmax(0, 1fr))" }, gap: 2 }}>
             {contactItems.map((item, index) => {
               const Icon = item.icon;
-              return <SpotlightGlass key={item.id} component="a" href={item.address} target={item.target} rel="noreferrer" intensity="medium" interactive className="contact-page-reveal" sx={{ "--contact-reveal-delay": `${index * 70}ms`, p: 3, minHeight: 190, borderRadius: 4.5, color: "inherit", display: "flex", flexDirection: "column", justifyContent: "space-between" }}><Box sx={{ display: "contents" }}><Box sx={{ width: 48, height: 48, display: "grid", placeItems: "center", borderRadius: 3, color: "primary.main", bgcolor: "rgba(0,219,231,.08)", border: "1px solid rgba(0,219,231,.18)" }}><Icon size={24} /></Box><Box><Typography sx={{ fontWeight: 800, overflowWrap: "anywhere" }}>{faText(item.name)}</Typography><Stack direction="row" alignItems="center" spacing={.6} sx={{ color: "primary.main", mt: 1 }}><Typography sx={{ fontSize: ".68rem" }}>اتصال مستقیم</Typography><ArrowBackRoundedIcon sx={{ fontSize: 16 }} /></Stack></Box></Box></SpotlightGlass>;
+              return <SpotlightGlass key={item.id} component="a" href={item.address} target={item.target} rel="noreferrer" intensity="medium" interactive className="contact-page-reveal" sx={{ "--contact-reveal-delay": `${index * 70}ms`, p: 3, minHeight: 190, borderRadius: 4.5, color: "inherit", display: "flex", flexDirection: "column", justifyContent: "space-between" }}><Box sx={{ display: "contents" }}><Box sx={{ width: 48, height: 48, display: "grid", placeItems: "center", borderRadius: 3, color: "primary.main", bgcolor: "rgba(var(--landing-accent-rgb),.08)", border: "1px solid rgba(var(--landing-accent-rgb),.18)" }}><Icon size={24} /></Box><Box><Typography sx={{ fontWeight: 800, overflowWrap: "anywhere" }}>{faText(item.name)}</Typography><Stack direction="row" alignItems="center" spacing={.6} sx={{ color: "primary.main", mt: 1 }}><Typography sx={{ fontSize: ".68rem" }}>اتصال مستقیم</Typography><ArrowBackRoundedIcon sx={{ fontSize: 16 }} /></Stack></Box></Box></SpotlightGlass>;
             })}
           </Box>
 
@@ -125,7 +125,7 @@ export default function ContactPageWrapper() {
         </Container>
       </Box>
 
-      <Box component="section" id="contact-form" sx={{ position: "relative", py: { xs: 9, md: 14 }, bgcolor: "#070B12", scrollMarginTop: 100 }}>
+      <Box component="section" id="contact-form" sx={{ position: "relative", py: { xs: 9, md: 14 }, bgcolor: "background.default", scrollMarginTop: 100 }}>
         <Container maxWidth="xl">
           <Box sx={{ display: "grid", gridTemplateColumns: { xs: "1fr", lg: "5fr 7fr" }, gap: { xs: 5, lg: 6 }, alignItems: "stretch" }}>
             <Box className="contact-page-reveal">
@@ -153,12 +153,12 @@ export default function ContactPageWrapper() {
         </Container>
       </Box>
 
-      <Box component="section" sx={{ position: "relative", pb: { xs: 10, md: 14 }, bgcolor: "#070B12" }}>
+      <Box component="section" sx={{ position: "relative", pb: { xs: 10, md: 14 }, bgcolor: "background.default" }}>
         <Container maxWidth="xl">
           <SpotlightGlass intensity="strong" className="contact-map-shell contact-page-reveal" sx={{ p: 1.2, borderRadius: 6 }}>
             <Box sx={{ display: "contents" }}>
               <Box component="iframe" src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d340.4804773317585!2d51.35200330507165!3d35.7209441133774!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sde!2sde!4v1734849777861!5m2!1sde!2sde" title="موقعیت شرکت کلینیک یو پی اس" allowFullScreen loading="lazy" referrerPolicy="no-referrer-when-downgrade" sx={{ width: "100%", height: { xs: 420, md: 560 }, display: "block", border: 0, borderRadius: 5, filter: "grayscale(.72) invert(.9) hue-rotate(165deg) brightness(.72) contrast(1.15)" }} />
-              <LiquidGlass intensity="strong" sx={{ position: "absolute", right: { xs: 22, md: 34 }, left: { xs: 22, md: "auto" }, bottom: { xs: 22, md: 34 }, width: { md: 390 }, p: 3, borderRadius: 4.5 }}><Stack direction="row" spacing={2} alignItems="flex-start"><Box sx={{ width: 48, height: 48, flex: "0 0 auto", display: "grid", placeItems: "center", borderRadius: 3, bgcolor: "rgba(0,219,231,.09)", color: "primary.main" }}><LocationOnRoundedIcon /></Box><Box><Typography component="h2" variant="h5" sx={{ mb: 1 }}>{text("contact_company_location")}</Typography><Typography color="text.secondary" sx={{ lineHeight: 1.9 }}>{text("contact_address")}</Typography></Box></Stack></LiquidGlass>
+              <LiquidGlass intensity="strong" sx={{ position: "absolute", right: { xs: 22, md: 34 }, left: { xs: 22, md: "auto" }, bottom: { xs: 22, md: 34 }, width: { md: 390 }, p: 3, borderRadius: 4.5 }}><Stack direction="row" spacing={2} alignItems="flex-start"><Box sx={{ width: 48, height: 48, flex: "0 0 auto", display: "grid", placeItems: "center", borderRadius: 3, bgcolor: "rgba(var(--landing-accent-rgb),.09)", color: "primary.main" }}><LocationOnRoundedIcon /></Box><Box><Typography component="h2" variant="h5" sx={{ mb: 1 }}>{text("contact_company_location")}</Typography><Typography color="text.secondary" sx={{ lineHeight: 1.9 }}>{text("contact_address")}</Typography></Box></Stack></LiquidGlass>
             </Box>
           </SpotlightGlass>
         </Container>

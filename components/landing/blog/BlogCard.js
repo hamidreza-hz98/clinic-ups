@@ -62,7 +62,7 @@ export default function BlogCard({ blog, index = 0, featured = false, compact = 
             </Typography>
           )}
 
-          <Stack direction="row" alignItems="center" spacing={{ xs: 1.3, sm: 2 }} useFlexGap flexWrap="wrap" sx={{ pt: 2, borderTop: "1px solid rgba(255,255,255,.12)" }}>
+          <Stack direction="row" alignItems="center" spacing={{ xs: 1.3, sm: 2 }} useFlexGap flexWrap="wrap" sx={{ pt: 2, borderTop: "1px solid rgba(var(--landing-contrast-rgb),.12)" }}>
             <Stack direction="row" alignItems="center" spacing={0.65}>
               <CalendarMonthRoundedIcon sx={{ color: "primary.main", fontSize: 17 }} />
               <Typography sx={{ color: "text.secondary", fontSize: ".72rem" }}>{publishedAt}</Typography>

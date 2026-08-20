@@ -50,29 +50,29 @@ export default function HeroSection() {
         pb: { xs: 14, md: 8 },
         backgroundColor: "background.default",
         backgroundImage:
-          "linear-gradient(rgba(143,189,255,.045) 1px, transparent 1px), linear-gradient(90deg, rgba(143,189,255,.045) 1px, transparent 1px)",
+          "linear-gradient(rgba(var(--landing-grid-rgb),.045) 1px, transparent 1px), linear-gradient(90deg, rgba(var(--landing-grid-rgb),.045) 1px, transparent 1px)",
         backgroundSize: "42px 42px",
         "&::after": {
           content: '""', position: "absolute", inset: 0, pointerEvents: "none",
-          background: "linear-gradient(180deg, transparent 65%, #070b13 100%)",
+          background: "linear-gradient(180deg, transparent 65%, var(--landing-bg) 100%)",
         },
       }}
     >
       <Box
         ref={glowRef}
         aria-hidden
-        sx={{ position: "absolute", left: "50%", top: "45%", width: 520, height: 520, transform: "translate(-50%,-50%)", transition: "left .35s ease-out, top .35s ease-out", borderRadius: "50%", background: "rgba(0,219,231,.09)", filter: "blur(100px)" }}
+        sx={{ position: "absolute", left: "50%", top: "45%", width: 520, height: 520, transform: "translate(-50%,-50%)", transition: "left .35s ease-out, top .35s ease-out", borderRadius: "50%", background: "rgba(var(--landing-accent-rgb),.09)", filter: "blur(100px)" }}
       />
       <Container maxWidth="xl" sx={{ position: "relative", zIndex: 2 }}>
         <Box sx={{ display: "grid", gridTemplateColumns: { xs: "1fr", md: "1.05fr .95fr" }, alignItems: "center", gap: { xs: 4, md: 8 } }}>
           <Stack spacing={{ xs: 2.5, md: 3.5 }} sx={{ order: { xs: 2, md: 1 }, alignItems: "flex-start" }}>
             <Box className="hero-reveal hero-reveal-1">
-              <Chip icon={<BoltRoundedIcon />} label="راهکارهای پایدار انرژی" color="primary" variant="outlined" sx={{ bgcolor: "rgba(0,219,231,.06)", borderColor: "rgba(0,219,231,.28)" }} />
+              <Chip icon={<BoltRoundedIcon />} label="راهکارهای پایدار انرژی" color="primary" variant="outlined" sx={{ bgcolor: "rgba(var(--landing-accent-rgb),.06)", borderColor: "rgba(var(--landing-accent-rgb),.28)" }} />
             </Box>
             <Box>
               <Typography component="h1" className="hero-reveal hero-reveal-2" variant="h1" sx={{ fontSize: { xs: "2.65rem", sm: "3.6rem", md: "clamp(3.7rem,6vw,6.4rem)" }, maxWidth: 820, letterSpacing: "-.045em", lineHeight: 1.08 }}>
                 مدیریت هوشمند
-                <Box component="span" sx={{ display: "block", color: "primary.main", textShadow: "0 0 42px rgba(0,219,231,.24)" }}>انرژی بی‌وقفه</Box>
+                <Box component="span" sx={{ display: "block", color: "primary.main", textShadow: "0 0 42px rgba(var(--landing-accent-rgb),.24)" }}>انرژی بی‌وقفه</Box>
               </Typography>
               <Typography component="p" className="hero-reveal hero-reveal-3" variant="body1" color="text.secondary" sx={{ mt: 2.5, maxWidth: 650, fontSize: { xs: "1rem", md: "1.15rem" }, lineHeight: 2 }}>
                 راهکارهای تخصصی یو‌پی‌اس، باتری و ژنراتور برای زیرساخت‌های حیاتی؛ از طراحی و تأمین تا نصب و پشتیبانی شبانه‌روزی.
@@ -80,7 +80,7 @@ export default function HeroSection() {
             </Box>
             <Stack direction={{ xs: "column", sm: "row" }} useFlexGap gap={2.5} sx={{ width: { xs: "100%", sm: "auto" }, "& > span": { width: { xs: "100%", sm: "auto" } }, "& .MuiButton-root": { width: { xs: "100%", sm: "auto" } } }}>
               <MagneticButton href="/categories" variant="contained" endIcon={<ArrowBackRoundedIcon />}>مشاهده محصولات</MagneticButton>
-              <MagneticButton href="/contact" variant="outlined" startIcon={<HeadsetMicRoundedIcon />} sx={{ color: "text.primary", borderColor: "rgba(255,255,255,.18)", bgcolor: "rgba(255,255,255,.04)" }}>درخواست مشاوره</MagneticButton>
+              <MagneticButton href="/contact" variant="outlined" startIcon={<HeadsetMicRoundedIcon />} sx={{ color: "text.primary", borderColor: "rgba(var(--landing-contrast-rgb),.18)", bgcolor: "rgba(var(--landing-contrast-rgb),.04)" }}>درخواست مشاوره</MagneticButton>
             </Stack>
             <Typography component={Link} href="tel:+989122201160" variant="caption" sx={{ color: "text.secondary", letterSpacing: ".04em", direction: "ltr" }}>پاسخ‌گویی فوری · ۰۹۱۲ ۲۲۰ ۱۱۶۰</Typography>
           </Stack>

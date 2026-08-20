@@ -36,7 +36,7 @@ export default function ServicesOverviewPageWrapper() {
   }, []);
 
   return (
-    <Box ref={rootRef} sx={{ overflow: "hidden", bgcolor: "#070B12", color: "text.primary" }}>
+    <Box ref={rootRef} sx={{ overflow: "hidden", bgcolor: "background.default", color: "text.primary" }}>
       <Box
         component="section"
         sx={{
@@ -57,7 +57,7 @@ export default function ServicesOverviewPageWrapper() {
             inset: 0,
             zIndex: 0,
             background:
-              "radial-gradient(circle at 77% 46%, rgba(0,219,231,.12), transparent 30%), linear-gradient(180deg, transparent 45%, #070B12 100%)",
+              "radial-gradient(circle at 77% 46%, rgba(var(--landing-accent-rgb),.12), transparent 30%), linear-gradient(180deg, transparent 45%, var(--landing-bg) 100%)",
           }}
         />
         <Container maxWidth="xl" sx={{ position: "relative", zIndex: 1 }}>
@@ -68,7 +68,7 @@ export default function ServicesOverviewPageWrapper() {
                 label="چرخه کامل خدمات انرژی"
                 variant="outlined"
                 className="hero-reveal hero-reveal-1"
-                sx={{ mb: 3, color: "primary.light", borderColor: "rgba(0,219,231,.28)", bgcolor: "rgba(0,219,231,.055)", "& .MuiChip-icon": { color: "primary.main" } }}
+                sx={{ mb: 3, color: "primary.light", borderColor: "rgba(var(--landing-accent-rgb),.28)", bgcolor: "rgba(var(--landing-accent-rgb),.055)", "& .MuiChip-icon": { color: "primary.main" } }}
               />
               <Typography
                 component="h1"
@@ -175,7 +175,7 @@ export default function ServicesOverviewPageWrapper() {
           </Box>
         </Box>
 
-        <Box component="section" sx={{ py: { xs: 8, md: 12 }, borderTop: "1px solid rgba(143,183,255,.07)" }}>
+        <Box component="section" sx={{ py: { xs: 8, md: 12 }, borderTop: "1px solid rgba(var(--landing-secondary-rgb),.07)" }}>
           <Box className="service-page-reveal" sx={{ textAlign: "center", maxWidth: 740, mx: "auto", mb: 7 }}>
             <Typography component="h2" variant="h2" sx={{ fontSize: { xs: "2.15rem", md: "3.45rem" }, mb: 1.5 }}>
               {text("services_why_choose_us")}
@@ -200,7 +200,7 @@ export default function ServicesOverviewPageWrapper() {
         </Box>
 
         <Box component="section" sx={{ py: { xs: 9, md: 13 } }}>
-          <LiquidGlass className="service-page-reveal" intensity="strong" sx={{ p: { xs: 4, md: 7 }, borderRadius: 6, textAlign: "center", background: "linear-gradient(135deg, rgba(0,219,231,.13), rgba(10,16,25,.78))" }}>
+          <LiquidGlass className="service-page-reveal" intensity="strong" sx={{ p: { xs: 4, md: 7 }, borderRadius: 6, textAlign: "center", background: "linear-gradient(135deg, rgba(var(--landing-accent-rgb),.13), rgba(10,16,25,.78))" }}>
             <SupportAgentRoundedIcon sx={{ color: "primary.main", fontSize: 52, mb: 2 }} />
             <Typography component="h2" variant="h2" sx={{ fontSize: { xs: "2rem", md: "3.3rem" }, mb: 2 }}>
               از کدام مسیر شروع کنیم؟

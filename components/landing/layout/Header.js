@@ -22,6 +22,7 @@ import LiquidGlass from "../ui/LiquidGlass";
 import MagneticButton from "../ui/MagneticButton";
 import NeonLogo from "../ui/NeonLogo";
 import EnergyAtomMenu from "../ui/EnergyAtomMenu";
+import LandingThemeMenu from "./LandingThemeMenu";
 
 const fallbackProducts = [
   { title: "یو‌پی‌اس", href: "/categories", icon: <PowerRoundedIcon /> },
@@ -45,7 +46,7 @@ function Brand() {
       aria-label="کلینیک یو پی اس، صفحه اصلی"
       sx={{ display: "flex", alignItems: "center", flexShrink: 0 }}
     >
-      <NeonLogo sx={{ width: { xs: 148, sm: 172 } }} />
+      <NeonLogo sx={{ width: { xs: "clamp(112px, 38vw, 148px)", sm: 172 } }} />
     </Box>
   );
 }
@@ -64,12 +65,12 @@ function ExhibitionButton({ onClick, fullWidth = false }) {
           width: fullWidth ? "100%" : "auto",
           minHeight: 42,
           px: { md: 2 },
-          color: "#f5fbff",
-          borderColor: "rgba(87,227,155,.34)",
-          bgcolor: "rgba(8,18,20,.72)",
+          color: "text.primary",
+          borderColor: "rgba(var(--landing-secondary-rgb),.3)",
+          bgcolor: "rgba(var(--landing-contrast-rgb),.055)",
           backdropFilter: "blur(18px)",
-          boxShadow: "inset 0 1px rgba(255,255,255,.1), 0 0 24px rgba(87,227,155,.08)",
-          "&:hover": { borderColor: "rgba(255,108,98,.58)", bgcolor: "rgba(18,12,15,.78)" },
+          boxShadow: "inset 0 1px rgba(var(--landing-contrast-rgb),.1), 0 0 24px rgba(87,227,155,.08)",
+          "&:hover": { borderColor: "secondary.main", bgcolor: "rgba(var(--landing-secondary-rgb),.08)" },
         }}
       >
         کنگره کیفیت آزمایشگاهی
@@ -116,7 +117,7 @@ export default function Header() {
       <Box component="header" sx={{ position: "fixed", inset: "0 0 auto", zIndex: 1200, px: { xs: 1.5, md: 3 }, pt: { xs: 1.5, md: 2 }, pointerEvents: "none" }}>
         <Container maxWidth="xl" disableGutters>
           <LiquidGlass intensity={scrolled ? "strong" : "subtle"} sx={{ overflow: "visible", borderRadius: { xs: 4, md: 5 }, px: { xs: 1.5, md: 2 }, py: scrolled ? 1 : 1.25, pointerEvents: "auto", transition: "padding .3s ease", "&::before": { display: "none" } }}>
-            <Box sx={{ minHeight: 52, display: "flex", alignItems: "center", justifyContent: "space-between", gap: 2 }}>
+            <Box sx={{ minHeight: 52, display: "flex", alignItems: "center", justifyContent: "space-between", gap: { xs: .75, md: 2 } }}>
               <Box sx={{ display: { xs: "flex", md: "none" }, alignItems: "center" }}>
                 <IconButton className="header-icon-action" aria-label="باز کردن منو" onClick={() => setMenuOpen(true)} color="inherit"><MenuRoundedIcon /></IconButton>
               </Box>
@@ -135,7 +136,7 @@ export default function Header() {
                         <Box className="menu-enter" sx={{ position: "absolute", top: "calc(100% - 8px)", left: "50%", transform: "translateX(-50%)", width: "min(760px, 76vw)", pt: 1 }}>
                           <LiquidGlass intensity="strong" sx={{ borderRadius: 5, p: 2.5, display: "grid", gridTemplateColumns: `repeat(${Math.min(products.length, 4)}, 1fr)`, gap: 1 }}>
                             {products.slice(0, 8).map((product) => (
-                              <Box key={product.href + product.title} component={Link} href={product.href} sx={{ p: 2, borderRadius: 3, textAlign: "center", color: "text.secondary", transition: ".25s", "&:hover": { bgcolor: "rgba(255,255,255,.06)", color: "primary.main", transform: "translateY(-3px)" }, "& svg": { display: "block", mx: "auto", mb: 1 } }}>{product.icon}<Typography variant="body2">{product.title}</Typography></Box>
+                              <Box key={product.href + product.title} component={Link} href={product.href} sx={{ p: 2, borderRadius: 3, textAlign: "center", color: "text.secondary", transition: ".25s", "&:hover": { bgcolor: "rgba(var(--landing-contrast-rgb),.06)", color: "primary.main", transform: "translateY(-3px)" }, "& svg": { display: "block", mx: "auto", mb: 1 } }}>{product.icon}<Typography variant="body2">{product.title}</Typography></Box>
                             ))}
                           </LiquidGlass>
                         </Box>
@@ -145,10 +146,14 @@ export default function Header() {
               </Box>
 
               <Stack direction="row" alignItems="center" useFlexGap gap={1.25} sx={{ display: { xs: "none", md: "flex" }, flexShrink: 0 }}>
+                <LandingThemeMenu />
                 <IconButton className="header-icon-action" component={Link} href="/search" aria-label="جستجو در سایت" color="inherit"><SearchRoundedIcon /></IconButton>
                 <Box><MagneticButton href="/contact" variant="contained" size="small">تماس با ما</MagneticButton></Box>
               </Stack>
-              <IconButton className="header-icon-action" component={Link} href="/search" aria-label="جستجو در سایت" color="inherit" sx={{ display: { xs: "inline-flex", md: "none" } }}><SearchRoundedIcon /></IconButton>
+              <Stack direction="row" alignItems="center" spacing={.1} sx={{ display: { xs: "flex", md: "none" }, flexShrink: 0 }}>
+                <LandingThemeMenu />
+                <IconButton className="header-icon-action" component={Link} href="/search" aria-label="جستجو در سایت" color="inherit"><SearchRoundedIcon /></IconButton>
+              </Stack>
             </Box>
           </LiquidGlass>
         </Container>
@@ -167,7 +172,7 @@ export default function Header() {
       )}
 
       <LiquidGlass component="nav" aria-label="ناوبری پایین موبایل" intensity="strong" sx={{ display: { xs: "grid", md: "none" }, gridTemplateColumns: "repeat(5, 1fr)", position: "fixed", zIndex: 1250, bottom: 10, left: 10, right: 10, borderRadius: "22px 22px 30px 30px", px: .5, py: .7 }}>
-        {bottomItems.map(({ title, href, icon: Icon }) => <Box key={href} component={Link} href={href} sx={{ display: "flex", minWidth: 0, flexDirection: "column", alignItems: "center", gap: .25, color: "text.secondary", py: .5, borderRadius: 2.5, "&:hover": { color: "primary.main", bgcolor: "rgba(0,219,231,.07)" } }}><Icon sx={{ fontSize: 21 }} /><Typography sx={{ fontSize: ".62rem", whiteSpace: "nowrap" }}>{title}</Typography></Box>)}
+        {bottomItems.map(({ title, href, icon: Icon }) => <Box key={href} component={Link} href={href} sx={{ display: "flex", minWidth: 0, flexDirection: "column", alignItems: "center", gap: .25, color: "text.secondary", py: .5, borderRadius: 2.5, "&:hover": { color: "primary.main", bgcolor: "rgba(var(--landing-accent-rgb),.07)" } }}><Icon sx={{ fontSize: 21 }} /><Typography sx={{ fontSize: ".62rem", whiteSpace: "nowrap" }}>{title}</Typography></Box>)}
       </LiquidGlass>
     </>
   );

@@ -92,7 +92,7 @@ function ProductCard({ product, index }) {
         "@media (prefers-reduced-motion: reduce)": { animation: "none", opacity: 1 },
       }}
     >
-      <Box sx={{ position: "relative", height: 246, overflow: "hidden", bgcolor: "#080d14" }}>
+      <Box sx={{ position: "relative", height: 246, overflow: "hidden", bgcolor: "background.paper" }}>
         <Box
           component="img"
           className="product-overview-image"
@@ -120,14 +120,14 @@ function ProductCard({ product, index }) {
             <Chip
               label={categoryName}
               size="small"
-              sx={{ bgcolor: "rgba(5,14,23,.72)", color: "primary.light", border: "1px solid rgba(0,219,231,.25)", backdropFilter: "blur(12px)" }}
+              sx={{ bgcolor: "rgba(5,14,23,.72)", color: "primary.light", border: "1px solid rgba(var(--landing-accent-rgb),.25)", backdropFilter: "blur(12px)" }}
             />
           )}
           {brandName && (
             <Chip
               label={brandName}
               size="small"
-              sx={{ bgcolor: "rgba(5,14,23,.72)", color: "text.secondary", border: "1px solid rgba(255,255,255,.12)", backdropFilter: "blur(12px)" }}
+              sx={{ bgcolor: "rgba(5,14,23,.72)", color: "text.secondary", border: "1px solid rgba(var(--landing-contrast-rgb),.12)", backdropFilter: "blur(12px)" }}
             />
           )}
         </Stack>
@@ -140,13 +140,13 @@ function ProductCard({ product, index }) {
             bottom: 0,
             width: 2,
             bgcolor: "primary.main",
-            boxShadow: "0 0 20px rgba(0,219,231,.75)",
+            boxShadow: "0 0 20px rgba(var(--landing-accent-rgb),.75)",
           }}
         />
       </Box>
 
       <Stack sx={{ flex: 1, p: 2.5 }}>
-        <Box className="product-overview-line" sx={{ width: 42, height: 2, mb: 2, bgcolor: "primary.main", boxShadow: "0 0 12px rgba(0,219,231,.48)", transition: "width .5s ease" }} />
+        <Box className="product-overview-line" sx={{ width: 42, height: 2, mb: 2, bgcolor: "primary.main", boxShadow: "0 0 12px rgba(var(--landing-accent-rgb),.48)", transition: "width .5s ease" }} />
         <Typography component="h2" sx={{ fontSize: "1.05rem", fontWeight: 900, lineHeight: 1.85 }}>
           {product.name}
         </Typography>
@@ -228,9 +228,9 @@ function FiltersPanel({ search, onSearchChange, categories, category, onCategory
                   px: 1.5,
                   borderRadius: 2,
                   color: active ? "primary.light" : "text.secondary",
-                  bgcolor: active ? "rgba(0,219,231,.09)" : "transparent",
-                  border: active ? "1px solid rgba(0,219,231,.2)" : "1px solid transparent",
-                  "&:hover": { bgcolor: "rgba(255,255,255,.045)", color: "text.primary" },
+                  bgcolor: active ? "rgba(var(--landing-accent-rgb),.09)" : "transparent",
+                  border: active ? "1px solid rgba(var(--landing-accent-rgb),.2)" : "1px solid transparent",
+                  "&:hover": { bgcolor: "rgba(var(--landing-contrast-rgb),.045)", color: "text.primary" },
                 }}
               >
                 <span>{item.name}</span>
@@ -255,7 +255,7 @@ function FiltersPanel({ search, onSearchChange, categories, category, onCategory
           size="small"
           onChange={(_, value) => value && onSortChange(value)}
           aria-label="ترتیب نمایش محصولات"
-          sx={{ "& .MuiToggleButton-root": { py: 1, color: "text.secondary", borderColor: "rgba(255,255,255,.11)" } }}
+          sx={{ "& .MuiToggleButton-root": { py: 1, color: "text.secondary", borderColor: "rgba(var(--landing-contrast-rgb),.11)" } }}
         >
           <ToggleButton value="desc">جدیدترین</ToggleButton>
           <ToggleButton value="asc">قدیمی‌ترین</ToggleButton>
@@ -350,7 +350,7 @@ export default function ProductsOverviewWrapper({ initialCategory = "" }) {
   };
 
   return (
-    <Box sx={{ minHeight: "100vh", bgcolor: "#070b12", color: "text.primary", pb: { xs: 14, md: 10 } }}>
+    <Box sx={{ minHeight: "100vh", bgcolor: "background.default", color: "text.primary", pb: { xs: 14, md: 10 } }}>
       <Box
         component="section"
         sx={{
@@ -361,28 +361,28 @@ export default function ProductsOverviewWrapper({ initialCategory = "" }) {
           overflow: "hidden",
           pt: { xs: 13, md: 15 },
           pb: { xs: 7, md: 9 },
-          borderBottom: "1px solid rgba(143,183,255,.1)",
+          borderBottom: "1px solid rgba(var(--landing-secondary-rgb),.1)",
         }}
       >
         <Box component="img" className="landing-top-banner-image" src="/images/products/overview/hero-datacenter.png" alt="مرکز داده مجهز به سامانه برق پایدار" sx={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover" }} />
         <Box aria-hidden className="landing-top-banner-overlay" sx={{ position: "absolute", inset: 0 }} />
         <Box aria-hidden sx={{ position: "absolute", inset: 0, opacity: .35, backgroundImage: "linear-gradient(rgba(126,184,255,.08) 1px, transparent 1px), linear-gradient(90deg, rgba(126,184,255,.08) 1px, transparent 1px)", backgroundSize: "48px 48px", maskImage: "linear-gradient(to bottom, transparent 4%, black 34%, black 82%, transparent)" }} />
-        <Box aria-hidden sx={{ position: "absolute", width: 420, height: 420, right: { xs: "50%", md: "8%" }, top: "24%", borderRadius: "50%", border: "1px solid rgba(0,219,231,.18)", boxShadow: "0 0 90px rgba(0,219,231,.1), inset 0 0 80px rgba(0,219,231,.06)", animation: `${pulse} 5s ease-in-out infinite`, "@media (prefers-reduced-motion: reduce)": { animation: "none" } }} />
+        <Box aria-hidden sx={{ position: "absolute", width: 420, height: 420, right: { xs: "50%", md: "8%" }, top: "24%", borderRadius: "50%", border: "1px solid rgba(var(--landing-accent-rgb),.18)", boxShadow: "0 0 90px rgba(var(--landing-accent-rgb),.1), inset 0 0 80px rgba(var(--landing-accent-rgb),.06)", animation: `${pulse} 5s ease-in-out infinite`, "@media (prefers-reduced-motion: reduce)": { animation: "none" } }} />
 
         <Container maxWidth="xl" sx={{ position: "relative", zIndex: 2 }}>
           <Box sx={{ display: "grid", gridTemplateColumns: { xs: "1fr", md: "minmax(0, 1.05fr) minmax(340px, .65fr)" }, gap: { xs: 5, md: 8 }, alignItems: "center" }}>
             <Box sx={{ maxWidth: 760, animation: `${reveal} .8s cubic-bezier(.2,.8,.2,1) both` }}>
-              <Breadcrumbs separator="/" aria-label="مسیر صفحه" sx={{ mb: 3, "& .MuiBreadcrumbs-separator": { color: "rgba(255,255,255,.24)" } }}>
+              <Breadcrumbs separator="/" aria-label="مسیر صفحه" sx={{ mb: 3, "& .MuiBreadcrumbs-separator": { color: "rgba(var(--landing-contrast-rgb),.24)" } }}>
                 <Typography component={Link} href="/" color="text.secondary" sx={{ fontSize: ".72rem" }}>کلینیک یو پی اس</Typography>
                 <Typography color="primary.main" sx={{ fontSize: ".72rem" }}>محصولات</Typography>
               </Breadcrumbs>
               <Stack direction="row" alignItems="center" spacing={1.25} sx={{ mb: 2 }}>
-                <Box sx={{ width: 42, height: 2, bgcolor: "primary.main", boxShadow: "0 0 12px rgba(0,219,231,.7)" }} />
+                <Box sx={{ width: 42, height: 2, bgcolor: "primary.main", boxShadow: "0 0 12px rgba(var(--landing-accent-rgb),.7)" }} />
                 <Typography sx={{ fontFamily: "monospace", fontSize: ".68rem", color: "primary.light", letterSpacing: ".16em" }}>ENERGY SYSTEMS / 2026</Typography>
               </Stack>
               <Typography component="h1" sx={{ maxWidth: 690, fontSize: { xs: "2.65rem", sm: "3.8rem", lg: "4.75rem" }, fontWeight: 950, lineHeight: 1.25, letterSpacing: "-.055em" }}>
                 زیرساخت انرژی،
-                <Box component="span" sx={{ display: "block", color: "primary.main", textShadow: "0 0 34px rgba(0,219,231,.24)" }}>مهندسی‌شده برای تداوم</Box>
+                <Box component="span" sx={{ display: "block", color: "primary.main", textShadow: "0 0 34px rgba(var(--landing-accent-rgb),.24)" }}>مهندسی‌شده برای تداوم</Box>
               </Typography>
               <Typography color="text.secondary" sx={{ mt: 2.5, maxWidth: 650, fontSize: { xs: ".9rem", md: "1.02rem" }, lineHeight: 2.1 }}>
                 مجموعه تخصصی یو پی اس، باتری، استابلایزر، موتور برق و دیزل ژنراتور؛ انتخاب‌شده برای حفاظت از تجهیزات و تداوم بی‌وقفه کسب‌وکار شما.
@@ -398,9 +398,9 @@ export default function ProductsOverviewWrapper({ initialCategory = "" }) {
             </Box>
 
             <Box sx={{ position: "relative", display: { xs: "none", md: "block" }, justifySelf: "center", width: "min(100%, 430px)", animation: `${float} 6s ease-in-out infinite`, "@media (prefers-reduced-motion: reduce)": { animation: "none" } }}>
-              <LiquidGlass intensity="strong" sx={{ borderRadius: "46% 54% 52% 48% / 44% 42% 58% 56%", p: 1.25, transform: "rotate(-2deg)", boxShadow: "0 34px 100px rgba(0,0,0,.55), 0 0 70px rgba(0,219,231,.12)" }}>
+              <LiquidGlass intensity="strong" sx={{ borderRadius: "46% 54% 52% 48% / 44% 42% 58% 56%", p: 1.25, transform: "rotate(-2deg)", boxShadow: "0 34px 100px rgba(0,0,0,.55), 0 0 70px rgba(var(--landing-accent-rgb),.12)" }}>
                 <Box component="img" src="/images/products/overview/ups-rack.png" alt="سامانه یو پی اس رک‌مونت" sx={{ display: "block", width: "100%", aspectRatio: "1 / 1.05", objectFit: "cover", borderRadius: "inherit" }} />
-                <Box aria-hidden sx={{ position: "absolute", left: 0, right: 0, top: 0, height: "20%", background: "linear-gradient(180deg, transparent, rgba(0,219,231,.14), transparent)", animation: `${scan} 4.8s linear infinite`, "@media (prefers-reduced-motion: reduce)": { display: "none" } }} />
+                <Box aria-hidden sx={{ position: "absolute", left: 0, right: 0, top: 0, height: "20%", background: "linear-gradient(180deg, transparent, rgba(var(--landing-accent-rgb),.14), transparent)", animation: `${scan} 4.8s linear infinite`, "@media (prefers-reduced-motion: reduce)": { display: "none" } }} />
               </LiquidGlass>
               <LiquidGlass intensity="medium" sx={{ position: "absolute", right: -28, bottom: 30, borderRadius: 3, px: 2, py: 1.5 }}>
                 <Typography sx={{ fontFamily: "monospace", fontSize: ".64rem", color: "primary.main" }}>STATUS / ONLINE</Typography>
@@ -411,7 +411,7 @@ export default function ProductsOverviewWrapper({ initialCategory = "" }) {
         </Container>
       </Box>
 
-      <Box sx={{ borderBottom: "1px solid rgba(143,183,255,.08)", bgcolor: "rgba(9,14,22,.86)" }}>
+      <Box sx={{ borderBottom: "1px solid rgba(var(--landing-secondary-rgb),.08)", bgcolor: "rgba(9,14,22,.86)" }}>
         <Container maxWidth="xl">
           <Box sx={{ display: "grid", gridTemplateColumns: { xs: "repeat(2, 1fr)", md: "repeat(4, 1fr)" }, py: 2.5 }}>
             {[
@@ -420,7 +420,7 @@ export default function ProductsOverviewWrapper({ initialCategory = "" }) {
               { icon: ShieldRoundedIcon, value: "۲۴/۷", label: "پشتیبانی فنی" },
               { icon: Inventory2RoundedIcon, value: "B2B", label: "راهکار سازمانی" },
             ].map(({ icon: Icon, value, label }, index) => (
-              <Stack key={label} direction="row" spacing={1.5} alignItems="center" sx={{ px: { xs: 1, md: 3 }, py: 1.5, borderLeft: index % 2 === 0 || index === 3 ? 0 : "1px solid rgba(255,255,255,.08)" }}>
+              <Stack key={label} direction="row" spacing={1.5} alignItems="center" sx={{ px: { xs: 1, md: 3 }, py: 1.5, borderLeft: index % 2 === 0 || index === 3 ? 0 : "1px solid rgba(var(--landing-contrast-rgb),.08)" }}>
                 <Icon sx={{ color: "primary.main", fontSize: 24 }} />
                 <Box><Typography sx={{ fontWeight: 950, fontSize: "1.05rem" }}>{value}</Typography><Typography color="text.secondary" sx={{ fontSize: ".68rem" }}>{label}</Typography></Box>
               </Stack>
@@ -458,16 +458,16 @@ export default function ProductsOverviewWrapper({ initialCategory = "" }) {
               <Typography color="text.secondary" sx={{ fontSize: ".76rem" }}>
                 {loading ? "در حال به‌روزرسانی نتایج..." : `${total.toLocaleString("fa-IR")} محصول یافت شد`}
               </Typography>
-              {(search || category) && <Chip label={selectedCategory?.name || search || "نتایج فیلترشده"} size="small" onDelete={() => { setSearch(""); updateCategory(""); }} sx={{ color: "primary.light", borderColor: "rgba(0,219,231,.25)" }} variant="outlined" />}
+              {(search || category) && <Chip label={selectedCategory?.name || search || "نتایج فیلترشده"} size="small" onDelete={() => { setSearch(""); updateCategory(""); }} sx={{ color: "primary.light", borderColor: "rgba(var(--landing-accent-rgb),.25)" }} variant="outlined" />}
             </Stack>
 
             <Box aria-live="polite" sx={{ display: "grid", gridTemplateColumns: { xs: "1fr", sm: "repeat(2, minmax(0, 1fr))", lg: "repeat(3, minmax(0, 1fr))" }, gap: { xs: 2, md: 2.5 } }}>
               {loading ? (
                 Array.from({ length: 6 }, (_, index) => (
                   <LiquidGlass key={index} intensity="subtle" sx={{ minHeight: 440, borderRadius: 4, p: 1.5 }}>
-                    <Skeleton variant="rounded" height={235} sx={{ bgcolor: "rgba(255,255,255,.055)" }} />
-                    <Skeleton width="72%" sx={{ mt: 3, bgcolor: "rgba(255,255,255,.065)" }} />
-                    <Skeleton width="92%" sx={{ mt: 1, bgcolor: "rgba(255,255,255,.045)" }} />
+                    <Skeleton variant="rounded" height={235} sx={{ bgcolor: "rgba(var(--landing-contrast-rgb),.055)" }} />
+                    <Skeleton width="72%" sx={{ mt: 3, bgcolor: "rgba(var(--landing-contrast-rgb),.065)" }} />
+                    <Skeleton width="92%" sx={{ mt: 1, bgcolor: "rgba(var(--landing-contrast-rgb),.045)" }} />
                     <Stack alignItems="center" sx={{ mt: 5 }}><CircularProgress size={22} /></Stack>
                   </LiquidGlass>
                 ))
@@ -520,7 +520,7 @@ export default function ProductsOverviewWrapper({ initialCategory = "" }) {
         anchor="right"
         open={filtersOpen}
         onClose={() => setFiltersOpen(false)}
-        slotProps={{ paper: { sx: { width: "min(88vw, 360px)", bgcolor: "#09111b", backgroundImage: "none", borderLeft: "1px solid rgba(0,219,231,.16)" } } }}
+        slotProps={{ paper: { sx: { width: "min(88vw, 360px)", bgcolor: "background.paper", backgroundImage: "none", borderLeft: "1px solid rgba(var(--landing-accent-rgb),.16)" } } }}
       >
         <FiltersPanel search={search} onSearchChange={setSearch} categories={categories} category={category} onCategoryChange={updateCategory} sort={sort} onSortChange={updateSort} onClose={() => setFiltersOpen(false)} />
       </Drawer>

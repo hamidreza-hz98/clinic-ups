@@ -15,7 +15,7 @@ import NeonLogo from "./NeonLogo";
 const menuItems = [
   { href: "/", label: "خانه", Icon: HomeRoundedIcon, color: "#f8fbff" },
   { href: "/categories", label: "محصولات", Icon: Inventory2RoundedIcon, color: "#00f0ff" },
-  { href: "/projects", label: "پروژه‌ها", Icon: WorkspacesRoundedIcon, color: "#8fb7ff" },
+  { href: "/projects", label: "پروژه‌ها", Icon: WorkspacesRoundedIcon, color: "var(--landing-secondary)" },
   { href: "/services", label: "خدمات", Icon: DesignServicesRoundedIcon, color: "#57e39b" },
   { href: "/blog", label: "وبلاگ", Icon: AutoStoriesRoundedIcon, color: "#ffd06f" },
   { href: "/about", label: "درباره ما", Icon: InfoRoundedIcon, color: "#c8a7ff" },
@@ -73,7 +73,7 @@ export default function EnergyAtomMenu({ compact = false, onNavigate, ariaLabel 
         <LiquidGlass intensity="strong" className="energy-atom-core-glass">
           <Box className="energy-atom-core-shine" aria-hidden />
           <NeonLogo animated sx={{ width: isCompact ? 116 : 168 }} />
-          <Typography sx={{ mt: 1.2, direction: "ltr", fontFamily: "monospace", color: "rgba(226,253,255,.82)", fontSize: isCompact ? ".52rem" : ".62rem", letterSpacing: ".18em" }}>
+          <Typography color="text.secondary" sx={{ mt: 1.2, direction: "ltr", fontFamily: "monospace", fontSize: isCompact ? ".52rem" : ".62rem", letterSpacing: ".18em" }}>
             ENERGY CORE
           </Typography>
         </LiquidGlass>

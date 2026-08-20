@@ -14,7 +14,7 @@ const pillars = [
     title: "تجربه",
     description: "بیش از دو دهه سابقه درخشان در تامین برق اضطراری پروژه‌های ملی و حساس کشور.",
     Icon: HistoryEduRoundedIcon,
-    accent: "#00dbe7",
+    accent: "var(--landing-accent)",
     position: "top-right",
   },
   {
@@ -38,16 +38,16 @@ const pillars = [
     title: "زیرساخت مطمئن",
     description: "بهره‌گیری از انبار قطعات یدکی کامل و کارگاه‌های تعمیراتی مجهز و مدرن.",
     Icon: AccountTreeRoundedIcon,
-    accent: "#00dbe7",
+    accent: "var(--landing-accent)",
     position: "bottom-left",
   },
 ];
 
 const connections = [
-  { path: "M500 300 Q650 200 800 150", color: "#00dbe7", delay: "0s" },
+  { path: "M500 300 Q650 200 800 150", color: "var(--landing-accent)", delay: "0s" },
   { path: "M500 300 Q350 200 200 150", color: "#a7c8ff", delay: "-.75s" },
   { path: "M500 300 Q650 400 800 450", color: "#ffb4a9", delay: "-1.5s" },
-  { path: "M500 300 Q350 400 200 450", color: "#00dbe7", delay: "-2.25s" },
+  { path: "M500 300 Q350 400 200 450", color: "var(--landing-accent)", delay: "-2.25s" },
 ];
 
 function CoreHub() {
@@ -55,7 +55,7 @@ function CoreHub() {
     <Box className="slogans-core-hub" aria-label="هسته مرکزی توانمندی‌ها">
       <Box className="slogans-core-glow" aria-hidden />
       <Box component="svg" className="slogans-core-rings" viewBox="0 0 100 100" aria-hidden>
-        <circle cx="50" cy="50" fill="none" r="45" stroke="#00dbe7" strokeDasharray="10 5" strokeWidth="1" />
+        <circle cx="50" cy="50" fill="none" r="45" stroke="var(--landing-accent)" strokeDasharray="10 5" strokeWidth="1" />
         <circle cx="50" cy="50" fill="none" r="35" stroke="#ffb4a9" strokeDasharray="5 10" strokeWidth="2" />
         <path d="M50 20 L50 10 M80 50 L90 50 M50 80 L50 90 M20 50 L10 50" stroke="#a7c8ff" strokeWidth="3" />
       </Box>
@@ -126,9 +126,9 @@ export default function SlogansCoreSection() {
       sx={{
         position: "relative",
         overflow: "hidden",
-        bgcolor: "#0D1118",
+        bgcolor: "background.paper",
         py: { xs: 10, md: 14 },
-        borderTop: "1px solid rgba(143,183,255,.08)",
+        borderTop: "1px solid rgba(var(--landing-secondary-rgb),.08)",
       }}
     >
       <Box className="slogans-particle-floor" aria-hidden />

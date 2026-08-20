@@ -15,7 +15,7 @@ export const serviceCatalog = [
     image: "/images/static/electric_wiring.webp",
     secondaryImage: "/images/static/datacenter_systems.webp",
     Icon: EngineeringRoundedIcon,
-    color: "#00dbe7",
+    color: "var(--landing-accent)",
     gridColumn: "1 / span 5",
   },
   {
@@ -57,7 +57,7 @@ export const serviceCatalog = [
     image: "/images/static/after_sales.webp",
     secondaryImage: "/images/static/24hour_atm.webp",
     Icon: VerifiedUserRoundedIcon,
-    color: "#00dbe7",
+    color: "var(--landing-accent)",
     gridColumn: "7 / span 5",
   },
 ];

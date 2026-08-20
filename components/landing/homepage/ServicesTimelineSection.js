@@ -102,9 +102,9 @@ export default function ServicesTimelineSection() {
       sx={{
         position: "relative",
         overflow: "hidden",
-        bgcolor: "#090D15",
+        bgcolor: "background.paper",
         py: { xs: 10, md: 15 },
-        borderTop: "1px solid rgba(143,183,255,.08)",
+        borderTop: "1px solid rgba(var(--landing-secondary-rgb),.08)",
       }}
     >
       <Box className="services-grid-floor" aria-hidden />
@@ -125,7 +125,7 @@ export default function ServicesTimelineSection() {
               label="چرخه کامل خدمات انرژی"
               variant="outlined"
               color="primary"
-              sx={{ mb: 2.5, bgcolor: "rgba(0,219,231,.05)", borderColor: "rgba(0,219,231,.24)" }}
+              sx={{ mb: 2.5, bgcolor: "rgba(var(--landing-accent-rgb),.05)", borderColor: "rgba(var(--landing-accent-rgb),.24)" }}
             />
             <Typography component="h2" variant="h2" sx={{ fontSize: { xs: "2.35rem", md: "3.8rem" }, mb: 2 }}>
               خدمات تخصصی <Box component="span" sx={{ color: "primary.main" }}>کلینیک یو پی اس</Box>
@@ -177,7 +177,7 @@ export default function ServicesTimelineSection() {
             variant="contained"
             color="primary"
             endIcon={<AppsRoundedIcon />}
-            sx={{ minWidth: 190, boxShadow: "0 16px 42px rgba(0,219,231,.2)" }}
+            sx={{ minWidth: 190, boxShadow: "0 16px 42px rgba(var(--landing-accent-rgb),.2)" }}
           >
             مشاهده همه خدمات
           </MagneticButton>

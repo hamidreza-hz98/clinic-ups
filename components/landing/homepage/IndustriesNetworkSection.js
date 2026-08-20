@@ -22,7 +22,7 @@ const industries = [
     title: "بیمارستان‌ها",
     description: "تضمین برق بدون وقفه برای اتاق‌های عمل و تجهیزات حساس پزشکی و نگهداری علائم حیاتی.",
     Icon: MedicalServicesRoundedIcon,
-    color: "#00dbe7",
+    color: "var(--landing-accent)",
     position: "top-far-left",
     path: "M600 500 L130 90",
   },
@@ -76,7 +76,7 @@ const industries = [
     title: "بانک‌ها",
     description: "امنیت انرژی برای سیستم‌های تراکنش مالی و خودپردازها در سراسر شبکه بانکی کشور.",
     Icon: AccountBalanceRoundedIcon,
-    color: "#00dbe7",
+    color: "var(--landing-accent)",
     position: "lower-left",
     path: "M600 500 L70 690",
   },
@@ -103,7 +103,7 @@ const industries = [
     title: "فرودگاه‌ها",
     description: "تداوم برق ناوبری، روشنایی باند، کنترل ترافیک، بازرسی و سامانه‌های اطلاعات پرواز.",
     Icon: FlightTakeoffRoundedIcon,
-    color: "#8fb7ff",
+    color: "var(--landing-secondary)",
     position: "bottom-left",
     path: "M600 500 L420 940",
   },
@@ -198,9 +198,9 @@ export default function IndustriesNetworkSection() {
       sx={{
         position: "relative",
         overflow: "hidden",
-        bgcolor: "#0D1118",
+        bgcolor: "background.paper",
         py: { xs: 10, md: 14 },
-        borderTop: "1px solid rgba(143,183,255,.08)",
+        borderTop: "1px solid rgba(var(--landing-secondary-rgb),.08)",
       }}
     >
       <Box className="industries-network-grid" aria-hidden />

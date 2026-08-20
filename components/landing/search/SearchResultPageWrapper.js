@@ -61,7 +61,7 @@ function ProductSearchCard({ product, index }) {
           </Stack>
           <Typography component="h3" sx={{ fontSize: "1.45rem", fontWeight: 900, lineHeight: 1.55 }}>{product.name}</Typography>
           {product.excerpt && <Typography color="text.secondary" sx={{ mt: 1.2, lineHeight: 1.9, display: "-webkit-box", WebkitLineClamp: 2, WebkitBoxOrient: "vertical", overflow: "hidden" }}>{product.excerpt}</Typography>}
-          <Stack direction="row" alignItems="center" spacing={1} sx={{ mt: 2.5, pt: 2, borderTop: "1px solid rgba(255,255,255,.12)", color: "primary.main" }}>
+          <Stack direction="row" alignItems="center" spacing={1} sx={{ mt: 2.5, pt: 2, borderTop: "1px solid rgba(var(--landing-contrast-rgb),.12)", color: "primary.main" }}>
             <Typography sx={{ fontSize: ".78rem", fontWeight: 850 }}>مشاهده محصول</Typography>
             <ArrowBackRoundedIcon className="search-result-arrow" fontSize="small" />
           </Stack>
@@ -88,7 +88,7 @@ function ResultSection({ eyebrow, title, count, icon: Icon, href, children }) {
 }
 
 function ResultsSkeleton() {
-  return <Box sx={{ display: "grid", gridTemplateColumns: { xs: "1fr", sm: "repeat(2, 1fr)", lg: "repeat(3, 1fr)" }, gap: 3, mt: 7 }}>{Array.from({ length: 6 }).map((_, index) => <Skeleton key={index} variant="rounded" height={330} sx={{ borderRadius: 5, bgcolor: "rgba(255,255,255,.055)" }} />)}</Box>;
+  return <Box sx={{ display: "grid", gridTemplateColumns: { xs: "1fr", sm: "repeat(2, 1fr)", lg: "repeat(3, 1fr)" }, gap: 3, mt: 7 }}>{Array.from({ length: 6 }).map((_, index) => <Skeleton key={index} variant="rounded" height={330} sx={{ borderRadius: 5, bgcolor: "rgba(var(--landing-contrast-rgb),.055)" }} />)}</Box>;
 }
 
 export default function SearchResultPageWrapper({ initialQuery = "" }) {
@@ -170,14 +170,14 @@ export default function SearchResultPageWrapper({ initialQuery = "" }) {
   };
 
   return (
-    <Box ref={rootRef} className="search-page" sx={{ minHeight: "100vh", overflow: "hidden", bgcolor: "#05090F", color: "text.primary" }}>
+    <Box ref={rootRef} className="search-page" sx={{ minHeight: "100vh", overflow: "hidden", bgcolor: "background.default", color: "text.primary" }}>
       <Box component="section" sx={{ position: "relative", minHeight: { xs: 680, md: 720 }, display: "flex", alignItems: "center", pt: { xs: 13, md: 15 }, pb: { xs: 8, md: 10 } }}>
         <EnergyShaderBackground />
         <Box className="search-radar" aria-hidden><span /><span /><span /></Box>
         <Container maxWidth="lg" sx={{ position: "relative", zIndex: 2 }}>
           <Box sx={{ maxWidth: 900, mx: "auto", textAlign: "center" }}>
             <LiquidGlass intensity="medium" className="hero-reveal" sx={{ display: "inline-flex", alignItems: "center", gap: 1, px: 2, py: 1, borderRadius: 99, mb: 2.5 }}><TravelExploreRoundedIcon sx={{ color: "primary.main", fontSize: 19 }} /><Typography sx={{ fontFamily: "monospace", direction: "ltr", letterSpacing: ".1em", fontSize: ".68rem" }}>CLINIC UPS / SMART SEARCH</Typography></LiquidGlass>
-            <Typography component="h1" className="hero-reveal hero-reveal-2" sx={{ fontSize: { xs: "2.65rem", sm: "4rem", md: "5.4rem" }, fontWeight: 950, lineHeight: 1.2, letterSpacing: "-.055em" }}>هر راهکار، پروژه و دانشی که <Box component="span" sx={{ color: "primary.main", textShadow: "0 0 34px rgba(0,219,231,.28)" }}>نیاز دارید</Box></Typography>
+            <Typography component="h1" className="hero-reveal hero-reveal-2" sx={{ fontSize: { xs: "2.65rem", sm: "4rem", md: "5.4rem" }, fontWeight: 950, lineHeight: 1.2, letterSpacing: "-.055em" }}>هر راهکار، پروژه و دانشی که <Box component="span" sx={{ color: "primary.main", textShadow: "0 0 34px rgba(var(--landing-accent-rgb),.28)" }}>نیاز دارید</Box></Typography>
             <Typography color="text.secondary" className="hero-reveal hero-reveal-3" sx={{ maxWidth: 670, mx: "auto", mt: 2.2, lineHeight: 2.05, fontSize: { xs: ".92rem", md: "1.05rem" } }}>نام محصول، نوع سیستم برق اضطراری، پروژه یا موضوع آموزشی را وارد کنید؛ جستجوی یکپارچه کلینیک یو پی اس همه بخش‌ها را هم‌زمان بررسی می‌کند.</Typography>
 
             <LiquidGlass component="form" onSubmit={submit} intensity="strong" className="hero-reveal hero-reveal-3 search-command" sx={{ mt: 4.5, p: { xs: 1.2, sm: 1.5 }, borderRadius: { xs: 4, sm: 99 }, display: "flex", flexDirection: { xs: "column", sm: "row" }, alignItems: "stretch", gap: 1.25 }}>
@@ -190,14 +190,14 @@ export default function SearchResultPageWrapper({ initialQuery = "" }) {
                 placeholder="مثلاً یو پی اس آزمایشگاهی یا موتور برق"
                 inputProps={{ "aria-label": "عبارت جستجو" }}
                 slotProps={{ input: { startAdornment: <InputAdornment position="start"><SearchRoundedIcon sx={{ color: "primary.main" }} /></InputAdornment> } }}
-                sx={{ "& .MuiOutlinedInput-root": { minHeight: 58, borderRadius: 99, bgcolor: "rgba(4,10,17,.7)", "& fieldset": { borderColor: "transparent" }, "&:hover fieldset": { borderColor: "rgba(0,219,231,.2)" }, "&.Mui-focused fieldset": { borderColor: "rgba(0,219,231,.5)" } } }}
+                sx={{ "& .MuiOutlinedInput-root": { minHeight: 58, borderRadius: 99, bgcolor: "rgba(4,10,17,.7)", "& fieldset": { borderColor: "transparent" }, "&:hover fieldset": { borderColor: "rgba(var(--landing-accent-rgb),.2)" }, "&.Mui-focused fieldset": { borderColor: "rgba(var(--landing-accent-rgb),.5)" } } }}
               />
               <Button type="submit" variant="contained" size="large" disabled={!search.trim() || loading} startIcon={loading ? <CircularProgress size={18} color="inherit" /> : <SearchRoundedIcon />} sx={{ minWidth: { sm: 150 }, minHeight: 58, px: 3.5 }}>جستجو</Button>
             </LiquidGlass>
 
             <Stack direction="row" justifyContent="center" alignItems="center" useFlexGap flexWrap="wrap" gap={1.25} className="hero-reveal hero-reveal-3" sx={{ mt: 3 }}>
               <Typography color="text.secondary" sx={{ fontSize: ".75rem", ml: .5 }}>جستجوی سریع:</Typography>
-              {quickSearches.map((item) => <Chip key={item} label={item} clickable onClick={() => runSearch(item)} variant="outlined" sx={{ borderColor: "rgba(255,255,255,.13)", bgcolor: "rgba(255,255,255,.025)", "&:hover": { borderColor: "primary.main", color: "primary.main" } }} />)}
+              {quickSearches.map((item) => <Chip key={item} label={item} clickable onClick={() => runSearch(item)} variant="outlined" sx={{ borderColor: "rgba(var(--landing-contrast-rgb),.13)", bgcolor: "rgba(var(--landing-contrast-rgb),.025)", "&:hover": { borderColor: "primary.main", color: "primary.main" } }} />)}
             </Stack>
           </Box>
         </Container>

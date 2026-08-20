@@ -115,16 +115,16 @@ export default function BlogOverviewWrapper({ initialCategory = "" }) {
   };
 
   return (
-    <Box ref={rootRef} sx={{ overflow: "hidden", bgcolor: "#070B12", color: "text.primary", minHeight: "100vh" }}>
+    <Box ref={rootRef} sx={{ overflow: "hidden", bgcolor: "background.default", color: "text.primary", minHeight: "100vh" }}>
       <Box component="section" sx={{ position: "relative", isolation: "isolate", minHeight: { xs: 720, md: 760 }, pt: { xs: 15, md: 17 }, pb: { xs: 9, md: 12 }, display: "flex", alignItems: "center" }}>
         <EnergyShaderBackground />
         <Box className="selected-projects-texture" aria-hidden />
-        <Box aria-hidden sx={{ position: "absolute", inset: 0, zIndex: 0, background: "radial-gradient(circle at 24% 46%, rgba(0,219,231,.12), transparent 30%), linear-gradient(180deg, transparent 48%, #070B12 100%)" }} />
+        <Box aria-hidden sx={{ position: "absolute", inset: 0, zIndex: 0, background: "radial-gradient(circle at 24% 46%, rgba(var(--landing-accent-rgb),.12), transparent 30%), linear-gradient(180deg, transparent 48%, var(--landing-bg) 100%)" }} />
 
         <Container maxWidth="xl" sx={{ position: "relative", zIndex: 1 }}>
           <Box sx={{ display: "grid", gridTemplateColumns: { xs: "1fr", md: "7fr 5fr" }, gap: { xs: 6, md: 9 }, alignItems: "center" }}>
             <Box>
-              <Chip icon={<AutoStoriesRoundedIcon />} label="CLINIC UPS / KNOWLEDGE JOURNAL" variant="outlined" className="hero-reveal hero-reveal-1" sx={{ mb: 3, direction: "ltr", color: "primary.light", borderColor: "rgba(0,219,231,.28)", bgcolor: "rgba(0,219,231,.055)", "& .MuiChip-icon": { color: "primary.main" } }} />
+              <Chip icon={<AutoStoriesRoundedIcon />} label="CLINIC UPS / KNOWLEDGE JOURNAL" variant="outlined" className="hero-reveal hero-reveal-1" sx={{ mb: 3, direction: "ltr", color: "primary.light", borderColor: "rgba(var(--landing-accent-rgb),.28)", bgcolor: "rgba(var(--landing-accent-rgb),.055)", "& .MuiChip-icon": { color: "primary.main" } }} />
               <Typography component="h1" variant="h1" className="hero-reveal hero-reveal-2" sx={{ fontSize: { xs: "2.9rem", sm: "3.8rem", md: "5.5rem" }, lineHeight: 1.14, mb: 2.5 }}>
                 دانش فنی برای
                 <Box component="span" sx={{ display: "block", color: "primary.main" }}>انرژی بدون وقفه</Box>
@@ -163,7 +163,7 @@ export default function BlogOverviewWrapper({ initialCategory = "" }) {
                   {categories.map((item) => <MenuItem key={item._id} value={item._id}>{item.name}</MenuItem>)}
                 </Select>
               </FormControl>
-              <ToggleButtonGroup exclusive value={sort} onChange={(_, value) => { if (value) { setSort(value); setPage(1); } }} aria-label="مرتب‌سازی مقاله‌ها" sx={{ alignSelf: { lg: "stretch" }, "& .MuiToggleButton-root": { px: 2.5, flex: { xs: 1, lg: "initial" }, color: "text.secondary", borderColor: "rgba(255,255,255,.12)", "&.Mui-selected": { color: "primary.main", bgcolor: "rgba(0,219,231,.1)" } } }}>
+              <ToggleButtonGroup exclusive value={sort} onChange={(_, value) => { if (value) { setSort(value); setPage(1); } }} aria-label="مرتب‌سازی مقاله‌ها" sx={{ alignSelf: { lg: "stretch" }, "& .MuiToggleButton-root": { px: 2.5, flex: { xs: 1, lg: "initial" }, color: "text.secondary", borderColor: "rgba(var(--landing-contrast-rgb),.12)", "&.Mui-selected": { color: "primary.main", bgcolor: "rgba(var(--landing-accent-rgb),.1)" } } }}>
                 <ToggleButton value="desc">جدیدترین</ToggleButton>
                 <ToggleButton value="asc">قدیمی‌ترین</ToggleButton>
               </ToggleButtonGroup>

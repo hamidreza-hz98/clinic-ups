@@ -132,8 +132,8 @@ function ProductGallery({ slides, productName, onFullscreen }) {
           overflow: "hidden",
         }}
       >
-        <Box aria-hidden sx={{ position: "absolute", width: "72%", aspectRatio: 1, borderRadius: "50%", border: "1px solid rgba(0,219,231,.12)", boxShadow: "0 0 90px rgba(0,219,231,.08), inset 0 0 60px rgba(0,219,231,.05)" }} />
-        <Box aria-hidden sx={{ position: "absolute", width: "86%", aspectRatio: 1, borderRadius: "50%", border: "1px dashed rgba(143,183,255,.09)", animation: `${orbit} 36s linear infinite`, "@media (prefers-reduced-motion: reduce)": { animation: "none" } }} />
+        <Box aria-hidden sx={{ position: "absolute", width: "72%", aspectRatio: 1, borderRadius: "50%", border: "1px solid rgba(var(--landing-accent-rgb),.12)", boxShadow: "0 0 90px rgba(var(--landing-accent-rgb),.08), inset 0 0 60px rgba(var(--landing-accent-rgb),.05)" }} />
+        <Box aria-hidden sx={{ position: "absolute", width: "86%", aspectRatio: 1, borderRadius: "50%", border: "1px dashed rgba(var(--landing-secondary-rgb),.09)", animation: `${orbit} 36s linear infinite`, "@media (prefers-reduced-motion: reduce)": { animation: "none" } }} />
         <Box
           key={activeSlide.src}
           component="img"
@@ -153,21 +153,21 @@ function ProductGallery({ slides, productName, onFullscreen }) {
             "@media (prefers-reduced-motion: reduce)": { animation: "none" },
           }}
         />
-        <Box aria-hidden sx={{ position: "absolute", zIndex: 2, top: 0, left: 0, right: 0, height: "15%", background: "linear-gradient(180deg, transparent, rgba(0,219,231,.12), transparent)", animation: `${scan} 5.8s linear infinite`, pointerEvents: "none", "@media (prefers-reduced-motion: reduce)": { display: "none" } }} />
+        <Box aria-hidden sx={{ position: "absolute", zIndex: 2, top: 0, left: 0, right: 0, height: "15%", background: "linear-gradient(180deg, transparent, rgba(var(--landing-accent-rgb),.12), transparent)", animation: `${scan} 5.8s linear infinite`, pointerEvents: "none", "@media (prefers-reduced-motion: reduce)": { display: "none" } }} />
 
         <Stack direction="row" alignItems="center" justifyContent="space-between" sx={{ position: "absolute", zIndex: 4, top: 18, right: 18, left: 18 }}>
           <LiquidGlass intensity="medium" sx={{ borderRadius: 99, px: 1.5, py: .8 }}>
             <Typography sx={{ direction: "ltr", fontFamily: "monospace", fontSize: ".66rem", color: "primary.main" }}>{activeIndex + 1} / {slides.length}</Typography>
           </LiquidGlass>
-          <IconButton aria-label="نمایش تمام‌صفحه" onClick={() => onFullscreen(activeIndex)} sx={{ color: "white", bgcolor: "rgba(4,11,18,.58)", border: "1px solid rgba(255,255,255,.14)", backdropFilter: "blur(12px)" }}>
+          <IconButton aria-label="نمایش تمام‌صفحه" onClick={() => onFullscreen(activeIndex)} sx={{ color: "white", bgcolor: "rgba(4,11,18,.58)", border: "1px solid rgba(var(--landing-contrast-rgb),.14)", backdropFilter: "blur(12px)" }}>
             <OpenInFullRoundedIcon />
           </IconButton>
         </Stack>
 
         {slides.length > 1 && (
           <>
-            <IconButton aria-label="تصویر قبلی" onClick={() => move(-1)} sx={{ position: "absolute", zIndex: 4, right: 14, top: "50%", color: "white", bgcolor: "rgba(4,11,18,.62)", border: "1px solid rgba(255,255,255,.12)", "&:hover": { bgcolor: "rgba(0,219,231,.15)", color: "primary.light" } }}><ChevronRightRoundedIcon /></IconButton>
-            <IconButton aria-label="تصویر بعدی" onClick={() => move(1)} sx={{ position: "absolute", zIndex: 4, left: 14, top: "50%", color: "white", bgcolor: "rgba(4,11,18,.62)", border: "1px solid rgba(255,255,255,.12)", "&:hover": { bgcolor: "rgba(0,219,231,.15)", color: "primary.light" } }}><ChevronLeftRoundedIcon /></IconButton>
+            <IconButton aria-label="تصویر قبلی" onClick={() => move(-1)} sx={{ position: "absolute", zIndex: 4, right: 14, top: "50%", color: "white", bgcolor: "rgba(4,11,18,.62)", border: "1px solid rgba(var(--landing-contrast-rgb),.12)", "&:hover": { bgcolor: "rgba(var(--landing-accent-rgb),.15)", color: "primary.light" } }}><ChevronRightRoundedIcon /></IconButton>
+            <IconButton aria-label="تصویر بعدی" onClick={() => move(1)} sx={{ position: "absolute", zIndex: 4, left: 14, top: "50%", color: "white", bgcolor: "rgba(4,11,18,.62)", border: "1px solid rgba(var(--landing-contrast-rgb),.12)", "&:hover": { bgcolor: "rgba(var(--landing-accent-rgb),.15)", color: "primary.light" } }}><ChevronLeftRoundedIcon /></IconButton>
           </>
         )}
       </SpotlightGlass>
@@ -189,9 +189,9 @@ function ProductGallery({ slides, productName, onFullscreen }) {
                 overflow: "hidden",
                 cursor: "pointer",
                 borderRadius: 2.25,
-                border: index === activeIndex ? "2px solid #00dbe7" : "1px solid rgba(255,255,255,.13)",
-                bgcolor: index === activeIndex ? "rgba(0,219,231,.09)" : "rgba(255,255,255,.03)",
-                boxShadow: index === activeIndex ? "0 0 18px rgba(0,219,231,.18)" : "none",
+                border: index === activeIndex ? "2px solid var(--landing-accent)" : "1px solid rgba(var(--landing-contrast-rgb),.13)",
+                bgcolor: index === activeIndex ? "rgba(var(--landing-accent-rgb),.09)" : "rgba(var(--landing-contrast-rgb),.03)",
+                boxShadow: index === activeIndex ? "0 0 18px rgba(var(--landing-accent-rgb),.18)" : "none",
                 transition: ".3s ease",
               }}
             >
@@ -223,7 +223,7 @@ function RelatedProductCard({ product, index }) {
         "@media (prefers-reduced-motion: reduce)": { opacity: 1, animation: "none" },
       }}
     >
-      <Box sx={{ height: 230, overflow: "hidden", bgcolor: "#080d14" }}>
+      <Box sx={{ height: 230, overflow: "hidden", bgcolor: "background.paper" }}>
         <Box component="img" src={setImagePath(product?.media?.[0]?.path)} alt={product.name} loading="lazy" sx={{ width: "100%", height: "100%", objectFit: "cover", display: "block", transition: "transform .7s cubic-bezier(.2,.8,.2,1)" }} />
       </Box>
       <Stack sx={{ p: 2.25 }}>
@@ -239,15 +239,15 @@ function RelatedProductCard({ product, index }) {
 
 function ProductLoading() {
   return (
-    <Box sx={{ minHeight: "100vh", bgcolor: "#070b13", pt: 15, pb: 10 }}>
+    <Box sx={{ minHeight: "100vh", bgcolor: "background.default", pt: 15, pb: 10 }}>
       <Container maxWidth="xl">
         <Box sx={{ display: "grid", gridTemplateColumns: { xs: "1fr", md: "minmax(0, 1.05fr) minmax(360px, .85fr)" }, gap: 4 }}>
-          <Skeleton variant="rounded" height={610} sx={{ bgcolor: "rgba(255,255,255,.05)", borderRadius: 6 }} />
+          <Skeleton variant="rounded" height={610} sx={{ bgcolor: "rgba(var(--landing-contrast-rgb),.05)", borderRadius: 6 }} />
           <Stack spacing={2.5} sx={{ py: 3 }}>
-            <Skeleton width="38%" sx={{ bgcolor: "rgba(255,255,255,.06)" }} />
-            <Skeleton height={76} sx={{ bgcolor: "rgba(255,255,255,.07)" }} />
-            <Skeleton height={54} sx={{ bgcolor: "rgba(255,255,255,.05)" }} />
-            <Skeleton variant="rounded" height={190} sx={{ bgcolor: "rgba(255,255,255,.045)", borderRadius: 4 }} />
+            <Skeleton width="38%" sx={{ bgcolor: "rgba(var(--landing-contrast-rgb),.06)" }} />
+            <Skeleton height={76} sx={{ bgcolor: "rgba(var(--landing-contrast-rgb),.07)" }} />
+            <Skeleton height={54} sx={{ bgcolor: "rgba(var(--landing-contrast-rgb),.05)" }} />
+            <Skeleton variant="rounded" height={190} sx={{ bgcolor: "rgba(var(--landing-contrast-rgb),.045)", borderRadius: 4 }} />
             <Stack alignItems="center"><CircularProgress size={28} /></Stack>
           </Stack>
         </Box>
@@ -305,7 +305,7 @@ export default function ProductDetailsWrapper({ slug }) {
 
   if (!product) {
     return (
-      <Box sx={{ minHeight: "80vh", display: "grid", placeItems: "center", bgcolor: "#070b13", px: 2 }}>
+      <Box sx={{ minHeight: "80vh", display: "grid", placeItems: "center", bgcolor: "background.default", px: 2 }}>
         <SpotlightGlass intensity="strong" sx={{ maxWidth: 560, borderRadius: 5, p: { xs: 4, md: 6 }, textAlign: "center" }}>
           <Inventory2RoundedIcon sx={{ fontSize: 60, color: "primary.main", opacity: .65 }} />
           <Typography component="h1" sx={{ mt: 2, fontSize: "1.5rem", fontWeight: 950 }}>محصول موردنظر پیدا نشد</Typography>
@@ -319,13 +319,13 @@ export default function ProductDetailsWrapper({ slug }) {
   const relatedProducts = product.relatedProducts || [];
 
   return (
-    <Box sx={{ position: "relative", minHeight: "100vh", overflow: "hidden", bgcolor: "#070b13", color: "text.primary", pb: { xs: 14, md: 11 } }}>
-      <Box aria-hidden sx={{ position: "absolute", inset: 0, pointerEvents: "none", opacity: .32, backgroundImage: "linear-gradient(rgba(143,183,255,.045) 1px, transparent 1px), linear-gradient(90deg, rgba(143,183,255,.045) 1px, transparent 1px)", backgroundSize: "48px 48px", maskImage: "linear-gradient(to bottom, black, transparent 48%)" }} />
-      <Box aria-hidden sx={{ position: "absolute", top: 40, right: "-18vw", width: "55vw", height: "55vw", borderRadius: "50%", background: "rgba(0,219,231,.08)", filter: "blur(130px)", pointerEvents: "none" }} />
+    <Box sx={{ position: "relative", minHeight: "100vh", overflow: "hidden", bgcolor: "background.default", color: "text.primary", pb: { xs: 14, md: 11 } }}>
+      <Box aria-hidden sx={{ position: "absolute", inset: 0, pointerEvents: "none", opacity: .32, backgroundImage: "linear-gradient(rgba(var(--landing-secondary-rgb),.045) 1px, transparent 1px), linear-gradient(90deg, rgba(var(--landing-secondary-rgb),.045) 1px, transparent 1px)", backgroundSize: "48px 48px", maskImage: "linear-gradient(to bottom, black, transparent 48%)" }} />
+      <Box aria-hidden sx={{ position: "absolute", top: 40, right: "-18vw", width: "55vw", height: "55vw", borderRadius: "50%", background: "rgba(var(--landing-accent-rgb),.08)", filter: "blur(130px)", pointerEvents: "none" }} />
 
       <Container maxWidth="xl" sx={{ position: "relative", zIndex: 1, pt: { xs: 13, md: 15 } }}>
         <Stack direction={{ xs: "column", sm: "row" }} alignItems={{ xs: "flex-start", sm: "center" }} justifyContent="space-between" spacing={2} sx={{ mb: 3 }}>
-          <Breadcrumbs separator="/" aria-label="مسیر صفحه" sx={{ "& .MuiBreadcrumbs-separator": { color: "rgba(255,255,255,.22)" } }}>
+          <Breadcrumbs separator="/" aria-label="مسیر صفحه" sx={{ "& .MuiBreadcrumbs-separator": { color: "rgba(var(--landing-contrast-rgb),.22)" } }}>
             <Typography component={Link} href="/" color="text.secondary" sx={{ fontSize: ".72rem" }}>کلینیک یو پی اس</Typography>
             <Typography component={Link} href="/categories" color="text.secondary" sx={{ fontSize: ".72rem" }}>فروشگاه</Typography>
             <Typography color="primary.main" sx={{ maxWidth: { xs: 210, sm: 440 }, overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap", fontSize: ".72rem" }}>{product.name}</Typography>
@@ -348,11 +348,11 @@ export default function ProductDetailsWrapper({ slug }) {
           <Stack spacing={2.5} sx={{ minWidth: 0, position: { lg: "sticky" }, top: { lg: 112 }, animation: `${reveal} .8s cubic-bezier(.2,.8,.2,1) .12s both`, "@media (prefers-reduced-motion: reduce)": { animation: "none" } }}>
             <Box>
               <Stack direction="row" spacing={1} flexWrap="wrap" useFlexGap sx={{ mb: 2 }}>
-                {product.category && <Chip icon={<CategoryRoundedIcon />} label={product.category.name} component={Link} href={`/products?category=${product.category._id}`} clickable size="small" sx={{ color: "primary.light", bgcolor: "rgba(0,219,231,.08)", border: "1px solid rgba(0,219,231,.2)" }} />}
-                {product.brand && <Chip label={product.brand.name} size="small" variant="outlined" sx={{ color: "text.secondary", borderColor: "rgba(255,255,255,.15)" }} />}
+                {product.category && <Chip icon={<CategoryRoundedIcon />} label={product.category.name} component={Link} href={`/products?category=${product.category._id}`} clickable size="small" sx={{ color: "primary.light", bgcolor: "rgba(var(--landing-accent-rgb),.08)", border: "1px solid rgba(var(--landing-accent-rgb),.2)" }} />}
+                {product.brand && <Chip label={product.brand.name} size="small" variant="outlined" sx={{ color: "text.secondary", borderColor: "rgba(var(--landing-contrast-rgb),.15)" }} />}
               </Stack>
               <Typography component="h1" sx={{ maxWidth: 700, fontSize: { xs: "2rem", sm: "2.6rem", lg: "3rem" }, fontWeight: 950, lineHeight: 1.5, letterSpacing: "-.035em" }}>{product.name}</Typography>
-              <Box sx={{ width: 74, height: 2, mt: 2.5, bgcolor: "primary.main", boxShadow: "0 0 16px rgba(0,219,231,.6)" }} />
+              <Box sx={{ width: 74, height: 2, mt: 2.5, bgcolor: "primary.main", boxShadow: "0 0 16px rgba(var(--landing-accent-rgb),.6)" }} />
               {product.excerpt && <Typography color="text.secondary" sx={{ mt: 2.5, lineHeight: 2.05, fontSize: ".88rem" }}>{product.excerpt}</Typography>}
             </Box>
 
@@ -384,7 +384,7 @@ export default function ProductDetailsWrapper({ slug }) {
       </Container>
 
       <Reveal sx={{ mt: { xs: 8, md: 12 } }}>
-        <Box sx={{ position: "relative", borderTop: "1px solid rgba(143,183,255,.09)", borderBottom: "1px solid rgba(143,183,255,.09)", bgcolor: "rgba(9,14,22,.82)" }}>
+        <Box sx={{ position: "relative", borderTop: "1px solid rgba(var(--landing-secondary-rgb),.09)", borderBottom: "1px solid rgba(var(--landing-secondary-rgb),.09)", bgcolor: "rgba(9,14,22,.82)" }}>
           <Container maxWidth="xl">
             <Box sx={{ display: "grid", gridTemplateColumns: { xs: "1fr", sm: "repeat(3, 1fr)" }, py: 2.5 }}>
               {[
@@ -392,7 +392,7 @@ export default function ProductDetailsWrapper({ slug }) {
                 { icon: SecurityRoundedIcon, title: "انتخاب مطمئن", text: "تجهیزات تخصصی با ضمانت و اصالت" },
                 { icon: SupportAgentRoundedIcon, title: "پشتیبانی مهندسی", text: "مشاوره، نصب و خدمات پس از فروش" },
               ].map(({ icon: Icon, title, text }, index) => (
-                <Stack key={title} direction="row" spacing={1.5} alignItems="center" sx={{ px: { xs: 1, sm: 3 }, py: 1.5, borderLeft: { sm: index === 2 ? 0 : "1px solid rgba(255,255,255,.08)" } }}>
+                <Stack key={title} direction="row" spacing={1.5} alignItems="center" sx={{ px: { xs: 1, sm: 3 }, py: 1.5, borderLeft: { sm: index === 2 ? 0 : "1px solid rgba(var(--landing-contrast-rgb),.08)" } }}>
                   <Icon sx={{ color: "primary.main", fontSize: 26 }} /><Box><Typography sx={{ fontWeight: 900, fontSize: ".84rem" }}>{title}</Typography><Typography color="text.secondary" sx={{ mt: .35, fontSize: ".65rem" }}>{text}</Typography></Box>
                 </Stack>
               ))}
@@ -409,7 +409,7 @@ export default function ProductDetailsWrapper({ slug }) {
           </Stack>
 
           <LiquidGlass intensity="medium" sx={{ borderRadius: { xs: 4, md: 5 }, p: { xs: 1.5, md: 2.5 } }}>
-            <Tabs value={activeTab} onChange={(_, value) => setActiveTab(value)} variant="fullWidth" aria-label="اطلاعات محصول" sx={{ mb: 2.5, "& .MuiTab-root": { minHeight: 52 }, "& .MuiTabs-indicator": { height: 3, borderRadius: 3, boxShadow: "0 0 14px rgba(0,219,231,.55)" } }}>
+            <Tabs value={activeTab} onChange={(_, value) => setActiveTab(value)} variant="fullWidth" aria-label="اطلاعات محصول" sx={{ mb: 2.5, "& .MuiTab-root": { minHeight: 52 }, "& .MuiTabs-indicator": { height: 3, borderRadius: 3, boxShadow: "0 0 14px rgba(var(--landing-accent-rgb),.55)" } }}>
               <Tab label="مشخصات فنی" />
               <Tab label="توضیحات محصول" />
             </Tabs>

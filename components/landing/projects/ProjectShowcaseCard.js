@@ -68,7 +68,7 @@ export default function ProjectShowcaseCard({ project, index = 0, compact = fals
           {project.excerpt || "اجرای تخصصی راهکارهای برق اضطراری و پایداری انرژی متناسب با الزامات پروژه."}
         </Typography>
 
-        <Stack direction="row" alignItems="center" spacing={2} sx={{ pt: 2.2, borderTop: "1px solid rgba(255,255,255,.12)" }}>
+        <Stack direction="row" alignItems="center" spacing={2} sx={{ pt: 2.2, borderTop: "1px solid rgba(var(--landing-contrast-rgb),.12)" }}>
           {project.customer && (
             <Stack direction="row" alignItems="center" spacing={0.7} sx={{ minWidth: 0 }}>
               <BusinessRoundedIcon sx={{ color: "primary.main", fontSize: 17 }} />

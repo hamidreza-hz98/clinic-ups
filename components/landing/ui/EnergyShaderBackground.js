@@ -2,6 +2,7 @@
 
 import { useEffect, useRef } from "react";
 import { Box } from "@mui/material";
+import { useTheme } from "@mui/material/styles";
 
 const vertexShader = `
   attribute vec2 a_position;
@@ -18,6 +19,7 @@ const fragmentShader = `
   uniform float u_time;
   uniform vec2 u_resolution;
   uniform vec2 u_mouse;
+  uniform float u_light_mode;
   varying vec2 v_uv;
 
   float hash(vec2 p) {
@@ -55,12 +57,22 @@ const fragmentShader = `
     vec3 colorDark = vec3(0.016, 0.027, 0.043);
     vec3 colorBlue = vec3(0.004, 0.255, 0.494);
     vec3 colorCyan = vec3(0.0, 0.86, 0.91);
-    vec3 finalColor = mix(colorDark, colorBlue, flow * 0.18 + energy * 0.08);
-    finalColor += colorCyan * grid;
-    finalColor += hash(uv + u_time * 0.01) * 0.018;
+    vec3 darkFinal = mix(colorDark, colorBlue, flow * 0.18 + energy * 0.08);
+    darkFinal += colorCyan * grid;
+    darkFinal += hash(uv + u_time * 0.01) * 0.018;
+
+    vec3 colorMilk = vec3(0.969, 0.953, 0.918);
+    vec3 colorLogoBlue = vec3(0.004, 0.255, 0.494);
+    vec3 colorLogoRed = vec3(0.871, 0.051, 0.067);
+    vec3 lightFinal = mix(colorMilk, colorLogoBlue, flow * 0.055 + energy * 0.018);
+    lightFinal += colorLogoBlue * grid * 0.65;
+    lightFinal += colorLogoRed * energy * 0.006;
+    lightFinal += hash(uv + u_time * 0.01) * 0.008;
 
     float edgeFade = smoothstep(1.05, 0.25, distanceFromCenter);
-    finalColor = mix(colorDark, finalColor, 0.42 + edgeFade * 0.58);
+    darkFinal = mix(colorDark, darkFinal, 0.42 + edgeFade * 0.58);
+    lightFinal = mix(colorMilk, lightFinal, 0.5 + edgeFade * 0.5);
+    vec3 finalColor = mix(darkFinal, lightFinal, u_light_mode);
     gl_FragColor = vec4(finalColor, 1.0);
   }
 `;
@@ -78,6 +90,8 @@ function compileShader(gl, type, source) {
 
 export default function EnergyShaderBackground() {
   const canvasRef = useRef(null);
+  const theme = useTheme();
+  const lightMode = theme.palette.mode === "light";
 
   useEffect(() => {
     const canvas = canvasRef.current;
@@ -117,6 +131,7 @@ export default function EnergyShaderBackground() {
     const timeUniform = gl.getUniformLocation(program, "u_time");
     const resolutionUniform = gl.getUniformLocation(program, "u_resolution");
     const mouseUniform = gl.getUniformLocation(program, "u_mouse");
+    const lightModeUniform = gl.getUniformLocation(program, "u_light_mode");
     const mouse = { x: 0, y: 0 };
     let frameId = 0;
     let stopped = false;
@@ -149,6 +164,7 @@ export default function EnergyShaderBackground() {
       gl.uniform1f(timeUniform, timestamp * 0.001);
       gl.uniform2f(resolutionUniform, canvas.width, canvas.height);
       gl.uniform2f(mouseUniform, mouse.x, mouse.y);
+      gl.uniform1f(lightModeUniform, lightMode ? 1 : 0);
       gl.drawArrays(gl.TRIANGLE_STRIP, 0, 4);
 
       if (!window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
@@ -171,7 +187,7 @@ export default function EnergyShaderBackground() {
       gl.deleteShader(vertex);
       gl.deleteShader(fragment);
     };
-  }, []);
+  }, [lightMode]);
 
   return (
     <Box
@@ -181,13 +197,14 @@ export default function EnergyShaderBackground() {
         inset: 0,
         overflow: "hidden",
         pointerEvents: "none",
-        bgcolor: "#04070B",
+        bgcolor: "background.default",
         "&::after": {
           content: '""',
           position: "absolute",
           inset: 0,
-          background:
-            "linear-gradient(180deg, rgba(4,7,11,.12), rgba(4,7,11,.56) 56%, #070B12 100%)",
+          background: (activeTheme) => activeTheme.palette.mode === "light"
+            ? "linear-gradient(180deg, rgba(247,243,234,.04), rgba(247,243,234,.22) 56%, #F7F3EA 100%)"
+            : "linear-gradient(180deg, rgba(4,7,11,.12), rgba(4,7,11,.56) 56%, var(--landing-bg) 100%)",
         },
       }}
     >

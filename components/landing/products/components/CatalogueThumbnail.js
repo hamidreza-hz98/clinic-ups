@@ -59,8 +59,8 @@ export default function CatalogueThumbnail({ heading = "", downloadLink = "", im
               overflow: "hidden",
               cursor: "zoom-in",
               borderRadius: 2.5,
-              border: "1px solid rgba(255,255,255,.12)",
-              bgcolor: "rgba(255,255,255,.03)",
+              border: "1px solid rgba(var(--landing-contrast-rgb),.12)",
+              bgcolor: "rgba(var(--landing-contrast-rgb),.03)",
               "&:hover img": { transform: "scale(1.06)", filter: "brightness(.72)" },
               "&:hover .catalogue-zoom": { opacity: 1, transform: "translate(-50%, -50%) scale(1)" },
             }}
@@ -80,7 +80,7 @@ export default function CatalogueThumbnail({ heading = "", downloadLink = "", im
           paper: { sx: { position: "relative", overflow: "visible", bgcolor: "transparent", backgroundImage: "none", boxShadow: "none" } },
         }}
       >
-        <IconButton aria-label="بستن تصویر کاتالوگ" onClick={() => setSelectedImage(null)} sx={{ position: "absolute", zIndex: 2, top: -18, right: -18, color: "white", bgcolor: "rgba(8,14,22,.9)", border: "1px solid rgba(255,255,255,.18)", "&:hover": { bgcolor: "rgba(16,25,38,.95)" } }}>
+        <IconButton aria-label="بستن تصویر کاتالوگ" onClick={() => setSelectedImage(null)} sx={{ position: "absolute", zIndex: 2, top: -18, right: -18, color: "white", bgcolor: "rgba(8,14,22,.9)", border: "1px solid rgba(var(--landing-contrast-rgb),.18)", "&:hover": { bgcolor: "rgba(16,25,38,.95)" } }}>
           <CloseRoundedIcon />
         </IconButton>
         {selectedImage && <Box component="img" src={selectedImage} alt="صفحه انتخاب‌شده کاتالوگ" sx={{ display: "block", maxWidth: "min(88vw, 820px)", maxHeight: "88vh", objectFit: "contain", borderRadius: 3, boxShadow: "0 35px 100px rgba(0,0,0,.7)" }} />}

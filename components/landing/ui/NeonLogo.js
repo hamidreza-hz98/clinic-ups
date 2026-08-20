@@ -9,7 +9,7 @@ export default function NeonLogo({ animated = false, alt = "کلینیک یو پ
         flexShrink: 0,
         ...sx,
         "@keyframes neonLogoPulse": {
-          "0%, 100%": { opacity: .46, filter: "blur(7px) drop-shadow(0 0 8px rgba(0,219,231,.8))" },
+          "0%, 100%": { opacity: .46, filter: "blur(7px) drop-shadow(0 0 8px rgba(var(--landing-accent-rgb),.8))" },
           "50%": { opacity: .78, filter: "blur(10px) drop-shadow(0 0 16px rgba(255,48,64,.9))" },
         },
       }}

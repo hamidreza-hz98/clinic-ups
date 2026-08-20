@@ -67,7 +67,7 @@ export default function FullscreenImage({ slides = [], initialSlide = 0, onClose
           display: "grid",
           gridTemplateRows: "auto minmax(0,1fr) auto",
           p: { xs: 1.5, md: 3 },
-          background: "radial-gradient(circle at 50% 45%, rgba(0,219,231,.1), transparent 42%), #04070d",
+          background: "radial-gradient(circle at 50% 45%, rgba(var(--landing-accent-rgb),.1), transparent 42%), #04070d",
         }}
       >
         <Stack direction="row" justifyContent="space-between" alignItems="center" sx={{ position: "relative", zIndex: 5 }}>
@@ -80,14 +80,14 @@ export default function FullscreenImage({ slides = [], initialSlide = 0, onClose
             <IconButton
               aria-label={zoomed ? "بازگرداندن اندازه تصویر" : "بزرگ‌نمایی تصویر"}
               onClick={() => setZoomed((value) => !value)}
-              sx={{ color: "white", bgcolor: "rgba(255,255,255,.08)", border: "1px solid rgba(255,255,255,.14)" }}
+              sx={{ color: "white", bgcolor: "rgba(var(--landing-contrast-rgb),.08)", border: "1px solid rgba(var(--landing-contrast-rgb),.14)" }}
             >
               {zoomed ? <ZoomOutRoundedIcon /> : <ZoomInRoundedIcon />}
             </IconButton>
             <IconButton
               aria-label="بستن نمایش تمام‌صفحه"
               onClick={onClose}
-              sx={{ color: "white", bgcolor: "rgba(255,255,255,.08)", border: "1px solid rgba(255,255,255,.14)" }}
+              sx={{ color: "white", bgcolor: "rgba(var(--landing-contrast-rgb),.08)", border: "1px solid rgba(var(--landing-contrast-rgb),.14)" }}
             >
               <CloseRoundedIcon />
             </IconButton>
@@ -160,8 +160,8 @@ export default function FullscreenImage({ slides = [], initialSlide = 0, onClose
                     p: 0,
                     overflow: "hidden",
                     borderRadius: 1.5,
-                    border: index === activeIndex ? "2px solid #00dbe7" : "1px solid rgba(255,255,255,.18)",
-                    bgcolor: "rgba(255,255,255,.06)",
+                    border: index === activeIndex ? "2px solid var(--landing-accent)" : "1px solid rgba(var(--landing-contrast-rgb),.18)",
+                    bgcolor: "rgba(var(--landing-contrast-rgb),.06)",
                     cursor: "pointer",
                   }}
                 >

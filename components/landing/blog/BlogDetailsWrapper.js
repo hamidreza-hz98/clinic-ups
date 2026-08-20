@@ -33,7 +33,7 @@ import SpotlightGlass from "../ui/SpotlightGlass";
 function ArticleMeta({ icon: Icon, label, value }) {
   return (
     <Stack direction="row" alignItems="center" spacing={1.1}>
-      <Box sx={{ width: 36, height: 36, display: "grid", placeItems: "center", borderRadius: 2, color: "primary.main", bgcolor: "rgba(0,219,231,.08)", border: "1px solid rgba(0,219,231,.16)" }}>
+      <Box sx={{ width: 36, height: 36, display: "grid", placeItems: "center", borderRadius: 2, color: "primary.main", bgcolor: "rgba(var(--landing-accent-rgb),.08)", border: "1px solid rgba(var(--landing-accent-rgb),.16)" }}>
         <Icon sx={{ fontSize: 19 }} />
       </Box>
       <Box>
@@ -111,11 +111,11 @@ export default function BlogDetailsWrapper({ slug }) {
   }, [blog, loading]);
 
   if (loading) {
-    return <Box sx={{ minHeight: "75vh", bgcolor: "#070B12", display: "grid", placeItems: "center" }}><Stack alignItems="center" spacing={2}><CircularProgress size={40} thickness={2.4} /><Typography color="text.secondary">در حال آماده‌سازی مقاله</Typography></Stack></Box>;
+    return <Box sx={{ minHeight: "75vh", bgcolor: "background.default", display: "grid", placeItems: "center" }}><Stack alignItems="center" spacing={2}><CircularProgress size={40} thickness={2.4} /><Typography color="text.secondary">در حال آماده‌سازی مقاله</Typography></Stack></Box>;
   }
 
   if (error || !blog) {
-    return <Box sx={{ minHeight: "75vh", bgcolor: "#070B12", display: "grid", placeItems: "center", px: 2 }}><LiquidGlass role="alert" sx={{ p: 5, borderRadius: 5, textAlign: "center", maxWidth: 560 }}><AutoStoriesRoundedIcon sx={{ color: "primary.main", fontSize: 52, mb: 2 }} /><Typography variant="h4" sx={{ mb: 1 }}>مقاله در دسترس نیست</Typography><Typography color="text.secondary" sx={{ mb: 3 }}>{error || "اطلاعات این مقاله دریافت نشد."}</Typography><Button component={Link} href="/blog" variant="outlined">بازگشت به مجله</Button></LiquidGlass></Box>;
+    return <Box sx={{ minHeight: "75vh", bgcolor: "background.default", display: "grid", placeItems: "center", px: 2 }}><LiquidGlass role="alert" sx={{ p: 5, borderRadius: 5, textAlign: "center", maxWidth: 560 }}><AutoStoriesRoundedIcon sx={{ color: "primary.main", fontSize: 52, mb: 2 }} /><Typography variant="h4" sx={{ mb: 1 }}>مقاله در دسترس نیست</Typography><Typography color="text.secondary" sx={{ mb: 3 }}>{error || "اطلاعات این مقاله دریافت نشد."}</Typography><Button component={Link} href="/blog" variant="outlined">بازگشت به مجله</Button></LiquidGlass></Box>;
   }
 
   const publishedAt = moment(blog.createdAt).locale("fa").format("jD jMMMM jYYYY");
@@ -123,16 +123,16 @@ export default function BlogDetailsWrapper({ slug }) {
   const relatedProducts = blog.relatedProducts || [];
 
   return (
-    <Box ref={rootRef} sx={{ overflow: "hidden", bgcolor: "#070B12", color: "text.primary", minHeight: "100vh" }}>
-      <Box aria-hidden sx={{ position: "fixed", top: 0, right: 0, zIndex: 1500, width: `${progress}%`, height: 3, bgcolor: "primary.main", boxShadow: "0 0 14px rgba(0,219,231,.8)", transition: "width .1s linear" }} />
+    <Box ref={rootRef} sx={{ overflow: "hidden", bgcolor: "background.default", color: "text.primary", minHeight: "100vh" }}>
+      <Box aria-hidden sx={{ position: "fixed", top: 0, right: 0, zIndex: 1500, width: `${progress}%`, height: 3, bgcolor: "primary.main", boxShadow: "0 0 14px rgba(var(--landing-accent-rgb),.8)", transition: "width .1s linear" }} />
 
       <Box component="section" sx={{ position: "relative", isolation: "isolate", pt: { xs: 14, md: 16 }, pb: { xs: 8, md: 12 }, minHeight: { md: 790 }, display: "flex", alignItems: "center" }}>
         <EnergyShaderBackground />
         <Box className="selected-projects-texture" aria-hidden />
-        <Box aria-hidden sx={{ position: "absolute", inset: 0, zIndex: 0, background: "radial-gradient(circle at 75% 42%, rgba(0,219,231,.1), transparent 31%), linear-gradient(180deg, transparent 52%, #070B12 100%)" }} />
+        <Box aria-hidden sx={{ position: "absolute", inset: 0, zIndex: 0, background: "radial-gradient(circle at 75% 42%, rgba(var(--landing-accent-rgb),.1), transparent 31%), linear-gradient(180deg, transparent 52%, var(--landing-bg) 100%)" }} />
 
         <Container maxWidth="xl" sx={{ position: "relative", zIndex: 1 }}>
-          <Breadcrumbs sx={{ mb: { xs: 4, md: 6 }, color: "text.secondary", "& .MuiBreadcrumbs-separator": { color: "rgba(255,255,255,.3)" } }}>
+          <Breadcrumbs sx={{ mb: { xs: 4, md: 6 }, color: "text.secondary", "& .MuiBreadcrumbs-separator": { color: "rgba(var(--landing-contrast-rgb),.3)" } }}>
             <Link href="/">خانه</Link>
             <Link href="/blog">مجله تخصصی</Link>
             <Typography color="primary.main" noWrap sx={{ maxWidth: { xs: 180, md: 500 }, fontSize: ".78rem" }}>{blog.title}</Typography>
@@ -141,7 +141,7 @@ export default function BlogDetailsWrapper({ slug }) {
           <Box sx={{ display: "grid", gridTemplateColumns: { xs: "1fr", md: "7fr 5fr" }, gap: { xs: 5, md: 8 }, alignItems: "center" }}>
             <Box>
               <Stack direction="row" spacing={1} useFlexGap flexWrap="wrap" className="hero-reveal hero-reveal-1" sx={{ mb: 2.5 }}>
-                {(blog.categories || []).map((category) => <Chip key={category._id} component={Link} href={`/blog?category=${category._id}`} clickable label={category.name} size="small" variant="outlined" sx={{ color: "primary.light", borderColor: "rgba(0,219,231,.3)", bgcolor: "rgba(0,219,231,.06)" }} />)}
+                {(blog.categories || []).map((category) => <Chip key={category._id} component={Link} href={`/blog?category=${category._id}`} clickable label={category.name} size="small" variant="outlined" sx={{ color: "primary.light", borderColor: "rgba(var(--landing-accent-rgb),.3)", bgcolor: "rgba(var(--landing-accent-rgb),.06)" }} />)}
               </Stack>
               <Typography component="h1" variant="h1" className="hero-reveal hero-reveal-2" sx={{ fontSize: { xs: "2.55rem", sm: "3.4rem", md: "4.65rem" }, lineHeight: 1.27, mb: 2.4 }}>{blog.title}</Typography>
               {blog.excerpt && <Typography color="text.secondary" className="hero-reveal hero-reveal-3" sx={{ maxWidth: 810, fontSize: { xs: "1rem", md: "1.12rem" }, lineHeight: 2.05, mb: 3.5 }}>{blog.excerpt}</Typography>}
@@ -168,14 +168,14 @@ export default function BlogDetailsWrapper({ slug }) {
         <Box sx={{ display: "grid", gridTemplateColumns: { xs: "1fr", lg: "minmax(0, 1fr) 245px" }, gap: { xs: 4, lg: 5 }, alignItems: "start" }}>
           <LiquidGlass component="article" intensity="strong" className="blog-page-reveal" sx={{ p: { xs: 2.6, sm: 4, md: 6 }, borderRadius: 6 }}>
             <Box sx={{ display: "contents" }}>
-              <Stack direction="row" justifyContent="space-between" alignItems="center" sx={{ mb: 4, pb: 3, borderBottom: "1px solid rgba(255,255,255,.1)" }}>
+              <Stack direction="row" justifyContent="space-between" alignItems="center" sx={{ mb: 4, pb: 3, borderBottom: "1px solid rgba(var(--landing-contrast-rgb),.1)" }}>
                 <Box><Typography sx={{ color: "primary.main", fontFamily: "monospace", fontSize: ".68rem", letterSpacing: ".12em", direction: "ltr" }}>ARTICLE / INSIGHT</Typography><Typography component="h2" variant="h4" sx={{ mt: 1 }}>متن مقاله</Typography></Box>
                 <AutoStoriesRoundedIcon sx={{ color: "primary.main", fontSize: 34, opacity: .75 }} />
               </Stack>
               <Box className="blog-rich-content" dangerouslySetInnerHTML={{ __html: blog.content || "" }} />
 
               {(blog.categories?.length > 0 || blog.tags?.length > 0) && (
-                <Box sx={{ mt: 6, pt: 3.5, borderTop: "1px solid rgba(255,255,255,.1)" }}>
+                <Box sx={{ mt: 6, pt: 3.5, borderTop: "1px solid rgba(var(--landing-contrast-rgb),.1)" }}>
                   {blog.categories?.length > 0 && <Stack direction="row" alignItems="center" spacing={1} useFlexGap flexWrap="wrap" sx={{ mb: 2 }}><CategoryRoundedIcon sx={{ color: "primary.main" }} /><Typography color="text.secondary" sx={{ ml: 1 }}>دسته‌بندی:</Typography>{blog.categories.map((category) => <Chip key={category._id} component={Link} href={`/blog?category=${category._id}`} clickable label={category.name} size="small" variant="outlined" />)}</Stack>}
                   {blog.tags?.length > 0 && <Stack direction="row" alignItems="center" spacing={1} useFlexGap flexWrap="wrap"><LocalOfferRoundedIcon sx={{ color: "primary.main" }} /><Typography color="text.secondary" sx={{ ml: 1 }}>برچسب‌ها:</Typography>{blog.tags.map((tag) => <Chip key={tag._id} label={tag.name} size="small" />)}</Stack>}
                 </Box>
@@ -187,7 +187,7 @@ export default function BlogDetailsWrapper({ slug }) {
             <Typography sx={{ color: "primary.main", fontFamily: "monospace", fontSize: ".65rem", letterSpacing: ".12em", direction: "ltr", mb: 1 }}>READING STATUS</Typography>
             <Typography variant="h6" sx={{ mb: 1 }}>پیشرفت مطالعه</Typography>
             <Typography color="text.secondary" sx={{ fontSize: ".8rem", lineHeight: 1.8, mb: 2.5 }}>میزان پیمایش شما در این مقاله</Typography>
-            <Box sx={{ height: 5, borderRadius: 99, bgcolor: "rgba(255,255,255,.08)", overflow: "hidden", mb: 1 }}><Box sx={{ height: "100%", width: `${progress}%`, bgcolor: "primary.main", boxShadow: "0 0 12px rgba(0,219,231,.7)", transition: "width .1s linear" }} /></Box>
+            <Box sx={{ height: 5, borderRadius: 99, bgcolor: "rgba(var(--landing-contrast-rgb),.08)", overflow: "hidden", mb: 1 }}><Box sx={{ height: "100%", width: `${progress}%`, bgcolor: "primary.main", boxShadow: "0 0 12px rgba(var(--landing-accent-rgb),.7)", transition: "width .1s linear" }} /></Box>
             <Typography sx={{ color: "primary.main", fontFamily: "monospace", direction: "ltr", fontSize: ".75rem" }}>{Math.round(progress)}%</Typography>
           </LiquidGlass>
         </Box>

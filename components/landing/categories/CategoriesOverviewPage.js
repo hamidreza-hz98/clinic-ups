@@ -65,7 +65,7 @@ export default function CategoriesOverviewPage() {
         isolation: "isolate",
         minHeight: "100vh",
         overflow: "hidden",
-        bgcolor: "#070B12",
+        bgcolor: "background.default",
         color: "text.primary",
         pt: { xs: 14, md: 12 },
         pb: { xs: 11, md: 16 },
@@ -81,7 +81,7 @@ export default function CategoriesOverviewPage() {
           zIndex: 0,
           opacity: 0.22,
           backgroundImage:
-            "linear-gradient(rgba(143,183,255,.11) 1px, transparent 1px), linear-gradient(90deg, rgba(143,183,255,.11) 1px, transparent 1px)",
+            "linear-gradient(rgba(var(--landing-secondary-rgb),.11) 1px, transparent 1px), linear-gradient(90deg, rgba(var(--landing-secondary-rgb),.11) 1px, transparent 1px)",
           backgroundSize: { xs: "34px 34px", md: "54px 54px" },
           maskImage: "linear-gradient(to bottom, black, transparent 68%)",
         }}
@@ -106,8 +106,8 @@ export default function CategoriesOverviewPage() {
               sx={{
                 mb: 3,
                 color: "primary.light",
-                borderColor: "rgba(0,219,231,.28)",
-                bgcolor: "rgba(0,219,231,.055)",
+                borderColor: "rgba(var(--landing-accent-rgb),.28)",
+                bgcolor: "rgba(var(--landing-accent-rgb),.055)",
                 "& .MuiChip-icon": { color: "primary.main" },
               }}
             />
@@ -153,8 +153,8 @@ export default function CategoriesOverviewPage() {
                 flex: "0 0 auto",
                 borderRadius: "50%",
                 color: "primary.main",
-                bgcolor: "rgba(0,219,231,.09)",
-                border: "1px solid rgba(0,219,231,.2)",
+                bgcolor: "rgba(var(--landing-accent-rgb),.09)",
+                border: "1px solid rgba(var(--landing-accent-rgb),.2)",
               }}
             >
               <GridViewRoundedIcon />

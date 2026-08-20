@@ -42,7 +42,7 @@ export default function MagneticButton({ href, children, sx, ...props }) {
           "&::after": {
             content: '""', position: "absolute", inset: 0,
             transform: "translateX(110%) skewX(-18deg)",
-            background: "linear-gradient(90deg, transparent, rgba(255,255,255,.2), transparent)",
+            background: "linear-gradient(90deg, transparent, rgba(var(--landing-contrast-rgb),.2), transparent)",
             transition: "transform .65s ease",
           },
           "&:hover::after": { transform: "translateX(-110%) skewX(-18deg)" },

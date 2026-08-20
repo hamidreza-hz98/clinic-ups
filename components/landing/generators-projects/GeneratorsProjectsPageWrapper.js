@@ -39,11 +39,11 @@ export default function GeneratorsProjectsPageWrapper() {
   const openFullscreen = (slides, index) => setFullscreenData({ open: true, slides, initialIndex: index });
 
   return (
-    <Box ref={rootRef} sx={{ overflow: "hidden", bgcolor: "#070B12", color: "text.primary" }}>
+    <Box ref={rootRef} sx={{ overflow: "hidden", bgcolor: "background.default", color: "text.primary" }}>
       <Box component="section" sx={{ position: "relative", isolation: "isolate", minHeight: { xs: 760, md: 800 }, pt: { xs: 15, md: 17 }, pb: { xs: 9, md: 12 }, display: "flex", alignItems: "center" }}>
         <EnergyShaderBackground />
         <Box className="selected-projects-texture" aria-hidden />
-        <Box aria-hidden sx={{ position: "absolute", inset: 0, zIndex: 0, background: "radial-gradient(circle at 22% 45%, rgba(255,156,135,.12), transparent 31%), linear-gradient(180deg, transparent 50%, #070B12 100%)" }} />
+        <Box aria-hidden sx={{ position: "absolute", inset: 0, zIndex: 0, background: "radial-gradient(circle at 22% 45%, rgba(255,156,135,.12), transparent 31%), linear-gradient(180deg, transparent 50%, var(--landing-bg) 100%)" }} />
 
         <Container maxWidth="xl" sx={{ position: "relative", zIndex: 1 }}>
           <Box sx={{ display: "grid", gridTemplateColumns: { xs: "1fr", md: "7fr 5fr" }, gap: { xs: 6, md: 8 }, alignItems: "center" }}>
@@ -69,10 +69,10 @@ export default function GeneratorsProjectsPageWrapper() {
         </Container>
       </Box>
 
-      <Box id="generator-archive" component="section" sx={{ position: "relative", py: { xs: 9, md: 14 }, bgcolor: "#0A0F17", scrollMarginTop: 100 }}>
+      <Box id="generator-archive" component="section" sx={{ position: "relative", py: { xs: 9, md: 14 }, bgcolor: "background.paper", scrollMarginTop: 100 }}>
         <Box className="generator-archive-grid" aria-hidden />
         <Container maxWidth="xl" sx={{ position: "relative", zIndex: 1 }}>
-          <Stack direction={{ xs: "column", md: "row" }} justifyContent="space-between" alignItems={{ xs: "flex-start", md: "end" }} spacing={2} className="generator-page-reveal" sx={{ mb: { xs: 5, md: 7 } }}><Box><Typography sx={{ color: "primary.main", fontFamily: "monospace", direction: "ltr", letterSpacing: ".12em", fontSize: ".7rem", mb: 1 }}>FIELD DOCUMENTATION</Typography><Typography component="h2" variant="h2" sx={{ fontSize: { xs: "2.35rem", md: "3.65rem" }, mb: 1.5 }}>آرشیو پروژه‌ها</Typography><Typography color="text.secondary">{text("click_to_magnify")}</Typography></Box><Chip icon={<CollectionsRoundedIcon />} label={`${totalImages.toLocaleString("fa-IR")} تصویر`} variant="outlined" sx={{ color: "primary.light", borderColor: "rgba(0,219,231,.25)" }} /></Stack>
+          <Stack direction={{ xs: "column", md: "row" }} justifyContent="space-between" alignItems={{ xs: "flex-start", md: "end" }} spacing={2} className="generator-page-reveal" sx={{ mb: { xs: 5, md: 7 } }}><Box><Typography sx={{ color: "primary.main", fontFamily: "monospace", direction: "ltr", letterSpacing: ".12em", fontSize: ".7rem", mb: 1 }}>FIELD DOCUMENTATION</Typography><Typography component="h2" variant="h2" sx={{ fontSize: { xs: "2.35rem", md: "3.65rem" }, mb: 1.5 }}>آرشیو پروژه‌ها</Typography><Typography color="text.secondary">{text("click_to_magnify")}</Typography></Box><Chip icon={<CollectionsRoundedIcon />} label={`${totalImages.toLocaleString("fa-IR")} تصویر`} variant="outlined" sx={{ color: "primary.light", borderColor: "rgba(var(--landing-accent-rgb),.25)" }} /></Stack>
 
           <Stack spacing={{ xs: 5, md: 7 }}>
             {generatorProjects.map((project, projectIndex) => (
@@ -94,7 +94,7 @@ export default function GeneratorsProjectsPageWrapper() {
         </Container>
       </Box>
 
-      <Box component="section" sx={{ py: { xs: 9, md: 13 }, bgcolor: "#070B12" }}><Container maxWidth="lg"><LiquidGlass intensity="strong" className="generator-page-reveal" sx={{ p: { xs: 3.5, md: 6 }, borderRadius: 6, textAlign: "center" }}><BoltRoundedIcon sx={{ color: "primary.main", fontSize: 48, mb: 2 }} /><Typography component="h2" variant="h3" sx={{ fontSize: { xs: "2rem", md: "3rem" }, mb: 1.5 }}>پروژه بعدی می‌تواند برای مجموعه شما باشد</Typography><Typography color="text.secondary" sx={{ maxWidth: 680, mx: "auto", lineHeight: 2, mb: 3.5 }}>برای انتخاب ظرفیت، جانمایی و طراحی مسیر برق اضطراری با کارشناسان کلینیک یو پی اس گفتگو کنید.</Typography><MagneticButton href="/contact" variant="contained">درخواست بررسی پروژه</MagneticButton></LiquidGlass></Container></Box>
+      <Box component="section" sx={{ py: { xs: 9, md: 13 }, bgcolor: "background.default" }}><Container maxWidth="lg"><LiquidGlass intensity="strong" className="generator-page-reveal" sx={{ p: { xs: 3.5, md: 6 }, borderRadius: 6, textAlign: "center" }}><BoltRoundedIcon sx={{ color: "primary.main", fontSize: 48, mb: 2 }} /><Typography component="h2" variant="h3" sx={{ fontSize: { xs: "2rem", md: "3rem" }, mb: 1.5 }}>پروژه بعدی می‌تواند برای مجموعه شما باشد</Typography><Typography color="text.secondary" sx={{ maxWidth: 680, mx: "auto", lineHeight: 2, mb: 3.5 }}>برای انتخاب ظرفیت، جانمایی و طراحی مسیر برق اضطراری با کارشناسان کلینیک یو پی اس گفتگو کنید.</Typography><MagneticButton href="/contact" variant="contained">درخواست بررسی پروژه</MagneticButton></LiquidGlass></Container></Box>
 
       {fullscreenData.open && <FullscreenImage slides={fullscreenData.slides} initialSlide={fullscreenData.initialIndex} onClose={() => setFullscreenData({ open: false, slides: [], initialIndex: 0 })} />}
     </Box>

@@ -7,7 +7,7 @@ import ArrowBackRoundedIcon from "@mui/icons-material/ArrowBackRounded";
 import { setImagePath } from "@/lib/landing/general";
 import LiquidGlass from "../ui/LiquidGlass";
 
-const accents = ["#00DBE7", "#FF9C87", "#8FB7FF", "#00DBE7", "#FF9C87"];
+const accents = ["var(--landing-accent)", "#FF9C87", "var(--landing-secondary)", "var(--landing-accent)", "#FF9C87"];
 const preferredCategories = [
   ["یو پی اس", "یوپیاس", "ups"],
   ["باتری", "battery"],

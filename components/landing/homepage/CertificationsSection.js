@@ -30,7 +30,7 @@ const certifications = [
     title: "نماد اعتماد الکترونیکی",
     subtitle: "تأیید هویت کسب‌وکار دیجیتال",
     image: "/images/enamad.png",
-    accent: "#00dbe7",
+    accent: "var(--landing-accent)",
     rotation: 13,
     x: 112,
     href: ENAMAD_URL,
@@ -59,9 +59,9 @@ export default function CertificationsSection() {
       sx={{
         position: "relative",
         overflow: "hidden",
-        bgcolor: "#080C14",
+        bgcolor: "background.paper",
         py: { xs: 10, md: 14 },
-        borderTop: "1px solid rgba(143,183,255,.08)",
+        borderTop: "1px solid rgba(var(--landing-secondary-rgb),.08)",
       }}
     >
       <Box className="certifications-grid" aria-hidden />
@@ -78,7 +78,7 @@ export default function CertificationsSection() {
               label="اعتماد مبتنی بر استاندارد"
               variant="outlined"
               color="primary"
-              sx={{ mb: 2.5, bgcolor: "rgba(0,219,231,.05)", borderColor: "rgba(0,219,231,.24)" }}
+              sx={{ mb: 2.5, bgcolor: "rgba(var(--landing-accent-rgb),.05)", borderColor: "rgba(var(--landing-accent-rgb),.24)" }}
             />
             <Typography component="h2" variant="h2" sx={{ fontSize: { xs: "2.35rem", md: "3.65rem" }, mb: 2 }}>
               گواهینامه‌ها و <Box component="span" sx={{ color: "primary.main" }}>مجوزهای معتبر</Box>

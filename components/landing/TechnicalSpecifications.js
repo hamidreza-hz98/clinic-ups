@@ -25,7 +25,7 @@ export default function TechnicalSpecifications({ specifications = [] }) {
             borderRadius: 2.5,
             p: 2,
             transition: "border-color .3s ease, transform .3s ease",
-            "&:hover": { borderColor: "rgba(0,219,231,.3)", transform: "translateY(-2px)" },
+            "&:hover": { borderColor: "rgba(var(--landing-accent-rgb),.3)", transform: "translateY(-2px)" },
           }}
         >
           <Stack direction="row" alignItems="center" justifyContent="space-between" spacing={2}>

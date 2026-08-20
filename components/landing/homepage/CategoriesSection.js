@@ -38,10 +38,10 @@ export default function CategoriesSection({ categories = [] }) {
       sx={{
         position: "relative",
         overflow: "hidden",
-        bgcolor: "#0B0F15",
+        bgcolor: "background.paper",
         py: { xs: 10, md: 14 },
         backgroundImage:
-          "radial-gradient(circle at 2px 2px, rgba(143,183,255,.12) 1px, transparent 0)",
+          "radial-gradient(circle at 2px 2px, rgba(var(--landing-secondary-rgb),.12) 1px, transparent 0)",
         backgroundSize: "50px 50px",
       }}
     >
@@ -54,7 +54,7 @@ export default function CategoriesSection({ categories = [] }) {
           height: 360,
           transform: "translateX(-50%)",
           borderRadius: "50%",
-          bgcolor: "rgba(0,219,231,.035)",
+          bgcolor: "rgba(var(--landing-accent-rgb),.035)",
           filter: "blur(100px)",
         }}
       />

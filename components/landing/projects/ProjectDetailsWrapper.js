@@ -85,17 +85,17 @@ function ProjectGallery({ project, activeIndex, setActiveIndex, onOpen, onPause 
             {String(activeIndex + 1).padStart(2, "0")} / {String(Math.max(media.length, 1)).padStart(2, "0")}
           </Typography>
         </LiquidGlass>
-        <IconButton aria-label="بازکردن تصویر پروژه" onClick={() => onOpen(activeIndex)} sx={{ color: "white", bgcolor: "rgba(5,11,18,.6)", border: "1px solid rgba(255,255,255,.18)", backdropFilter: "blur(12px)" }}>
+        <IconButton aria-label="بازکردن تصویر پروژه" onClick={() => onOpen(activeIndex)} sx={{ color: "white", bgcolor: "rgba(5,11,18,.6)", border: "1px solid rgba(var(--landing-contrast-rgb),.18)", backdropFilter: "blur(12px)" }}>
           <OpenInFullRoundedIcon />
         </IconButton>
       </Stack>
 
       {media.length > 1 && (
         <>
-          <IconButton aria-label="تصویر قبلی" onClick={() => move(-1)} sx={{ position: "absolute", right: 26, top: "50%", transform: "translateY(-50%)", color: "white", bgcolor: "rgba(5,11,18,.58)", border: "1px solid rgba(255,255,255,.15)", backdropFilter: "blur(10px)" }}>
+          <IconButton aria-label="تصویر قبلی" onClick={() => move(-1)} sx={{ position: "absolute", right: 26, top: "50%", transform: "translateY(-50%)", color: "white", bgcolor: "rgba(5,11,18,.58)", border: "1px solid rgba(var(--landing-contrast-rgb),.15)", backdropFilter: "blur(10px)" }}>
             <ChevronRightRoundedIcon />
           </IconButton>
-          <IconButton aria-label="تصویر بعدی" onClick={() => move(1)} sx={{ position: "absolute", left: 26, top: "50%", transform: "translateY(-50%)", color: "white", bgcolor: "rgba(5,11,18,.58)", border: "1px solid rgba(255,255,255,.15)", backdropFilter: "blur(10px)" }}>
+          <IconButton aria-label="تصویر بعدی" onClick={() => move(1)} sx={{ position: "absolute", left: 26, top: "50%", transform: "translateY(-50%)", color: "white", bgcolor: "rgba(5,11,18,.58)", border: "1px solid rgba(var(--landing-contrast-rgb),.15)", backdropFilter: "blur(10px)" }}>
             <ChevronLeftRoundedIcon />
           </IconButton>
           <Stack direction="row" spacing={1} sx={{ position: "absolute", right: 26, left: 26, bottom: 24, overflowX: "auto", pb: 0.5 }}>
@@ -114,7 +114,7 @@ function ProjectGallery({ project, activeIndex, setActiveIndex, onOpen, onPause 
                   borderRadius: 2,
                   overflow: "hidden",
                   cursor: "pointer",
-                  border: index === activeIndex ? "2px solid #00dbe7" : "1px solid rgba(255,255,255,.22)",
+                  border: index === activeIndex ? "2px solid var(--landing-accent)" : "1px solid rgba(var(--landing-contrast-rgb),.22)",
                   bgcolor: "rgba(5,11,18,.5)",
                   opacity: index === activeIndex ? 1 : .62,
                   transition: "opacity .25s ease, transform .25s ease",
@@ -191,7 +191,7 @@ export default function ProjectDetailsWrapper({ slug }) {
 
   if (loading) {
     return (
-      <Box sx={{ minHeight: "80vh", display: "grid", placeItems: "center", bgcolor: "#070B12" }}>
+      <Box sx={{ minHeight: "80vh", display: "grid", placeItems: "center", bgcolor: "background.default" }}>
         <Stack alignItems="center" spacing={2}>
           <CircularProgress size={40} thickness={2.5} />
           <Typography color="text.secondary">در حال آماده‌سازی پروژه</Typography>
@@ -202,7 +202,7 @@ export default function ProjectDetailsWrapper({ slug }) {
 
   if (!project || error) {
     return (
-      <Box sx={{ minHeight: "80vh", display: "grid", placeItems: "center", bgcolor: "#070B12", px: 2 }}>
+      <Box sx={{ minHeight: "80vh", display: "grid", placeItems: "center", bgcolor: "background.default", px: 2 }}>
         <LiquidGlass intensity="strong" sx={{ maxWidth: 620, p: 5, borderRadius: 5, textAlign: "center" }}>
           <Typography variant="h4" sx={{ mb: 1.5 }}>پروژه پیدا نشد</Typography>
           <Typography color="text.secondary" sx={{ mb: 3 }}>{error || "اطلاعات این پروژه در دسترس نیست."}</Typography>
@@ -221,11 +221,11 @@ export default function ProjectDetailsWrapper({ slug }) {
   };
 
   return (
-    <Box ref={rootRef} sx={{ overflow: "hidden", bgcolor: "#070B12", color: "text.primary" }}>
+    <Box ref={rootRef} sx={{ overflow: "hidden", bgcolor: "background.default", color: "text.primary" }}>
       <Box component="section" sx={{ position: "relative", isolation: "isolate", minHeight: { xs: 900, md: 820 }, pt: { xs: 14, md: 14 }, pb: { xs: 9, md: 12 }, display: "flex", alignItems: "center" }}>
         <EnergyShaderBackground />
         <Box className="selected-projects-texture" aria-hidden />
-        <Box aria-hidden sx={{ position: "absolute", inset: 0, zIndex: 0, background: "radial-gradient(circle at 74% 45%, rgba(0,219,231,.1), transparent 30%), linear-gradient(180deg, transparent 48%, #070B12 100%)" }} />
+        <Box aria-hidden sx={{ position: "absolute", inset: 0, zIndex: 0, background: "radial-gradient(circle at 74% 45%, rgba(var(--landing-accent-rgb),.1), transparent 30%), linear-gradient(180deg, transparent 48%, var(--landing-bg) 100%)" }} />
 
         <Container maxWidth="xl" sx={{ position: "relative", zIndex: 1 }}>
           <Breadcrumbs separator={<KeyboardArrowLeftRoundedIcon fontSize="small" />} className="hero-reveal hero-reveal-1" sx={{ mb: { xs: 4, md: 5 }, color: "text.secondary" }}>
@@ -238,7 +238,7 @@ export default function ProjectDetailsWrapper({ slug }) {
             <Box>
               <Stack direction="row" spacing={1} flexWrap="wrap" useFlexGap className="hero-reveal hero-reveal-1" sx={{ mb: 3 }}>
                 {(project.categories || []).map((category) => (
-                  <Chip key={category._id} component={Link} href={`/projects?category=${category._id}`} clickable label={category.name} size="small" variant="outlined" sx={{ color: "primary.light", borderColor: "rgba(0,219,231,.26)", bgcolor: "rgba(0,219,231,.05)" }} />
+                  <Chip key={category._id} component={Link} href={`/projects?category=${category._id}`} clickable label={category.name} size="small" variant="outlined" sx={{ color: "primary.light", borderColor: "rgba(var(--landing-accent-rgb),.26)", bgcolor: "rgba(var(--landing-accent-rgb),.05)" }} />
                 ))}
               </Stack>
               <Typography component="h1" variant="h1" className="hero-reveal hero-reveal-2" sx={{ fontSize: { xs: "2.55rem", sm: "3.4rem", md: "4.75rem" }, lineHeight: 1.18, mb: 2.3 }}>
@@ -271,7 +271,7 @@ export default function ProjectDetailsWrapper({ slug }) {
           </Box>
         </Box>
 
-        <Box component="section" sx={{ py: { xs: 8, md: 12 }, borderTop: "1px solid rgba(143,183,255,.07)" }}>
+        <Box component="section" sx={{ py: { xs: 8, md: 12 }, borderTop: "1px solid rgba(var(--landing-secondary-rgb),.07)" }}>
           <Box sx={{ display: "grid", gridTemplateColumns: { xs: "1fr", md: "4fr 8fr" }, gap: { xs: 4, md: 8 }, alignItems: "start" }}>
             <Box className="project-page-reveal" sx={{ position: { md: "sticky" }, top: { md: 120 } }}>
               <Typography sx={{ color: "primary.main", fontFamily: "monospace", letterSpacing: ".14em", mb: 1.4 }}>PROJECT STORY</Typography>
@@ -295,7 +295,7 @@ export default function ProjectDetailsWrapper({ slug }) {
         </Box>
 
         {project.relatedProjects?.length > 0 && (
-          <Box component="section" sx={{ py: { xs: 8, md: 12 }, borderTop: "1px solid rgba(143,183,255,.07)" }}>
+          <Box component="section" sx={{ py: { xs: 8, md: 12 }, borderTop: "1px solid rgba(var(--landing-secondary-rgb),.07)" }}>
             <Box className="project-page-reveal" sx={{ mb: 5 }}>
               <Typography sx={{ color: "primary.main", fontFamily: "monospace", letterSpacing: ".14em", mb: 1.2 }}>RELATED CASES</Typography>
               <Typography component="h2" variant="h2" sx={{ fontSize: { xs: "2rem", md: "3.1rem" } }}>پروژه‌های مرتبط</Typography>
@@ -307,7 +307,7 @@ export default function ProjectDetailsWrapper({ slug }) {
         )}
 
         {project.relatedProducts?.length > 0 && (
-          <Box component="section" sx={{ py: { xs: 8, md: 12 }, borderTop: "1px solid rgba(143,183,255,.07)" }}>
+          <Box component="section" sx={{ py: { xs: 8, md: 12 }, borderTop: "1px solid rgba(var(--landing-secondary-rgb),.07)" }}>
             <Box className="project-page-reveal" sx={{ mb: 5 }}>
               <Typography sx={{ color: "primary.main", fontFamily: "monospace", letterSpacing: ".14em", mb: 1.2 }}>EQUIPMENT</Typography>
               <Typography component="h2" variant="h2" sx={{ fontSize: { xs: "2rem", md: "3.1rem" } }}>تجهیزات مرتبط با پروژه</Typography>
@@ -328,7 +328,7 @@ export default function ProjectDetailsWrapper({ slug }) {
         )}
 
         <Box component="section" sx={{ py: { xs: 9, md: 13 } }}>
-          <LiquidGlass className="project-page-reveal" intensity="strong" sx={{ p: { xs: 4, md: 7 }, borderRadius: 6, textAlign: "center", background: "linear-gradient(135deg, rgba(0,219,231,.13), rgba(10,16,25,.78))" }}>
+          <LiquidGlass className="project-page-reveal" intensity="strong" sx={{ p: { xs: 4, md: 7 }, borderRadius: 6, textAlign: "center", background: "linear-gradient(135deg, rgba(var(--landing-accent-rgb),.13), rgba(10,16,25,.78))" }}>
             <GridViewRoundedIcon sx={{ color: "primary.main", fontSize: 48, mb: 2 }} />
             <Typography component="h2" variant="h2" sx={{ fontSize: { xs: "2rem", md: "3.25rem" }, mb: 2 }}>پروژه بعدی می‌تواند پروژه شما باشد</Typography>
             <Typography color="text.secondary" sx={{ maxWidth: 700, mx: "auto", lineHeight: 2, mb: 4 }}>برای بررسی نیاز زیرساخت، انتخاب راهکار و برآورد اولیه اجرای پروژه با تیم مهندسی گفتگو کنید.</Typography>
