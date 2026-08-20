@@ -155,8 +155,8 @@ export default function BlogDetailsWrapper({ slug }) {
 
             <SpotlightGlass intensity="strong" className="hero-reveal hero-reveal-2" sx={{ minHeight: { xs: 390, md: 550 }, borderRadius: 6, p: 1.2 }}>
               <Box sx={{ display: "contents" }}>
-                <Box component="img" src={setImagePath(blog.thumbnail?.[0]?.path)} alt={blog.thumbnail?.[0]?.mediaAlt || blog.title} sx={{ position: "absolute", inset: 9, width: "calc(100% - 18px)", height: "calc(100% - 18px)", objectFit: "cover", borderRadius: 5, filter: "saturate(.8) brightness(.75)" }} />
-                <Box sx={{ position: "absolute", inset: 9, borderRadius: 5, background: "linear-gradient(180deg, transparent 55%, rgba(4,8,14,.9))" }} />
+                <Box component="img" className="landing-top-banner-image" src={setImagePath(blog.thumbnail?.[0]?.path)} alt={blog.thumbnail?.[0]?.mediaAlt || blog.title} sx={{ position: "absolute", inset: 9, width: "calc(100% - 18px)", height: "calc(100% - 18px)", objectFit: "cover", borderRadius: 5 }} />
+                <Box className="landing-top-banner-overlay" sx={{ position: "absolute", inset: 9, borderRadius: 5 }} />
                 <Typography sx={{ position: "absolute", left: 28, bottom: 24, direction: "ltr", color: "primary.main", fontFamily: "monospace", fontSize: ".68rem", letterSpacing: ".11em" }}>CLINIC UPS / FIELD NOTES</Typography>
               </Box>
             </SpotlightGlass>

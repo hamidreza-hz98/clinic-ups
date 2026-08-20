@@ -32,7 +32,7 @@ export default function HeroBanner({
           />
         )}
         {/* Optional Overlay */}
-        <div className="absolute inset-0 bg-black bg-opacity-30"></div>
+        <div className="absolute inset-0 bg-black bg-opacity-15"></div>
         {/* Text Box */}
         <div
           className={clsx(

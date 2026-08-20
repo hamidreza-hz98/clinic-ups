@@ -163,8 +163,8 @@ export default function ProjectsOverviewWrapper({ initialCategory = "" }) {
             </Box>
 
             <SpotlightGlass intensity="strong" className="hero-reveal hero-reveal-2" sx={{ minHeight: { xs: 310, md: 470 }, borderRadius: 6, p: 1.3 }}>
-              <Box component="img" src="/images/static/datacenter_systems.webp" alt="پروژه‌های زیرساخت انرژی کلینیک یو پی اس" sx={{ width: "100%", height: "100%", minHeight: { xs: 285, md: 444 }, objectFit: "cover", borderRadius: 5, filter: "saturate(.72) brightness(.66)" }} />
-              <Box sx={{ position: "absolute", inset: 0, background: "linear-gradient(180deg, transparent 40%, rgba(4,8,14,.94))" }} />
+              <Box component="img" className="landing-top-banner-image" src="/images/static/datacenter_systems.webp" alt="پروژه‌های زیرساخت انرژی کلینیک یو پی اس" sx={{ width: "100%", height: "100%", minHeight: { xs: 285, md: 444 }, objectFit: "cover", borderRadius: 5 }} />
+              <Box className="landing-top-banner-overlay" sx={{ position: "absolute", inset: 0 }} />
               <Stack direction="row" alignItems="end" justifyContent="space-between" sx={{ position: "absolute", right: 28, left: 28, bottom: 25 }}>
                 <Box>
                   <Typography sx={{ color: "primary.main", fontFamily: "monospace", fontSize: "2.5rem", lineHeight: 1 }}>

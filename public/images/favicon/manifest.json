@@ -1,5 +1,10 @@
 {
-  "name": "App",
+  "name": "کلینیک یو پی اس",
+  "short_name": "Clinic UPS",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#070b13",
   "icons": [
     {
       "src": "/images/favicon/android-icon-36x36.png",

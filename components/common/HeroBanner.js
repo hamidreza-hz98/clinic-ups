@@ -9,7 +9,7 @@ export default function HeroBanner({ src, title, description }) {
         />
       </div>
 
-      <div className="absolute inset-0 bg-black bg-opacity-30"></div>
+      <div className="absolute inset-0 bg-black bg-opacity-15"></div>
 
       {title && (
         <div className="absolute inset-0 flex flex-col gap-4 px-6 py-4 text-center items-center justify-center">

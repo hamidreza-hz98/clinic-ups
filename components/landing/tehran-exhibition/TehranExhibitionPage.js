@@ -78,7 +78,13 @@ export default function TehranExhibitionPage({ categories = [], projects = [] })
         <EnergyShaderBackground />
         <Box className="exhibition-hero-aurora" aria-hidden />
         <Box className="exhibition-medical-grid" aria-hidden />
-        <Box className="exhibition-heartbeat" aria-hidden><Box component="svg" viewBox="0 0 1200 180" preserveAspectRatio="none"><path d="M0 95 H360 L398 95 L430 28 L474 152 L518 65 L548 95 H1200" fill="none" stroke="currentColor" strokeWidth="2" vectorEffect="non-scaling-stroke" /></Box></Box>
+        <Box className="exhibition-heartbeat" aria-hidden>
+          <Box component="svg" viewBox="0 0 1200 180" preserveAspectRatio="none">
+            <path className="phase-blue" d="M0 48 H260 L292 48 L320 10 L350 82 L382 30 L410 48 H1200" />
+            <path className="phase-red" d="M0 92 H430 L462 92 L490 50 L522 126 L554 72 L584 92 H1200" />
+            <path className="phase-yellow" d="M0 136 H610 L642 136 L670 96 L702 170 L734 116 L764 136 H1200" />
+          </Box>
+        </Box>
 
         <Container maxWidth="xl" sx={{ position: "relative", zIndex: 2 }}>
           <Box sx={{ display: "grid", gridTemplateColumns: { xs: "1fr", lg: "7fr 5fr" }, gap: { xs: 7, lg: 8 }, alignItems: "center" }}>
@@ -98,7 +104,7 @@ export default function TehranExhibitionPage({ categories = [], projects = [] })
 
             <Box className="exhibition-visual-stage hero-reveal hero-reveal-2">
               <Box className="exhibition-visual-orbit" aria-hidden />
-              <SpotlightGlass intensity="strong" className="exhibition-main-frame" sx={{ borderRadius: 7, p: 1.1 }}><Box sx={{ display: "contents" }}><Box component="img" src="/images/static/surgery_room.webp" alt="راهکار برق اضطراری مراکز آزمایشگاهی و درمانی" sx={{ position: "absolute", inset: 8, width: "calc(100% - 16px)", height: "calc(100% - 16px)", objectFit: "cover", borderRadius: 6, filter: "saturate(.72) brightness(.62)" }} /><Box sx={{ position: "absolute", inset: 8, borderRadius: 6, background: "linear-gradient(180deg, transparent 32%, rgba(3,8,13,.95))" }} /><Stack direction="row" alignItems="center" spacing={1} sx={{ position: "absolute", right: 27, bottom: 24 }}><EmergencyRoundedIcon sx={{ color: "primary.main" }} /><Box><Typography sx={{ fontWeight: 850 }}>توان اضطراری مراکز آزمایشگاهی</Typography><Typography color="text.secondary" sx={{ fontSize: ".68rem" }}>MISSION CRITICAL POWER</Typography></Box></Stack></Box></SpotlightGlass>
+              <SpotlightGlass intensity="strong" className="exhibition-main-frame" sx={{ borderRadius: 7, p: 1.1 }}><Box sx={{ display: "contents" }}><Box component="img" className="landing-top-banner-image" src="/images/exhibition/diagnostic-laboratory-hero.webp" alt="آزمایشگاه مدرن تشخیص پزشکی مجهز به سامانه برق پایدار" sx={{ position: "absolute", inset: 8, width: "calc(100% - 16px)", height: "calc(100% - 16px)", objectFit: "cover", borderRadius: 6 }} /><Box className="landing-top-banner-overlay" sx={{ position: "absolute", inset: 8, borderRadius: 6 }} /><Stack direction="row" alignItems="center" spacing={1} sx={{ position: "absolute", right: 27, bottom: 24 }}><EmergencyRoundedIcon sx={{ color: "primary.main" }} /><Box><Typography sx={{ fontWeight: 850 }}>توان اضطراری مراکز آزمایشگاهی</Typography><Typography color="text.secondary" sx={{ fontSize: ".68rem" }}>MISSION CRITICAL POWER</Typography></Box></Stack></Box></SpotlightGlass>
               <SpotlightGlass intensity="medium" className="exhibition-float-frame is-lab" sx={{ borderRadius: 4, p: .7 }}><Box component="img" src="/images/emergency-electricity/project-pooyesh-lab-aligoudarz/project-pooyesh-lab-aligoudarz-01.webp" alt="پروژه آزمایشگاهی کلینیک یو پی اس" /></SpotlightGlass>
               <LiquidGlass intensity="strong" className="exhibition-float-badge"><BoltRoundedIcon /><Box><Typography sx={{ fontWeight: 900, fontSize: ".8rem" }}>CLINIC UPS</Typography><Typography sx={{ color: "text.secondary", fontSize: ".58rem" }}>POWERING HEALTHCARE</Typography></Box></LiquidGlass>
             </Box>

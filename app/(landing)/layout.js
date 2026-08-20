@@ -6,7 +6,7 @@ export default function LandingLayout({ children }) {
   return (
     <LandingThemeProvider>
       <Header />
-      <main>{children}</main>
+      <main className="landing-grid-surface">{children}</main>
       <Footer />
     </LandingThemeProvider>
   );

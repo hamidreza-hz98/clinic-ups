@@ -59,8 +59,8 @@ export default function GeneratorsProjectsPageWrapper() {
 
             <SpotlightGlass intensity="strong" className="generator-hero-visual hero-reveal hero-reveal-2" sx={{ minHeight: { xs: 350, md: 520 }, borderRadius: 6, p: 1.2 }}>
               <Box sx={{ display: "contents" }}>
-                <Box component="img" src="/images/emergency-electricity/project-generator-swap-70kva/project-generator-swap-70kva-01.webp" alt="پروژه‌های موتور برق و ژنراتور کلینیک یو پی اس" sx={{ position: "absolute", inset: 9, width: "calc(100% - 18px)", height: "calc(100% - 18px)", objectFit: "cover", borderRadius: 5, filter: "saturate(.68) brightness(.62)" }} />
-                <Box sx={{ position: "absolute", inset: 9, borderRadius: 5, background: "linear-gradient(180deg, transparent 28%, rgba(4,8,14,.95))" }} />
+                <Box component="img" className="landing-top-banner-image" src="/images/emergency-electricity/project-generator-swap-70kva/project-generator-swap-70kva-01.webp" alt="پروژه‌های موتور برق و ژنراتور کلینیک یو پی اس" sx={{ position: "absolute", inset: 9, width: "calc(100% - 18px)", height: "calc(100% - 18px)", objectFit: "cover", borderRadius: 5 }} />
+                <Box className="landing-top-banner-overlay" sx={{ position: "absolute", inset: 9, borderRadius: 5 }} />
                 <Box className="generator-scan-line" aria-hidden />
                 <Stack direction="row" justifyContent="space-between" alignItems="end" sx={{ position: "absolute", right: 28, left: 28, bottom: 26 }}><Box><Typography sx={{ color: "primary.main", fontFamily: "monospace", fontSize: "2.7rem", lineHeight: 1 }}>{generatorProjects.length.toLocaleString("fa-IR")}</Typography><Typography color="text.secondary" sx={{ fontSize: ".75rem", mt: .7 }}>پروژه مستند</Typography></Box><Box sx={{ textAlign: "left" }}><Typography sx={{ color: "#ffb4a9", fontFamily: "monospace", fontSize: "1.65rem", lineHeight: 1 }}>{totalImages.toLocaleString("fa-IR")}</Typography><Typography color="text.secondary" sx={{ fontSize: ".7rem", mt: .7 }}>فریم اجرایی</Typography></Box></Stack>
               </Box>

@@ -136,8 +136,8 @@ export default function BlogOverviewWrapper({ initialCategory = "" }) {
 
             <SpotlightGlass intensity="strong" className="hero-reveal hero-reveal-2" sx={{ minHeight: { xs: 315, md: 470 }, borderRadius: 6, p: 1.3 }}>
               <Box sx={{ display: "contents" }}>
-                <Box component="img" src="/images/static/laptop.webp" alt="مجله تخصصی برق اضطراری کلینیک یو پی اس" sx={{ position: "absolute", inset: 10, width: "calc(100% - 20px)", height: "calc(100% - 20px)", objectFit: "cover", borderRadius: 5, filter: "saturate(.65) brightness(.62)" }} />
-                <Box sx={{ position: "absolute", inset: 10, borderRadius: 5, background: "linear-gradient(180deg, transparent 30%, rgba(4,8,14,.95))" }} />
+                <Box component="img" className="landing-top-banner-image" src="/images/static/laptop.webp" alt="مجله تخصصی برق اضطراری کلینیک یو پی اس" sx={{ position: "absolute", inset: 10, width: "calc(100% - 20px)", height: "calc(100% - 20px)", objectFit: "cover", borderRadius: 5 }} />
+                <Box className="landing-top-banner-overlay" sx={{ position: "absolute", inset: 10, borderRadius: 5 }} />
                 <Stack direction="row" alignItems="end" justifyContent="space-between" sx={{ position: "absolute", right: 28, left: 28, bottom: 26 }}>
                   <Box>
                     <Typography sx={{ color: "primary.main", fontFamily: "monospace", fontSize: "2.5rem", lineHeight: 1 }}>{loading ? "—" : total}</Typography>

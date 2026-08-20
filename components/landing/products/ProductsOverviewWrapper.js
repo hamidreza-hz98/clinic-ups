@@ -364,8 +364,8 @@ export default function ProductsOverviewWrapper({ initialCategory = "" }) {
           borderBottom: "1px solid rgba(143,183,255,.1)",
         }}
       >
-        <Box component="img" src="/images/products/overview/hero-datacenter.png" alt="مرکز داده مجهز به سامانه برق پایدار" sx={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover", opacity: .42, filter: "saturate(.82) contrast(1.08)" }} />
-        <Box aria-hidden sx={{ position: "absolute", inset: 0, background: "linear-gradient(90deg, rgba(7,11,18,.98) 0%, rgba(7,11,18,.88) 42%, rgba(7,11,18,.36) 75%, rgba(7,11,18,.72) 100%), linear-gradient(180deg, rgba(7,11,18,.38), #070b12 100%)" }} />
+        <Box component="img" className="landing-top-banner-image" src="/images/products/overview/hero-datacenter.png" alt="مرکز داده مجهز به سامانه برق پایدار" sx={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover" }} />
+        <Box aria-hidden className="landing-top-banner-overlay" sx={{ position: "absolute", inset: 0 }} />
         <Box aria-hidden sx={{ position: "absolute", inset: 0, opacity: .35, backgroundImage: "linear-gradient(rgba(126,184,255,.08) 1px, transparent 1px), linear-gradient(90deg, rgba(126,184,255,.08) 1px, transparent 1px)", backgroundSize: "48px 48px", maskImage: "linear-gradient(to bottom, transparent 4%, black 34%, black 82%, transparent)" }} />
         <Box aria-hidden sx={{ position: "absolute", width: 420, height: 420, right: { xs: "50%", md: "8%" }, top: "24%", borderRadius: "50%", border: "1px solid rgba(0,219,231,.18)", boxShadow: "0 0 90px rgba(0,219,231,.1), inset 0 0 80px rgba(0,219,231,.06)", animation: `${pulse} 5s ease-in-out infinite`, "@media (prefers-reduced-motion: reduce)": { animation: "none" } }} />
 

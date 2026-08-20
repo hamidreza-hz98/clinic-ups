@@ -11,8 +11,8 @@ import {
 import HandshakeRoundedIcon from "@mui/icons-material/HandshakeRounded";
 import LiquidGlass from "../ui/LiquidGlass";
 
-const DWELL_MS = 1000;
-const MOVE_MS = 720;
+const DWELL_MS = 2800;
+const MOVE_MS = 1100;
 
 const upsBrands = [
   ["Ablerex", "ablerex.png"], ["Alja", "alja.png"], ["APC", "apc.png"],
@@ -26,7 +26,7 @@ const upsBrands = [
 const batteryBrands = [
   ["CGB", "cgb.png"], ["CSB", "cs3.png"], ["Hitaco", "hitaco.png"],
   ["Ibiza Power", "ibiza_power.png"], ["KSTAR", "kstar.png"], ["Leoch", "leoch.png"],
-  ["Long", "long.png"], ["Rajeman", "rajeman.gif"], ["Rocket", "rocket.png"],
+  ["Long", "long.png"], ["Rocket", "rocket.png"],
   ["Saft", "saft.png"], ["Sail", "sail.png"], ["Volta Max", "volta_max.png"],
 ].map(([name, file]) => ({ name, image: `/images/brands/battery/${file}` }));
 
@@ -130,8 +130,8 @@ function OrbitClock({ items, side, label }) {
       const angle = angleOffset + ((rotationIndex % itemCount) - index) * step;
       const radians = (angle * Math.PI) / 180;
       return {
-        left: `calc(50% + ${Math.cos(radians) * radius}px)`,
-        top: `calc(50% + ${Math.sin(radians) * radius}px)`,
+        "--orbit-x": `${Math.cos(radians) * radius}px`,
+        "--orbit-y": `${Math.sin(radians) * radius}px`,
       };
     }),
     [angleOffset, itemCount, orbitItems, radius, rotationIndex, step],
@@ -178,6 +178,8 @@ function OrbitClock({ items, side, label }) {
               aria-label={item.name}
               sx={{
                 ...positions[index],
+                left: "50%",
+                top: "50%",
                 width: itemSize,
                 height: itemSize,
                 transitionDuration: reduceMotion ? "0ms" : `${MOVE_MS}ms`,
@@ -236,13 +238,13 @@ function OrbitClock({ items, side, label }) {
             left: "50%",
             top: "50%",
             transform: "translate(-50%, -50%)",
-            width: isOrganization ? { xs: 118, md: 156 } : { xs: 154, md: 198 },
-            height: isOrganization ? { xs: 118, md: 156 } : { xs: 154, md: 198 },
+            width: isOrganization ? { xs: 138, md: 188 } : { xs: 176, md: 236 },
+            height: isOrganization ? { xs: 138, md: 188 } : { xs: 176, md: 236 },
             borderRadius: "50%",
             display: "grid",
             placeItems: "center",
             textAlign: "center",
-            p: isOrganization ? 1.7 : 2.2,
+            p: isOrganization ? 1.35 : 1.6,
           }}
         >
           <Box className="brand-orbit-center-content" aria-live="polite">
@@ -297,7 +299,7 @@ export default function BrandsOrbitSection() {
             برندها و سازمان‌هایی که به ما اعتماد کرده‌اند
           </Typography>
           <Typography color="text.secondary" sx={{ maxWidth: 760, mx: "auto", lineHeight: 2 }}>
-            یک همکاری دوطرفه؛ برندهای تخصصی در مدار سمت چپ و سازمان‌های همراه در مدار سمت راست، هر ثانیه در نقطه تمرکز خود می‌درخشند.
+            یک همکاری دوطرفه؛ برندهای تخصصی در مدار سمت چپ و سازمان‌های همراه در مدار سمت راست، با ریتمی آرام‌تر در نقطه تمرکز خود می‌درخشند.
           </Typography>
         </Box>
 

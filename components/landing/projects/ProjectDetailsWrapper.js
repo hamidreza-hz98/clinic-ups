@@ -71,12 +71,13 @@ function ProjectGallery({ project, activeIndex, setActiveIndex, onOpen, onPause 
       >
         <Box
           component="img"
+          className="landing-top-banner-image"
           src={setImagePath(activeMedia?.path)}
           alt={activeMedia?.mediaAlt || `${project.name}، تصویر ${activeIndex + 1}`}
           sx={{ width: "100%", height: "100%", objectFit: "cover", transition: "transform .8s cubic-bezier(.2,.8,.2,1)", "&:hover": { transform: "scale(1.035)" } }}
         />
       </Box>
-      <Box sx={{ position: "absolute", inset: 10, borderRadius: 5, pointerEvents: "none", background: "linear-gradient(180deg, rgba(4,8,14,.05), rgba(4,8,14,.08) 54%, rgba(4,8,14,.88))" }} />
+      <Box className="landing-top-banner-overlay" sx={{ position: "absolute", inset: 10, borderRadius: 5 }} />
 
       <Stack direction="row" justifyContent="space-between" alignItems="center" sx={{ position: "absolute", top: 28, right: 28, left: 28 }}>
         <LiquidGlass intensity="strong" sx={{ px: 2, py: 1, borderRadius: 99 }}>

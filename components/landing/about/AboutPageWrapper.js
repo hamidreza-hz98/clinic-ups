@@ -89,8 +89,8 @@ export default function AboutPageWrapper() {
               <Box className="about-orbit-particle is-two" aria-hidden />
               <SpotlightGlass intensity="strong" className="about-hero-image-shell" sx={{ borderRadius: 7, p: 1.2 }}>
                 <Box sx={{ display: "contents" }}>
-                  <Box component="img" src="/images/static/office_in_night.webp" alt="تیم کلینیک یو پی اس" sx={{ position: "absolute", inset: 9, width: "calc(100% - 18px)", height: "calc(100% - 18px)", objectFit: "cover", borderRadius: 6, filter: "saturate(.65) brightness(.62)" }} />
-                  <Box sx={{ position: "absolute", inset: 9, borderRadius: 6, background: "linear-gradient(180deg, transparent 35%, rgba(4,8,14,.93))" }} />
+                  <Box component="img" className="landing-top-banner-image" src="/images/static/office_in_night.webp" alt="تیم کلینیک یو پی اس" sx={{ position: "absolute", inset: 9, width: "calc(100% - 18px)", height: "calc(100% - 18px)", objectFit: "cover", borderRadius: 6 }} />
+                  <Box className="landing-top-banner-overlay" sx={{ position: "absolute", inset: 9, borderRadius: 6 }} />
                   <Box sx={{ position: "absolute", right: 28, bottom: 26 }}><Typography sx={{ color: "primary.main", fontFamily: "monospace", fontSize: "3.2rem", lineHeight: 1 }}>22+</Typography><Typography color="text.secondary" sx={{ fontSize: ".78rem" }}>سال تجربه تخصصی</Typography></Box>
                 </Box>
               </SpotlightGlass>

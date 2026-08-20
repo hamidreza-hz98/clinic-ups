@@ -375,9 +375,10 @@ export default function ServiceDetailPage({ service, content }) {
                 component="img"
                 src={service.secondaryImage || service.image}
                 alt={content.imageAlt || service.title}
-                sx={{ width: "100%", height: "100%", minHeight: { xs: 305, md: 482 }, objectFit: "cover", borderRadius: 5, filter: "saturate(.78) brightness(.7)" }}
+                className="landing-top-banner-image"
+                sx={{ width: "100%", height: "100%", minHeight: { xs: 305, md: 482 }, objectFit: "cover", borderRadius: 5 }}
               />
-              <Box sx={{ position: "absolute", inset: 0, background: "linear-gradient(180deg, transparent 45%, rgba(4,8,14,.92))" }} />
+              <Box className="landing-top-banner-overlay" sx={{ position: "absolute", inset: 0 }} />
               <Stack direction="row" spacing={1.2} sx={{ position: "absolute", right: 28, left: 28, bottom: 26, flexWrap: "wrap", gap: 1 }}>
                 {(content.metrics || []).map((metric) => (
                   <Chip key={metric} label={metric} size="small" sx={{ bgcolor: "rgba(5,12,20,.62)", border: "1px solid rgba(255,255,255,.14)", backdropFilter: "blur(12px)" }} />

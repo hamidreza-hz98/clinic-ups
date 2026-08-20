@@ -21,6 +21,7 @@ import { navLinks } from "@/constants/landing/routes";
 import LiquidGlass from "../ui/LiquidGlass";
 import MagneticButton from "../ui/MagneticButton";
 import NeonLogo from "../ui/NeonLogo";
+import EnergyAtomMenu from "../ui/EnergyAtomMenu";
 
 const fallbackProducts = [
   { title: "یو‌پی‌اس", href: "/categories", icon: <PowerRoundedIcon /> },
@@ -157,11 +158,10 @@ export default function Header() {
           <Box className="overlay-enter" onClick={() => setMenuOpen(false)} sx={{ position: "fixed", inset: 0, zIndex: 1400, p: 1.5, bgcolor: "rgba(2,5,11,.58)", display: "flex", alignItems: "flex-start" }}>
             <LiquidGlass className="mobile-menu-enter" intensity="strong" onClick={(event) => event.stopPropagation()} sx={{ width: "100%", maxHeight: "calc(100svh - 24px)", overflowY: "auto", borderRadius: 5, p: 2.5 }}>
               <Stack direction="row" justifyContent="space-between" alignItems="center" useFlexGap gap={2}><Brand /><IconButton className="header-icon-action" aria-label="بستن منو" onClick={() => setMenuOpen(false)} color="inherit"><CloseRoundedIcon /></IconButton></Stack>
-              <Stack component="nav" spacing={.5} sx={{ mt: 3 }}>
-                {navLinks.map((item, index) => <Box key={item.href} className="mobile-link-enter" sx={{ animationDelay: `${index * 40}ms` }}><Typography component={Link} href={item.href} onClick={() => setMenuOpen(false)} sx={{ display: "block", py: 1.25, borderBottom: "1px solid rgba(255,255,255,.07)", color: "text.secondary", fontSize: "1.05rem" }}>{item.title}</Typography></Box>)}
-              </Stack>
-              <Box sx={{ mt: 2.5 }}><ExhibitionButton fullWidth onClick={() => setMenuOpen(false)} /></Box>
-              <Box sx={{ mt: 3 }}><MagneticButton href="/contact" onClick={() => setMenuOpen(false)} variant="contained" fullWidth>درخواست مشاوره</MagneticButton></Box>
+              <Box sx={{ mt: 1 }}>
+                <EnergyAtomMenu compact onNavigate={() => setMenuOpen(false)} ariaLabel="منوی اصلی موبایل" />
+              </Box>
+              <Box sx={{ mt: -1 }}><ExhibitionButton fullWidth onClick={() => setMenuOpen(false)} /></Box>
             </LiquidGlass>
           </Box>
       )}
