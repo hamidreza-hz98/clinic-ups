@@ -120,10 +120,11 @@ export default function CategoryTechCard({ category, index }) {
             borderRadius: { md: isWide ? 3 : 0 },
           }}
         />
-        <Box className="category-image-shade" />
+        <Box className="category-image-shade adaptive-image-shade" />
         <Box className="category-energy-sweep" aria-hidden />
 
         <Box
+          className="adaptive-image-copy"
           sx={{
             position: "relative",
             zIndex: 3,

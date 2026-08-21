@@ -25,7 +25,6 @@ import SearchRoundedIcon from "@mui/icons-material/SearchRounded";
 import TuneRoundedIcon from "@mui/icons-material/TuneRounded";
 import { getAllProjects } from "@/app/actions/project";
 import { getAllCategories } from "@/app/actions/category";
-import EnergyShaderBackground from "../ui/EnergyShaderBackground";
 import LiquidGlass from "../ui/LiquidGlass";
 import SpotlightGlass from "../ui/SpotlightGlass";
 import ProjectShowcaseCard from "./ProjectShowcaseCard";
@@ -134,16 +133,18 @@ export default function ProjectsOverviewWrapper({ initialCategory = "" }) {
           alignItems: "center",
         }}
       >
-        <EnergyShaderBackground />
+        <Box component="img" src="/images/static/projects-archive-hero.png" alt="" aria-hidden className="projects-hero-background" />
+        <Box className="landing-top-banner-overlay projects-hero-overlay" aria-hidden />
         <Box className="selected-projects-texture" aria-hidden />
         <Box
+          className="projects-hero-vignette"
           aria-hidden
           sx={{ position: "absolute", inset: 0, zIndex: 0, background: "radial-gradient(circle at 72% 48%, rgba(var(--landing-accent-rgb),.12), transparent 31%), linear-gradient(180deg, transparent 50%, var(--landing-bg) 100%)" }}
         />
 
         <Container maxWidth="xl" sx={{ position: "relative", zIndex: 1 }}>
           <Box sx={{ display: "grid", gridTemplateColumns: { xs: "1fr", md: "7fr 5fr" }, gap: { xs: 6, md: 9 }, alignItems: "center" }}>
-            <Box>
+            <Box className="projects-hero-copy">
               <Chip
                 icon={<ArchitectureRoundedIcon />}
                 label="EDITORIAL PROJECT ARCHIVE"
@@ -162,10 +163,10 @@ export default function ProjectsOverviewWrapper({ initialCategory = "" }) {
               </Typography>
             </Box>
 
-            <SpotlightGlass intensity="strong" className="hero-reveal hero-reveal-2" sx={{ minHeight: { xs: 310, md: 470 }, borderRadius: 6, p: 1.3 }}>
-              <Box component="img" className="landing-top-banner-image" src="/images/static/datacenter_systems.webp" alt="پروژه‌های زیرساخت انرژی کلینیک یو پی اس" sx={{ width: "100%", height: "100%", minHeight: { xs: 285, md: 444 }, objectFit: "cover", borderRadius: 5 }} />
-              <Box className="landing-top-banner-overlay" sx={{ position: "absolute", inset: 0 }} />
-              <Stack direction="row" alignItems="end" justifyContent="space-between" sx={{ position: "absolute", right: 28, left: 28, bottom: 25 }}>
+            <SpotlightGlass intensity="strong" className="hero-reveal hero-reveal-2 projects-hero-summary" sx={{ minHeight: { xs: 230, md: 320 }, borderRadius: 6, p: { xs: 3, md: 4 }, display: "flex", alignItems: "flex-end" }}>
+              <Box component="img" src="/images/static/datacenter_systems.webp" alt="تجربه اجرایی کلینیک یو پی اس در مراکز حساس" className="projects-hero-summary-image" />
+              <Box className="projects-hero-summary-shade" aria-hidden />
+              <Stack direction="row" alignItems="end" justifyContent="space-between" sx={{ position: "relative", zIndex: 2, width: "100%" }}>
                 <Box>
                   <Typography sx={{ color: "primary.main", fontFamily: "monospace", fontSize: "2.5rem", lineHeight: 1 }}>
                     {loading ? "—" : total}

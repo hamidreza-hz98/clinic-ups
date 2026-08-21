@@ -259,9 +259,6 @@ function OrbitClock({ items, side, label }) {
                 ))}
               />
             )}
-            <Typography className="brand-orbit-center-name">
-              {activeItem?.name}
-            </Typography>
           </Box>
         </LiquidGlass>
       </Box>

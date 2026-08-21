@@ -384,7 +384,7 @@ export default function ProductDetailsWrapper({ slug }) {
       </Container>
 
       <Reveal sx={{ mt: { xs: 8, md: 12 } }}>
-        <Box sx={{ position: "relative", borderTop: "1px solid rgba(var(--landing-secondary-rgb),.09)", borderBottom: "1px solid rgba(var(--landing-secondary-rgb),.09)", bgcolor: "rgba(9,14,22,.82)" }}>
+        <Box className="on-image-strip" sx={{ position: "relative", borderTop: "1px solid rgba(255,255,255,.1)", borderBottom: "1px solid rgba(255,255,255,.1)", bgcolor: "rgba(9,14,22,.9)" }}>
           <Container maxWidth="xl">
             <Box sx={{ display: "grid", gridTemplateColumns: { xs: "1fr", sm: "repeat(3, 1fr)" }, py: 2.5 }}>
               {[
@@ -447,7 +447,7 @@ export default function ProductDetailsWrapper({ slug }) {
 
       <Container maxWidth="xl" sx={{ mt: { xs: 9, md: 12 } }}>
         <Reveal>
-          <SpotlightGlass intensity="strong" sx={{ position: "relative", minHeight: { xs: 360, md: 330 }, display: "flex", alignItems: "center", overflow: "hidden", borderRadius: { xs: 4, md: 6 }, p: { xs: 3, sm: 5, md: 7 } }}>
+          <SpotlightGlass className="on-image-panel" intensity="strong" sx={{ position: "relative", minHeight: { xs: 360, md: 330 }, display: "flex", alignItems: "center", overflow: "hidden", borderRadius: { xs: 4, md: 6 }, p: { xs: 3, sm: 5, md: 7 } }}>
             <Box component="img" src="/images/products/overview/hero-datacenter.png" alt="مرکز داده با برق پایدار" sx={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover", opacity: .25 }} />
             <Box aria-hidden sx={{ position: "absolute", inset: 0, background: "linear-gradient(90deg, #09111b 5%, rgba(9,17,27,.92) 48%, rgba(9,17,27,.25))" }} />
             <Box sx={{ position: "relative", zIndex: 1, maxWidth: 690 }}>

@@ -9,8 +9,8 @@ const GlassRoot = styled(Box, {
 })(({ theme, intensity = "medium", interactive = false }) => {
   const blur = { subtle: 14, medium: 24, strong: 38 }[intensity] || 24;
   const isLight = theme.palette.mode === "light";
-  const highlight = isLight ? alpha("#ffffff", 0.76) : alpha("#ffffff", 0.13);
-  const paper = alpha(theme.palette.background.paper, isLight ? 0.78 : 0.46);
+  const highlight = isLight ? alpha("#ffffff", 0.88) : alpha("#ffffff", 0.13);
+  const paper = alpha(theme.palette.background.paper, isLight ? 0.86 : 0.46);
   const border = alpha(isLight ? theme.palette.primary.main : "#ffffff", isLight ? 0.16 : 0.17);
 
   return {
@@ -35,7 +35,7 @@ const GlassRoot = styled(Box, {
       zIndex: -1,
       pointerEvents: "none",
       background: isLight
-        ? "radial-gradient(circle at 14% 0%, rgba(var(--landing-contrast-rgb),.88), transparent 34%), linear-gradient(110deg, transparent 15%, rgba(var(--landing-contrast-rgb),.42) 46%, transparent 72%)"
+        ? "radial-gradient(circle at 14% 0%, rgba(255,255,255,.72), transparent 34%), linear-gradient(110deg, transparent 15%, rgba(255,255,255,.36) 46%, transparent 72%)"
         : "radial-gradient(circle at 14% 0%, rgba(var(--landing-contrast-rgb),.22), transparent 34%), linear-gradient(110deg, transparent 15%, rgba(var(--landing-contrast-rgb),.07) 46%, transparent 72%)",
     },
     "&::after": {

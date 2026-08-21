@@ -235,6 +235,7 @@ function ServiceContentSection({ section, index }) {
 export default function ServiceDetailPage({ service, content }) {
   const rootRef = useRef(null);
   const { Icon } = service;
+  const isDesignService = service.slug === "design";
   const relatedServices = serviceCatalog.filter((item) => item.slug !== service.slug);
 
   useEffect(() => {
@@ -278,15 +279,20 @@ export default function ServiceDetailPage({ service, content }) {
           alignItems: "center",
         }}
       >
-        <EnergyShaderBackground />
+        {isDesignService ? (
+          <Box component="img" src="/images/services/design-service-hero.png" alt="مهندسان در حال طراحی زیرساخت برق پایدار" className="service-design-hero-background" />
+        ) : (
+          <EnergyShaderBackground />
+        )}
         <Box
           aria-hidden
           sx={{
             position: "absolute",
             inset: 0,
             zIndex: 0,
-            background:
-              "linear-gradient(180deg, rgba(7,11,18,.2), var(--landing-bg) 96%), radial-gradient(circle at 75% 45%, color-mix(in srgb, var(--page-accent) 11%, transparent), transparent 34%)",
+            background: isDesignService
+              ? "linear-gradient(90deg, rgba(4,10,18,.34), rgba(4,10,18,.82) 66%, rgba(4,10,18,.94)), linear-gradient(180deg, rgba(4,10,18,.14), rgba(4,10,18,.72))"
+              : "linear-gradient(180deg, rgba(7,11,18,.2), var(--landing-bg) 96%), radial-gradient(circle at 75% 45%, color-mix(in srgb, var(--page-accent) 11%, transparent), transparent 34%)",
           }}
         />
 
@@ -315,7 +321,7 @@ export default function ServiceDetailPage({ service, content }) {
               gap: { xs: 6, md: 8 },
             }}
           >
-            <Box>
+            <Box className={isDesignService ? "service-design-hero-copy" : undefined}>
               <Chip
                 icon={<Icon />}
                 label={service.eyebrow}
@@ -356,7 +362,7 @@ export default function ServiceDetailPage({ service, content }) {
                   href="/contact"
                   variant="contained"
                   endIcon={<ArrowBackRoundedIcon />}
-                  sx={{ bgcolor: "var(--page-accent)", color: "#061015", boxShadow: "0 16px 42px color-mix(in srgb, var(--page-accent) 20%, transparent)" }}
+                  sx={{ bgcolor: "var(--page-accent)", color: (theme) => theme.palette.mode === "light" ? "#fff" : "#061015", boxShadow: "0 16px 42px color-mix(in srgb, var(--page-accent) 20%, transparent)" }}
                 >
                   {content.ctaLabel || "درخواست مشاوره تخصصی"}
                 </MagneticButton>
@@ -381,7 +387,7 @@ export default function ServiceDetailPage({ service, content }) {
               <Box className="landing-top-banner-overlay" sx={{ position: "absolute", inset: 0 }} />
               <Stack direction="row" spacing={1.2} sx={{ position: "absolute", right: 28, left: 28, bottom: 26, flexWrap: "wrap", gap: 1 }}>
                 {(content.metrics || []).map((metric) => (
-                  <Chip key={metric} label={metric} size="small" sx={{ bgcolor: "rgba(5,12,20,.62)", border: "1px solid rgba(var(--landing-contrast-rgb),.14)", backdropFilter: "blur(12px)" }} />
+                  <Chip className="service-image-metric" key={metric} label={metric} size="small" sx={{ bgcolor: "rgba(5,12,20,.72)", color: "#f7fbff", border: "1px solid rgba(255,255,255,.18)", backdropFilter: "blur(12px)" }} />
                 ))}
               </Stack>
             </SpotlightGlass>
@@ -418,7 +424,7 @@ export default function ServiceDetailPage({ service, content }) {
 
         <Box component="section" sx={{ py: { xs: 9, md: 13 } }}>
           <LiquidGlass
-            className="service-page-reveal"
+            className={`service-page-reveal${isDesignService ? " on-image-panel service-design-cta" : ""}`}
             intensity="strong"
             sx={{
               position: "relative",
@@ -426,19 +432,21 @@ export default function ServiceDetailPage({ service, content }) {
               p: { xs: 4, md: 7 },
               borderRadius: 6,
               textAlign: "center",
-              background: "linear-gradient(135deg, color-mix(in srgb, var(--page-accent) 14%, #0b111a), rgba(10,16,25,.74))",
+              background: isDesignService ? "#08111b" : "linear-gradient(135deg, color-mix(in srgb, var(--page-accent) 14%, #0b111a), rgba(10,16,25,.74))",
             }}
           >
-            <ContactSupportRoundedIcon sx={{ color: "var(--page-accent)", fontSize: 48, mb: 2 }} />
-            <Typography component="h2" variant="h2" sx={{ fontSize: { xs: "2rem", md: "3.3rem" }, mb: 2 }}>
+            {isDesignService && <Box component="img" src="/images/services/design-service-cta.png" alt="میز طراحی سامانه برق و نقشه‌های مهندسی" className="panel-background-image" />}
+            {isDesignService && <Box className="panel-background-shade" aria-hidden />}
+            <ContactSupportRoundedIcon sx={{ position: "relative", zIndex: 2, color: isDesignService ? "#8fdcff" : "var(--page-accent)", fontSize: 48, mb: 2 }} />
+            <Typography component="h2" variant="h2" sx={{ position: "relative", zIndex: 2, fontSize: { xs: "2rem", md: "3.3rem" }, mb: 2 }}>
               {content.ctaTitle || "برای یک راهکار مطمئن آماده‌اید؟"}
             </Typography>
-            <Typography color="text.secondary" sx={{ maxWidth: 680, mx: "auto", lineHeight: 2, mb: 4 }}>
+            <Typography color="text.secondary" sx={{ position: "relative", zIndex: 2, maxWidth: 680, mx: "auto", lineHeight: 2, mb: 4 }}>
               {content.ctaDescription || "کارشناسان ما آماده‌اند نیاز پروژه شما را بررسی کنند و مسیر فنی مناسب را پیشنهاد دهند."}
             </Typography>
-            <MagneticButton href="/contact" variant="contained" endIcon={<ArrowBackRoundedIcon />} sx={{ bgcolor: "var(--page-accent)", color: "#061015" }}>
+            <Box sx={{ position: "relative", zIndex: 2 }}><MagneticButton href="/contact" variant="contained" endIcon={<ArrowBackRoundedIcon />} sx={{ bgcolor: "var(--page-accent)", color: (theme) => theme.palette.mode === "light" ? "#fff" : "#061015" }}>
               {content.ctaLabel || "شروع گفتگو با کارشناس"}
-            </MagneticButton>
+            </MagneticButton></Box>
           </LiquidGlass>
         </Box>
 

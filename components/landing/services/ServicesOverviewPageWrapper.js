@@ -143,8 +143,8 @@ export default function ServicesOverviewPageWrapper() {
                   }}
                 >
                   <Box component="img" src={service.image} alt={service.title} sx={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover", opacity: .42, filter: "grayscale(.65) brightness(.65)", transition: "transform .9s cubic-bezier(.2,.8,.2,1), filter .6s ease", ".MuiBox-root:hover > &": { transform: "scale(1.055)", filter: "grayscale(0) brightness(.72)" } }} />
-                  <Box sx={{ position: "absolute", inset: 0, background: "linear-gradient(180deg, rgba(6,10,16,.1), rgba(6,10,16,.38) 42%, rgba(6,10,16,.98) 92%)" }} />
-                  <Box sx={{ position: "relative", zIndex: 2, width: "100%" }}>
+                  <Box className="adaptive-image-shade" sx={{ position: "absolute", inset: 0, background: "linear-gradient(180deg, rgba(6,10,16,.1), rgba(6,10,16,.38) 42%, rgba(6,10,16,.98) 92%)" }} />
+                  <Box className="adaptive-image-copy" sx={{ position: "relative", zIndex: 2, width: "100%" }}>
                     <Stack direction="row" alignItems="flex-start" justifyContent="space-between" sx={{ mb: 4 }}>
                       <Box sx={{ width: 58, height: 58, display: "grid", placeItems: "center", borderRadius: 3, color: service.color, bgcolor: "rgba(5,11,18,.62)", border: `1px solid color-mix(in srgb, ${service.color} 30%, transparent)`, backdropFilter: "blur(12px)" }}>
                         <Icon sx={{ fontSize: 34 }} />

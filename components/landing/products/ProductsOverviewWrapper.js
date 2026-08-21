@@ -71,6 +71,7 @@ function ProductCard({ product, index }) {
       intensity="subtle"
       interactive
       aria-label={`مشاهده ${product.name}`}
+      className="product-overview-card"
       sx={{
         display: "flex",
         minWidth: 0,
@@ -120,14 +121,14 @@ function ProductCard({ product, index }) {
             <Chip
               label={categoryName}
               size="small"
-              sx={{ bgcolor: "rgba(5,14,23,.72)", color: "primary.light", border: "1px solid rgba(var(--landing-accent-rgb),.25)", backdropFilter: "blur(12px)" }}
+              sx={{ bgcolor: "rgba(5,14,23,.78)", color: "#8fdcff", border: "1px solid rgba(143,220,255,.34)", backdropFilter: "blur(12px)" }}
             />
           )}
           {brandName && (
             <Chip
               label={brandName}
               size="small"
-              sx={{ bgcolor: "rgba(5,14,23,.72)", color: "text.secondary", border: "1px solid rgba(var(--landing-contrast-rgb),.12)", backdropFilter: "blur(12px)" }}
+              sx={{ bgcolor: "rgba(5,14,23,.78)", color: "rgba(247,251,255,.82)", border: "1px solid rgba(255,255,255,.16)", backdropFilter: "blur(12px)" }}
             />
           )}
         </Stack>
@@ -181,7 +182,7 @@ function FiltersPanel({ search, onSearchChange, categories, category, onCategory
   };
 
   return (
-    <Stack spacing={3} sx={{ p: { xs: 2.5, md: 2.25 } }}>
+    <Stack className="product-filters-panel" spacing={3} sx={{ p: { xs: 2.5, md: 2.25 } }}>
       <Stack direction="row" alignItems="center" justifyContent="space-between">
         <Stack direction="row" spacing={1} alignItems="center">
           <TuneRoundedIcon color="primary" />
@@ -205,7 +206,7 @@ function FiltersPanel({ search, onSearchChange, categories, category, onCategory
         sx={{
           "& .MuiOutlinedInput-root": {
             minHeight: 48,
-            bgcolor: "rgba(3,9,16,.45)",
+            bgcolor: "rgba(var(--landing-contrast-rgb),.055)",
             borderRadius: 2.5,
           },
         }}
@@ -371,7 +372,7 @@ export default function ProductsOverviewWrapper({ initialCategory = "" }) {
 
         <Container maxWidth="xl" sx={{ position: "relative", zIndex: 2 }}>
           <Box sx={{ display: "grid", gridTemplateColumns: { xs: "1fr", md: "minmax(0, 1.05fr) minmax(340px, .65fr)" }, gap: { xs: 5, md: 8 }, alignItems: "center" }}>
-            <Box sx={{ maxWidth: 760, animation: `${reveal} .8s cubic-bezier(.2,.8,.2,1) both` }}>
+            <Box className="products-hero-copy" sx={{ maxWidth: 760, animation: `${reveal} .8s cubic-bezier(.2,.8,.2,1) both` }}>
               <Breadcrumbs separator="/" aria-label="مسیر صفحه" sx={{ mb: 3, "& .MuiBreadcrumbs-separator": { color: "rgba(var(--landing-contrast-rgb),.24)" } }}>
                 <Typography component={Link} href="/" color="text.secondary" sx={{ fontSize: ".72rem" }}>کلینیک یو پی اس</Typography>
                 <Typography color="primary.main" sx={{ fontSize: ".72rem" }}>محصولات</Typography>
@@ -411,7 +412,7 @@ export default function ProductsOverviewWrapper({ initialCategory = "" }) {
         </Container>
       </Box>
 
-      <Box sx={{ borderBottom: "1px solid rgba(var(--landing-secondary-rgb),.08)", bgcolor: "rgba(9,14,22,.86)" }}>
+      <Box className="on-image-strip" sx={{ borderBottom: "1px solid rgba(255,255,255,.1)", bgcolor: "rgba(9,14,22,.9)" }}>
         <Container maxWidth="xl">
           <Box sx={{ display: "grid", gridTemplateColumns: { xs: "repeat(2, 1fr)", md: "repeat(4, 1fr)" }, py: 2.5 }}>
             {[
@@ -504,7 +505,7 @@ export default function ProductsOverviewWrapper({ initialCategory = "" }) {
       </Container>
 
       <Container maxWidth="xl" sx={{ mt: { xs: 8, md: 12 } }}>
-        <LiquidGlass intensity="strong" sx={{ position: "relative", minHeight: { xs: 390, md: 330 }, borderRadius: { xs: 4, md: 6 }, overflow: "hidden", display: "flex", alignItems: "center", p: { xs: 3, sm: 5, md: 7 } }}>
+        <LiquidGlass className="on-image-panel" intensity="strong" sx={{ position: "relative", minHeight: { xs: 390, md: 330 }, borderRadius: { xs: 4, md: 6 }, overflow: "hidden", display: "flex", alignItems: "center", p: { xs: 3, sm: 5, md: 7 } }}>
           <Box component="img" src="/images/products/overview/battery-system.png" alt="سامانه باتری و برق اضطراری" sx={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover", objectPosition: "center 58%", opacity: .27 }} />
           <Box aria-hidden sx={{ position: "absolute", inset: 0, background: "linear-gradient(90deg, #09111b 8%, rgba(9,17,27,.92) 42%, rgba(9,17,27,.32))" }} />
           <Box sx={{ position: "relative", zIndex: 1, maxWidth: 650 }}>

@@ -328,11 +328,13 @@ export default function ProjectDetailsWrapper({ slug }) {
         )}
 
         <Box component="section" sx={{ py: { xs: 9, md: 13 } }}>
-          <LiquidGlass className="project-page-reveal" intensity="strong" sx={{ p: { xs: 4, md: 7 }, borderRadius: 6, textAlign: "center", background: "linear-gradient(135deg, rgba(var(--landing-accent-rgb),.13), rgba(10,16,25,.78))" }}>
-            <GridViewRoundedIcon sx={{ color: "primary.main", fontSize: 48, mb: 2 }} />
-            <Typography component="h2" variant="h2" sx={{ fontSize: { xs: "2rem", md: "3.25rem" }, mb: 2 }}>پروژه بعدی می‌تواند پروژه شما باشد</Typography>
-            <Typography color="text.secondary" sx={{ maxWidth: 700, mx: "auto", lineHeight: 2, mb: 4 }}>برای بررسی نیاز زیرساخت، انتخاب راهکار و برآورد اولیه اجرای پروژه با تیم مهندسی گفتگو کنید.</Typography>
-            <Stack direction={{ xs: "column", sm: "row" }} justifyContent="center" useFlexGap gap={2.5}>
+          <LiquidGlass className="project-page-reveal on-image-panel project-detail-cta" intensity="strong" sx={{ position: "relative", overflow: "hidden", p: { xs: 4, md: 7 }, borderRadius: 6, textAlign: "center" }}>
+            <Box component="img" src="/images/static/project-detail-consultation.png" alt="کارشناس برق در حال بررسی زیرساخت پروژه" className="panel-background-image" />
+            <Box className="panel-background-shade" aria-hidden />
+            <GridViewRoundedIcon sx={{ position: "relative", zIndex: 2, color: "primary.light", fontSize: 48, mb: 2 }} />
+            <Typography component="h2" variant="h2" sx={{ position: "relative", zIndex: 2, fontSize: { xs: "2rem", md: "3.25rem" }, mb: 2 }}>پروژه بعدی می‌تواند پروژه شما باشد</Typography>
+            <Typography color="text.secondary" sx={{ position: "relative", zIndex: 2, maxWidth: 700, mx: "auto", lineHeight: 2, mb: 4 }}>برای بررسی نیاز زیرساخت، انتخاب راهکار و برآورد اولیه اجرای پروژه با تیم مهندسی گفتگو کنید.</Typography>
+            <Stack direction={{ xs: "column", sm: "row" }} justifyContent="center" useFlexGap gap={2.5} sx={{ position: "relative", zIndex: 2 }}>
               <MagneticButton href="/contact" variant="contained" endIcon={<ArrowBackRoundedIcon />}>درخواست مشاوره پروژه</MagneticButton>
               <MagneticButton href="/projects" variant="outlined">بازگشت به آرشیو پروژه‌ها</MagneticButton>
             </Stack>

@@ -68,6 +68,7 @@ const fragmentShader = `
     lightFinal += colorLogoBlue * grid * 0.65;
     lightFinal += colorLogoRed * energy * 0.006;
     lightFinal += hash(uv + u_time * 0.01) * 0.008;
+    lightFinal = mix(lightFinal, vec3(1.0), 0.15);
 
     float edgeFade = smoothstep(1.05, 0.25, distanceFromCenter);
     darkFinal = mix(colorDark, darkFinal, 0.42 + edgeFade * 0.58);
