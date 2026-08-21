@@ -920,6 +920,26 @@ html[data-landing-theme="light"] .adaptive-image-copy .MuiTypography-colorTextSe
 }
 .about-company-chip .MuiChip-label { white-space: normal; padding-top: 6px; padding-bottom: 6px; }
 
+html[data-landing-theme="light"] .about-sector-panel {
+  background: rgba(255,255,255,.88) !important;
+  border-color: rgba(18,65,101,.16) !important;
+}
+html[data-landing-theme="light"] .about-sector-tab {
+  color: #496176 !important;
+  background: rgba(255,255,255,.58) !important;
+  border-color: rgba(18,65,101,.13) !important;
+}
+html[data-landing-theme="light"] .about-sector-tab[aria-selected="true"] {
+  color: #004f8d !important;
+  background: rgba(0,85,155,.1) !important;
+  border-color: rgba(0,85,155,.25) !important;
+}
+html[data-landing-theme="light"] .about-company-chip {
+  color: #29475f !important;
+  border-color: rgba(18,65,101,.2) !important;
+  background: rgba(18,65,101,.055) !important;
+}
+
 .contact-signal-stage {
   position: relative;
   min-height: 560px;
@@ -1144,6 +1164,15 @@ html[data-landing-theme="light"] .exhibition-live-chip {
   color: #124e37 !important;
   background: rgba(87,227,155,.14) !important;
   border-color: rgba(37,114,83,.28) !important;
+}
+
+.contact-form-field .MuiInputLabel-root {
+  padding-inline: 7px;
+  border-radius: 5px;
+  background: var(--landing-bg);
+}
+.contact-form-field .MuiOutlinedInput-notchedOutline legend {
+  margin-inline: 5px;
 }
 .exhibition-status-dot { width: 7px; height: 7px; border-radius: 50%; background: #57e39b; box-shadow: 0 0 10px #57e39b; animation: exhibitionStatusPulse 1.8s ease-in-out infinite; }
 
@@ -2099,7 +2128,10 @@ html[data-landing-theme="light"] .product-filters-panel .MuiOutlinedInput-input:
 .service-design-hero-copy .MuiButton-outlined { color: #f7fbff !important; border-color: rgba(255,255,255,.34) !important; }
 .service-design-hero-copy .MuiChip-root { color: #8fdcff !important; border-color: rgba(143,220,255,.34) !important; background: rgba(5,16,27,.46) !important; }
 .service-image-metric .MuiChip-label { color: #f7fbff !important; }
-.service-design-cta { min-height: 390px; }
+.service-image-cta { min-height: 390px; }
+.service-image-cta .service-cta-shade {
+  background: linear-gradient(90deg, rgba(3,11,19,.56) 0%, rgba(3,11,19,.82) 42%, rgba(3,11,19,.9) 100%);
+}
 
 html[data-landing-theme="light"] .on-image-strip {
   background: #172431 !important;

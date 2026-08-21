@@ -116,7 +116,7 @@ function ProductCard({ product, index }) {
             background: "linear-gradient(180deg, rgba(6,10,16,.03) 20%, rgba(6,10,16,.22) 58%, #0b111b 100%)",
           }}
         />
-        <Stack direction="row" spacing={1} sx={{ position: "absolute", top: 14, right: 14, left: 14 }}>
+        <Stack direction="row" spacing={1} sx={{ position: "absolute", top: { xs: 18, sm: 22 }, right: { xs: 18, sm: 22 }, left: { xs: 18, sm: 22 }, flexWrap: "wrap", rowGap: 1 }}>
           {categoryName && (
             <Chip
               label={categoryName}
@@ -445,7 +445,7 @@ export default function ProductsOverviewWrapper({ initialCategory = "" }) {
             <Typography sx={{ fontSize: ".82rem" }}>
               پروژه‌های اجرایی مرتبط با <Box component="span" sx={{ color: "primary.main", fontWeight: 900 }}>{selectedCategory?.name || "این دسته‌بندی"}</Box> را هم ببینید.
             </Typography>
-            <Button component={Link} href="/generators-projects" endIcon={<ArrowOutwardRoundedIcon />} size="small">مشاهده پروژه‌های موتور برق و ژنراتور</Button>
+            <Button component={Link} href={`/projects?category=${encodeURIComponent(category)}`} endIcon={<ArrowOutwardRoundedIcon />} size="small">مشاهده پروژه‌های مرتبط</Button>
           </LiquidGlass>
         )}
 

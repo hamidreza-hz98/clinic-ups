@@ -60,6 +60,25 @@ function SectionHeading({ eyebrow, title, description }) {
   );
 }
 
+const serviceCtaImages = {
+  design: {
+    src: "/images/services/design-service-cta.png",
+    alt: "میز طراحی سامانه برق و نقشه‌های مهندسی",
+  },
+  sales: {
+    src: "/images/services/sales-service-cta.png",
+    alt: "مشاوره و تأمین تجهیزات برق اضطراری",
+  },
+  repair: {
+    src: "/images/services/repair-service-cta.png",
+    alt: "تعمیر تخصصی و عیب‌یابی تجهیزات برق اضطراری",
+  },
+  "after-sales": {
+    src: "/images/services/after-sales-service-cta.png",
+    alt: "بازدید و پشتیبانی پس از فروش تجهیزات برق اضطراری",
+  },
+};
+
 function CardsSection({ section }) {
   return (
     <Box
@@ -236,6 +255,7 @@ export default function ServiceDetailPage({ service, content }) {
   const rootRef = useRef(null);
   const { Icon } = service;
   const isDesignService = service.slug === "design";
+  const serviceCtaImage = serviceCtaImages[service.slug];
   const relatedServices = serviceCatalog.filter((item) => item.slug !== service.slug);
 
   useEffect(() => {
@@ -424,7 +444,7 @@ export default function ServiceDetailPage({ service, content }) {
 
         <Box component="section" sx={{ py: { xs: 9, md: 13 } }}>
           <LiquidGlass
-            className={`service-page-reveal${isDesignService ? " on-image-panel service-design-cta" : ""}`}
+            className={`service-page-reveal${serviceCtaImage ? " on-image-panel service-image-cta" : ""}`}
             intensity="strong"
             sx={{
               position: "relative",
@@ -432,12 +452,12 @@ export default function ServiceDetailPage({ service, content }) {
               p: { xs: 4, md: 7 },
               borderRadius: 6,
               textAlign: "center",
-              background: isDesignService ? "#08111b" : "linear-gradient(135deg, color-mix(in srgb, var(--page-accent) 14%, #0b111a), rgba(10,16,25,.74))",
+              background: serviceCtaImage ? "#08111b" : "linear-gradient(135deg, color-mix(in srgb, var(--page-accent) 14%, #0b111a), rgba(10,16,25,.74))",
             }}
           >
-            {isDesignService && <Box component="img" src="/images/services/design-service-cta.png" alt="میز طراحی سامانه برق و نقشه‌های مهندسی" className="panel-background-image" />}
-            {isDesignService && <Box className="panel-background-shade" aria-hidden />}
-            <ContactSupportRoundedIcon sx={{ position: "relative", zIndex: 2, color: isDesignService ? "#8fdcff" : "var(--page-accent)", fontSize: 48, mb: 2 }} />
+            {serviceCtaImage && <Box component="img" src={serviceCtaImage.src} alt={serviceCtaImage.alt} className="panel-background-image" />}
+            {serviceCtaImage && <Box className="panel-background-shade service-cta-shade" aria-hidden />}
+            <ContactSupportRoundedIcon sx={{ position: "relative", zIndex: 2, color: serviceCtaImage ? "#8fdcff" : "var(--page-accent)", fontSize: 48, mb: 2 }} />
             <Typography component="h2" variant="h2" sx={{ position: "relative", zIndex: 2, fontSize: { xs: "2rem", md: "3.3rem" }, mb: 2 }}>
               {content.ctaTitle || "برای یک راهکار مطمئن آماده‌اید؟"}
             </Typography>

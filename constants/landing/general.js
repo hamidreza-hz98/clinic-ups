@@ -582,10 +582,10 @@ export const contactItems = [
 
     target: "_blank",
 
-    address: "tel: +989122201160",
+    address: "tel:+989122201160",
   },
   {
-    id: "phone",
+    id: "phone-1",
 
     icon: MdOutlinePhone,
 
@@ -597,7 +597,22 @@ export const contactItems = [
 
     target: "_blank",
 
-    address: "tel:+9892166464745",
+    address: "tel:+982166464745",
+  },
+  {
+    id: "phone-2",
+
+    icon: MdOutlinePhone,
+
+    name: {
+      fa: "۰۲۱-۶۶۴۶۴۷۴۲",
+      ar: "٠٢١-٦٦٤٦٤٧٤٢",
+      en: "021-66464742",
+    },
+
+    target: "_blank",
+
+    address: "tel:+982166464742",
   },
   {
     id: "email",

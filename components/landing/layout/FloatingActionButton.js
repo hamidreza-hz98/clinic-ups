@@ -27,7 +27,7 @@ const FloatingActionButton = () => {
         style={{ animation: "fadeIn 0.5s ease-out" }}
         >
           <a
-            href="tel: +989122201160"
+            href="tel:+989122201160"
             className="flex items-center bg-purple-500 text-white p-3 rounded-lg shadow-lg hover:scale-105 transform transition"
           >
             <IoPhonePortraitOutline size={20} className="mx-2" />
@@ -35,7 +35,7 @@ const FloatingActionButton = () => {
           </a>
 
           <a
-            href="tel: +9892166464745"
+            href="tel:+982166464745"
             className="flex items-center bg-indigo-500 text-white p-3 rounded-lg shadow-lg hover:scale-105 transform transition"
           >
             <FaPhone size={20} className="mx-2" />

@@ -76,7 +76,7 @@ export default function AboutPageWrapper() {
               <Typography color="text.secondary" className="hero-reveal hero-reveal-3" sx={{ maxWidth: 780, fontSize: { xs: "1rem", md: "1.16rem" }, lineHeight: 2.05 }}>
                 {text("about_banner_sub_text")}؛ داستان تیمی متخصص که بیش از دو دهه برای پایداری زیرساخت‌های حساس کشور کار کرده است.
               </Typography>
-              <Stack direction={{ xs: "column", sm: "row" }} spacing={2} className="hero-reveal hero-reveal-3" sx={{ mt: 4 }}>
+              <Stack direction={{ xs: "column", sm: "row" }} useFlexGap gap={{ xs: 2, sm: 3 }} className="hero-reveal hero-reveal-3" sx={{ mt: 4 }}>
                 <MagneticButton href="/contact" variant="contained" endIcon={<ArrowBackRoundedIcon />}>گفتگو با تیم ما</MagneticButton>
                 <Button component={Link} href="/projects" variant="outlined">مشاهده پروژه‌ها</Button>
               </Stack>
@@ -143,7 +143,7 @@ export default function AboutPageWrapper() {
               {cooperating_brands.map((group, index) => {
                 const Icon = group.icon;
                 const active = activeSector === index;
-                return <Button key={faText(group.category)} role="tab" aria-selected={active} onClick={() => setActiveSector(index)} startIcon={Icon ? <Icon /> : <PublicRoundedIcon />} sx={{ justifyContent: "flex-start", textAlign: "right", px: 2.2, py: 1.7, borderRadius: 3, color: active ? "primary.main" : "text.secondary", bgcolor: active ? "rgba(var(--landing-accent-rgb),.1)" : "rgba(var(--landing-contrast-rgb),.025)", border: `1px solid ${active ? "rgba(var(--landing-accent-rgb),.25)" : "rgba(var(--landing-contrast-rgb),.07)"}`, "&:hover": { bgcolor: "rgba(var(--landing-accent-rgb),.07)" } }}>{faText(group.category)}</Button>;
+                return <Button className="about-sector-tab" key={faText(group.category)} role="tab" aria-selected={active} onClick={() => setActiveSector(index)} startIcon={Icon ? <Icon /> : <PublicRoundedIcon />} sx={{ justifyContent: "flex-start", textAlign: "right", px: 2.2, py: 1.7, borderRadius: 3, color: active ? "primary.main" : "text.secondary", bgcolor: active ? "rgba(var(--landing-accent-rgb),.1)" : "rgba(var(--landing-contrast-rgb),.025)", border: `1px solid ${active ? "rgba(var(--landing-accent-rgb),.25)" : "rgba(var(--landing-contrast-rgb),.07)"}`, "&:hover": { bgcolor: "rgba(var(--landing-accent-rgb),.07)" } }}>{faText(group.category)}</Button>;
               })}
             </Stack>
 

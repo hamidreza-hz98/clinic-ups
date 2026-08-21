@@ -29,8 +29,9 @@ export default function Footer() {
             <Typography color="primary.main" sx={{ mb: 2, fontWeight: 700 }}>ارتباط با ما</Typography>
             <LiquidGlass intensity="subtle" sx={{ borderRadius: 4, p: 2 }}>
               <Stack spacing={1.6} color="text.secondary">
-                <Stack direction="row" spacing={1.2} alignItems="flex-start"><LocationOnRoundedIcon color="primary" fontSize="small" /><Typography variant="body2">تهران، ایران</Typography></Stack>
+                <Stack direction="row" spacing={1.2} alignItems="flex-start"><LocationOnRoundedIcon color="primary" fontSize="small" /><Typography variant="body2" sx={{ lineHeight: 1.9 }}>خیابان میرزای شیرازی، خیابان عرفان، پلاک 9، واحد 2</Typography></Stack>
                 <Stack direction="row" spacing={1.2} alignItems="center"><PhoneRoundedIcon color="primary" fontSize="small" /><Typography component={Link} href="tel:+989122201160" variant="body2" sx={{ direction: "ltr" }}>+98 912 220 1160</Typography></Stack>
+                <Stack direction="row" spacing={1.2} alignItems="flex-start"><PhoneRoundedIcon color="primary" fontSize="small" /><Stack spacing={.6}><Typography component={Link} href="tel:+982166464745" variant="body2" sx={{ direction: "ltr" }}>021 6646 4745</Typography><Typography component={Link} href="tel:+982166464742" variant="body2" sx={{ direction: "ltr" }}>021 6646 4742</Typography></Stack></Stack>
                 <Stack direction="row" spacing={1.2} alignItems="center"><EmailRoundedIcon color="primary" fontSize="small" /><Typography component={Link} href="mailto:info@clinicups.com" variant="body2">info@clinicups.com</Typography></Stack>
               </Stack>
             </LiquidGlass>
