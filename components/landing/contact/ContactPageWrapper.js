@@ -86,7 +86,7 @@ export default function ContactPageWrapper() {
                 <Box component="span" sx={{ display: "block", color: "primary.main" }}>تا راهکار پایدار</Box>
               </Typography>
               <Typography color="text.secondary" className="hero-reveal hero-reveal-3" sx={{ maxWidth: 760, fontSize: { xs: "1rem", md: "1.16rem" }, lineHeight: 2.05 }}>{text("contact_banner_sub_text")} {text("contact_description")}</Typography>
-              <Stack direction={{ xs: "column", sm: "row" }} spacing={2} className="hero-reveal hero-reveal-3" sx={{ mt: 4 }}>
+              <Stack direction={{ xs: "column", sm: "row" }} useFlexGap gap={{ xs: 2, sm: 3 }} className="hero-reveal hero-reveal-3" sx={{ mt: 4 }}>
                 <Button component="a" href={contactItems[0]?.address} variant="contained" startIcon={<CallRoundedIcon />}>تماس فوری با کارشناس</Button>
                 <Button component="a" href="#contact-form" variant="outlined" endIcon={<ArrowBackRoundedIcon />}>ارسال درخواست</Button>
               </Stack>

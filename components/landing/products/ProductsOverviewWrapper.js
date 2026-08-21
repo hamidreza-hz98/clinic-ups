@@ -395,6 +395,9 @@ export default function ProductsOverviewWrapper({ initialCategory = "" }) {
                 <MagneticButton href="/contact" variant="outlined" sx={{ width: { xs: "100%", sm: "auto" } }}>
                   مشاوره انتخاب محصول
                 </MagneticButton>
+                <MagneticButton href="/generators-projects" variant="outlined" sx={{ width: { xs: "100%", sm: "auto" } }}>
+                  پروژه‌های موتور برق و ژنراتور
+                </MagneticButton>
               </Stack>
             </Box>
 

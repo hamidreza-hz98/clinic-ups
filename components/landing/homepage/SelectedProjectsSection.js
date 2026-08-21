@@ -176,9 +176,12 @@ export default function SelectedProjectsSection({ projects = [] }) {
           </LiquidGlass>
         )}
 
-        <Box sx={{ display: "flex", justifyContent: "center", mt: { xs: 4, md: 6 } }}>
+        <Box sx={{ display: "flex", flexDirection: { xs: "column", sm: "row" }, justifyContent: "center", gap: 2.5, mt: { xs: 4, md: 6 } }}>
           <MagneticButton href="/projects" variant="outlined" color="primary">
             مشاهده تمامی پروژه‌ها
+          </MagneticButton>
+          <MagneticButton href="/generators-projects" variant="contained" color="primary">
+            آرشیو پروژه‌های موتور برق و ژنراتور
           </MagneticButton>
         </Box>
       </Container>

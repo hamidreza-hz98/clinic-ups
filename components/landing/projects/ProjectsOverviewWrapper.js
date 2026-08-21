@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
+import Link from "next/link";
 import {
   Box,
   Button,
@@ -161,6 +162,9 @@ export default function ProjectsOverviewWrapper({ initialCategory = "" }) {
               <Typography color="text.secondary" className="hero-reveal hero-reveal-3" sx={{ maxWidth: 760, fontSize: { xs: "1rem", md: "1.15rem" }, lineHeight: 2.05 }}>
                 نمونه‌هایی از طراحی، تأمین، نصب و راه‌اندازی سامانه‌های برق اضطراری برای مراکز حساس، زیرساخت‌های حیاتی و مجموعه‌های صنعتی.
               </Typography>
+              <Button component={Link} href="/generators-projects" variant="contained" className="hero-reveal hero-reveal-3" startIcon={<ArchitectureRoundedIcon />} sx={{ mt: 4 }}>
+                آرشیو پروژه‌های موتور برق و ژنراتور
+              </Button>
             </Box>
 
             <SpotlightGlass intensity="strong" className="hero-reveal hero-reveal-2 projects-hero-summary" sx={{ minHeight: { xs: 230, md: 320 }, borderRadius: 6, p: { xs: 3, md: 4 }, display: "flex", alignItems: "flex-end" }}>
