@@ -84,28 +84,41 @@ export default function EnergyAtomMenu({ compact = false, onNavigate, ariaLabel 
         const radiusY = isCompact ? "clamp(116px, 32vw, 145px)" : "205px";
         const orbitTilt = -14;
         const phase = index * (100 / menuItems.length);
+        const transformOrbitAngle = orbitTilt + phase * 3.6;
+        const transformOrbitRadians = (transformOrbitAngle * Math.PI) / 180;
         const duration = 184;
         const { Icon } = item;
 
         return (
           <Box
             key={item.href}
-            className="energy-atom-electron-plane"
-            sx={{ transform: `rotate(${orbitTilt}deg)` }}
+            className={`energy-atom-electron-plane${isCompact ? " energy-atom-static-plane" : ""}`}
+            style={isCompact ? {
+              top: `${50 + Math.sin(transformOrbitRadians) * 34}%`,
+              left: `${50 + Math.cos(transformOrbitRadians) * 34}%`,
+            } : undefined}
+            sx={!isCompact ? { transform: `rotate(${orbitTilt}deg)` } : undefined}
           >
             <Box
               className="energy-atom-electron"
               sx={{
-                width: nodeWidth,
-                mt: isCompact ? "-25px" : "-29px",
-                ml: `${-nodeWidth / 2}px`,
-                offsetPath: `ellipse(${radiusX} ${radiusY} at 0 0)`,
-                offsetDistance: `${phase}%`,
-                animationDuration: `${duration}s`,
-                animationDelay: `${-(duration * phase) / 100}s`,
+                width: isCompact ? 0 : nodeWidth,
+                mt: isCompact ? 0 : "-29px",
+                ml: isCompact ? 0 : `${-nodeWidth / 2}px`,
+                ...(!isCompact && {
+                  offsetPath: `ellipse(${radiusX} ${radiusY} at 0 0)`,
+                  offsetDistance: `${phase}%`,
+                  animationDuration: `${duration}s`,
+                  animationDelay: `${-(duration * phase) / 100}s`,
+                }),
               }}
             >
-              <Box className="energy-atom-electron-card" sx={{ transform: `rotate(${-orbitTilt}deg)` }}>
+              <Box
+                className={`energy-atom-electron-card${isCompact ? " energy-atom-static-card" : ""}`}
+                sx={isCompact ? {
+                  width: nodeWidth,
+                } : { transform: `rotate(${-orbitTilt}deg)` }}
+              >
                 <LiquidGlass
                   component={Link}
                   href={item.href}

@@ -241,6 +241,18 @@ a {
   pointer-events: auto;
 }
 
+.energy-atom-static-plane .energy-atom-electron {
+  animation: none;
+  will-change: auto;
+}
+
+.energy-atom-static-card {
+  position: absolute;
+  top: 0;
+  left: 0;
+  transform: translate(-50%, -50%);
+}
+
 .landing-grid-surface,
 .landing-grid-surface section {
   background-image:
